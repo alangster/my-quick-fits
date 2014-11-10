@@ -10,7 +10,11 @@ class WardrobesController < ApplicationController
  		@missing_categories = Category.find_missing(current_wardrobe)
  		@stats = {
  			color_percentages: current_wardrobe.color_percentages,
- 			damaged_items:     current_wardrobe.damaged 
+ 			damaged_items:     current_wardrobe.damaged,
+ 			wears:             {
+ 													most: current_wardrobe.most_worn,
+ 													least: current_wardrobe.least_worn
+ 													} 
  		}
  	end
 
