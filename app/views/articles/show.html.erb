@@ -1,0 +1,31 @@
+<div class="isotope">
+  <div class="item" id="<%= @article.id %>" style="background-color:<%= @article.primary_color_hex %>">
+    <%= image_tag("#{@article.get_icon_name}", class: "category-image") %>
+    <%= @article.category.name %>
+  </div>
+</div>
+<table>
+	<tr>
+		<th colspan=2>Stats</th>
+	</tr>
+	<tr>
+		<td>Wear Count</td><td><%= @article.times_worn %></td>
+	</tr>
+	<tr>
+		<td>Date Added</td><td><%= @article.created_at.strftime("%B %d, %Y") %></td>
+	</tr>
+</table>
+ <%= form_for @article do |f| %>
+ <%= f.label :pattern %></br> 
+	<%= f.text_field :pattern %></br>
+	<%= f.label :primary_color %></br> 
+	<%= f.text_field :primary_color %></br>
+	<%= f.label :secondary_color %></br> 
+	<%= f.text_field :secondary_color %></br>
+	<%= f.label :tertiary_color %></br> 
+	<%= f.text_field :tertiary_color %></br>
+	<%= f.label :condition %></br>
+	<%= f.text_field :condition %></br>
+ 	<%= f.submit %>
+ <% end %>
+ 

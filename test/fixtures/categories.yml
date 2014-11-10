@@ -1,0 +1,337 @@
+
+
+dress_shirts:
+	 name:"Dress Shirts"
+	 type_of: "Top"
+	 layerable: 1
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+ t_shirts:
+	 name:"T-Shirts"
+	 type_of: "Top"
+	 layerable: 0
+	 min_temp: 50
+	 max_temp: 100
+	 formality: 0
+
+ long_sleeve_t_shirts:
+	 name:"Long Sleeve T-Shirts"
+	 type_of: "Top"
+	 layerable: 0
+	 min_temp: 45
+	 max_temp: 70
+	 formality: 0
+
+  undershirts:
+	 name:"Undershirts"
+	 type_of: "Top"
+	 layerable: 0
+	 min_temp: 0 
+	 max_temp: 100
+	 formality: 0
+
+  polo_shirts:
+	 name:"Polo Shirts"
+	 type_of: "Top"
+	 layerable: 1
+	 min_temp: 50
+	 max_temp: 100
+	 formality: 1
+
+  crewneck_sweater:
+	 name:"Crewneck Sweater"
+	 type_of: "Top"
+	 layerable: 2
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 1
+
+  cardigan:
+	 name:"Cardigan"
+	 type_of: "Top"
+	 layerable: 2
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 1
+
+  v_neck_sweater:
+	 name:"V Neck Sweater"
+	 type_of: "Top"
+	 layerable: 2
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 1
+
+  half_zip_sweater:
+	 name:"Half-Zip Sweater"
+	 type_of: "Top"
+	 layerable: 2
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 1 
+
+  hooded_pullover_sweatshirt:
+	 name:"Hooded Pullover Sweatshirt"
+	 type_of: "Top"
+	 layerable: 2
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 0
+
+  full_zip_hooded_sweatshirt:
+	 name:"Full-Zip Hooded Sweatshirt"
+	 type_of: "Top"
+	 layerable: 2
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 0
+
+  crewneck_sweatshirt:
+	 name:"Crewneck Sweatshirt"
+	 type_of: "Top"
+	 layerable: 2
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 0
+
+  blazer:
+	 name:"Blazer"
+	 type_of: "Top"
+	 layerable: 3
+	 min_temp: 0
+	 max_temp: 75
+	 formality: 1
+
+  peacoat:
+	 name:"Peacoat"
+	 type_of: "Top"
+	 layerable: 3
+	 min_temp: 0
+	 max_temp: 65
+	 formality: 1
+
+  down_jacket:
+	 name:"Down Jacket"
+	 type_of: "Top"
+	 layerable: 3
+	 min_temp: 0
+	 max_temp: 60
+	 formality: 0
+
+  trench_coat:
+	 name:"Trench Coat"
+	 type_of: "Top"
+	 layerable: 3
+	 min_temp: 0
+	 max_temp: 65
+	 formality: 1
+
+  rain_jacket:
+	 name:"Rain Jacket"
+	 type_of: "Top"
+	 layerable: 3
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 0
+
+  dress_pants:
+	 name:"Dress Pants"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+  jeans:
+	 name:"Jeans"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 80
+	 formality: 0
+
+  chino_pants:
+	 name:"Chino Pants"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 35
+	 max_temp: 100
+	 formality: 1
+
+  corduroy_pants:
+	 name:"Corduroy Pants"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 70
+	 formality: 1
+
+  cargo_pants:
+	 name:"Cargo Pants"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 80
+	 formality: 0
+
+  sweatpants:
+	 name:"Sweatpants"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 80
+	 formality: 0
+
+  chino_shorts:
+	 name:"Chino Shorts"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 0
+
+  athletic_shorts:
+	 name:"Athletic Shorts"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 0
+
+  cargo_shorts:
+	 name:"Cargo Shorts"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 0
+
+  jean_shorts:
+	 name:"Jean Shorts"
+	 type_of: "Bottom"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 0
+
+  dress_shorts:
+	 name:"Dress Shoes"
+	 type_of: "Shoes"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+  desert_boots:
+	 name:"Desert Boots"
+	 type_of: "Shoes"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 80
+	 formality: 1
+
+  penny_loafers:
+	 name:"Penny Loafers"
+	 type_of: "Shoes"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+  sneakers:
+	 name:"Sneakers"
+	 type_of: "Shoes"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 0
+
+  toms:
+	 name:"TOMs"
+	 type_of: "Shoes"
+	 layerable: 0 
+	 min_temp: 40 
+	 max_temp: 100 
+	 formality: 0 
+
+  flip_flops:
+	 name:"Flip-Flops"
+	 type_of: "Shoes"
+	 layerable: 0
+	 min_temp: 60
+	 max_temp: 100
+	 formality: 0
+
+  sandals:
+	 name:"Sandals"
+	 type_of: "Shoes"
+	 layerable: 0
+	 min_temp: 60
+	 max_temp: 100
+	 formality: 0
+
+  down_vests:
+	 name:"Down Vests"
+	 type_of: "Vest" 
+	 layerable: 2 
+	 min_temp: 0 
+	 max_temp: 65 
+	 formality: 0 
+
+  business_vests:
+	 name:"Business Vests"
+	 type_of: "Vest"
+	 layerable: 1
+	 min_temp: 0
+	 max_temp: 80
+	 formality: 1
+
+  casual_socks:
+	 name:"Casual Socks"
+	 type_of: "Socks"
+	 layerable: 0 
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 0
+
+  dress_socks:
+	 name:"Dress Socks"
+	 type_of: "Socks"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+  classic_ties:
+	 name:"Classic Ties"
+	 type_of: "Tie"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+  bow_ties:
+	 name:"Bow Ties"
+	 type_of: "Tie"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+  dress_belts:
+	 name:"Dress Belts"
+	 type_of: "Belt"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 1
+
+  casual_belts:
+	 name:"Casual Belts"]
+	 type_of: "Belt"
+	 layerable: 0
+	 min_temp: 0
+	 max_temp: 100
+	 formality: 0

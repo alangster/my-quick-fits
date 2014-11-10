@@ -1,0 +1,118 @@
+.new-form {
+  text-align: center;
+  margin-top: 4em;
+}
+
+.layout-header {
+  /*background-color: #5284E8;*/
+  background-color: rgba(114, 142, 166, 1.0);
+}
+
+.layout-header ul {
+  list-style: none
+}
+
+.layout-header li {
+  display: inline
+}
+
+div #welcome {
+  text-align: center
+}
+
+ul.wardrobe-show {
+  list-style: none
+}
+
+button.bottom-item, button.top-item, button.shoe-item {
+
+}
+
+button.bottom-item p, button.top-item p, button.shoe-item p {
+  text-align: center;
+  color: white;
+}
+
+h2.category-title {
+  text-align: center;
+}
+
+.item, .item-choice {
+  width: 25%;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.category-image {
+  display: block;
+  height: 60%;
+  width: 60%;
+}
+
+div#article-choices {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  overflow: scroll;
+}
+
+ul.nav {
+  float: right;
+  margin-right: 25px;
+}
+
+ul.nav li {
+  margin: 0 5px;
+}
+
+.navbar-toggle .icon-bar:nth-of-type(2) {
+    top: 1px;
+}
+
+.navbar-toggle .icon-bar:nth-of-type(3) {
+    top: 2px;
+}
+
+.navbar-toggle .icon-bar {
+    position: relative;
+    transition: all 500ms ease-in-out;
+}
+
+.navbar-toggle.active .icon-bar:nth-of-type(1) {
+    top: 6px;
+    transform: rotate(45deg);
+}
+
+.navbar-toggle.active .icon-bar:nth-of-type(2) {
+    background-color: transparent;
+}
+
+.navbar-toggle.active .icon-bar:nth-of-type(3) {
+    top: -6px;
+    transform: rotate(-45deg);
+}
+
+.page-header {
+  margin-top: 100px;
+}
+
+.container-fluid {
+  margin-top: 60px;
+}
+
+.items {
+  text-align: center;
+}
+
+.swatch {
+  width: 70px;
+  height: 70px;
+  border: 3px dotted #444;
+  display: inline-block;
+  margin: 5px;
+}

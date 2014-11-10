@@ -1,0 +1,34 @@
+<div id="filters" class="button-group">  <button class="button is-checked" data-filter="*">All Clothes</button>
+  <button class="button" data-filter="top">Tops</button>
+  <button class="button" data-filter="bottom">Bottoms</button>
+  <button class="button" data-filter="shoes">Shoes</button>
+</div>
+<div id="analysis-link">
+  <button><%= link_to "Analyze", analysis_path %></button>
+</div>
+<div class="isotope">
+    <% @tops.each do |article| %>
+    <%= link_to article do %>
+    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="background-color:<%= article.primary_color_hex %>">
+      <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
+        <p><%= article.category.name %></p>
+    </div>
+    <% end %>
+  <% end %>
+  <% @bottoms.each do |article| %>
+    <%= link_to article do %>
+      <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="background-color:<%= article.primary_color_hex %>">
+        <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
+        <p><%= article.category.name %></p>
+      </div>
+    <% end %>
+  <% end %>
+  <% @shoes.each do |article| %>
+    <%= link_to article do %>
+    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="background-color:<%= article.primary_color_hex %>">
+      <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
+        <p><%= article.category.name %></p>
+    </div>
+    <% end %>
+  <% end %>
+</div>

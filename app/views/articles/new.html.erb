@@ -1,0 +1,19 @@
+<!-- <#%= form_for @article do |f| %> -->
+<!-- <#% end %> -->
+<div id="upload-display">
+<!-- 	<p>Choose a picture from your device or capture one.</p>
+	<input type="file" accept="image/*" onchange="picChange(event)" />
+	<p>Photo:</p> -->
+	<div class="fileUpload btn btn-primary">
+    <span>Take a Photo</span>
+    <input type="file" class="upload" accept="image/*" onchange="picChange(event)" />
+	</div>
+	<canvas id="capturedPhoto"></canvas>
+  <div class="swatch" id="primary"></div>
+  <div class="swatch" id="secondary"></div>
+  <div class="swatch" id="tertiary"></div>
+</div>
+
+
+
+

@@ -1,0 +1,47 @@
+<h2>Missing Items</h2>
+<div id="missing-articles" class="isotope">
+	<% @missing_categories.each do |category| %>
+		<div class="item" id="<%= category.name %>" >
+      <%= image_tag("#{category.icon_name_format}", class: "category-image") %>
+      <p><%= category.name %></p>
+    </div>
+	<% end %>
+</div>
+<div id="wardrobe-stats">
+	<h3>Color Breakdown</h3>
+	<table>
+		<tr>
+			<th>Color</th><th>Percentage</th>
+		</tr>
+		<tr>
+			<th colspan=2>Neutral Colors</th>
+		</tr>
+		<% @stats[:color_percentages][:neutrals].each do |color| %>
+			<tr>
+				<td><%= color.keys[0].capitalize %></td><td><%= color.values[0].ceil %>%</td>
+			</tr>
+		<% end %>
+		<tr>
+			<th colspan=2>Bright Colors</th>
+		</tr>
+		<% @stats[:color_percentages][:colors].each do |color| %>
+			<tr>
+				<td><%= color.keys[0].capitalize %></td><td><%= color.values[0].ceil %>%</td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+<h3>Damaged Items</h3>
+<div id="damaged-items" class="isotope">
+	<% @stats[:damaged_items].each do |item| %>
+		<div class="item" id="<%= item.category.name %>" style="background-color:<%= item.primary_color_hex %>">
+      <%= image_tag("#{item.get_icon_name}", class: "category-image") %>
+      <p><%= item.category.name %></p>
+    </div>
+    <p><%= item.condition.capitalize %></p>
+	<% end %>
+</div>
+
+
+					
+

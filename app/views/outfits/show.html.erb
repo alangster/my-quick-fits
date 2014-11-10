@@ -1,0 +1,6 @@
+<h2>To be noticed without striving to be noticed, this is what elegance is about.</h2><h3>  Luciano Barbera</h3>
+<% @tops.each do |top| %>
+	<h3>Top: <%= link_to "#{top.primary_color} #{top.category.name}", top %></h3>
+<% end %>
+<h3>Bottom: <%= link_to "#{@bottom.primary_color} #{@bottom.category.name}", @bottom %></h3>
+<h3>Shoes: <%= link_to "#{@shoes.primary_color} #{@shoes.category.name}", @shoes %></h3>

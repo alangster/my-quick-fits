@@ -1,0 +1,24 @@
+<div class="isotope">
+  <% @tops.each do |top| %>
+  <div class="item" id="<%= top.id %>" style="background-color:<%= top.primary_color_hex %>">
+    <%= image_tag("#{top.get_icon_name}", class: "category-image") %>
+    <%= top.category.name %>
+  </div>
+  <% end %>
+  <div class="item" id="<%= @bottom.id %>" style="background-color:<%= @bottom.primary_color_hex %>">
+    <%= image_tag("#{@bottom.get_icon_name}", class: "category-image") %>
+    <%= @bottom.category.name %>
+  </div>
+  <div class="item" id="<%= @shoes.id %>" style="background-color:<%= @shoes.primary_color_hex %>">
+    <%= image_tag("#{@shoes.get_icon_name}", class: "category-image") %>
+    <%= @shoes.category.name %>
+  </div>
+</div>
+<%= form_for @outfit do |f| %>
+  <% @tops.each do |top| %>
+    <input type="hidden" id="top_<%= top.id %>" name="top[id][]" value="<%= top.id %>" />
+  <% end %>
+  <input type="hidden" id="bottom_<%= @bottom.id %>" name="bottom[id]" value="<%= @bottom.id %>" />
+  <input type="hidden" id="shoes_<%= @shoes.id %>" name="shoes[id]" value="<%= @shoes.id %>" />
+  <%= f.submit %>
+<% end %>
