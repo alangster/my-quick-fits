@@ -1,0 +1,14 @@
+<div id='calendar'></div>
+
+<ul>
+  <% @outfits.each do |outfit| %>
+  <li>
+    <%= outfit.created_at %>
+    <ul>
+      <% outfit.articles.each do |article| %>
+      <li><%= article.category.name %></li>
+    <% end %>
+    </ul>
+  </li>
+  <% end %>
+</ul>
