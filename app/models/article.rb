@@ -37,8 +37,14 @@ class Article < ActiveRecord::Base
   end
 
   def complementary_styles?(article1, article2)
-    true
-  end
+    # true
+    # create new Bottom using article2
+    # see if article1's name is present in article1.no_no
+      # if so, return false
+      # else, return true
+    bottom = Bottom.new(article2.category.name)
+    !bottom.no_nos.include?(article1.category.name)
+   end
 
   def self.get_appropriate_articles(articles, temperature, precipitation, formal, second_article=nil)
     new_articles = articles.dup
