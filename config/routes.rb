@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/formality', to: "outfits#formality"
   post '/custom_article', to: "outfits#custom_article"
   get '/article_options', to: "outfits#article_options"
+  get '/outfits_all', to: "outfits#outfits_all"
 
   get '/analysis', to: "wardrobes#analysis" 
 
