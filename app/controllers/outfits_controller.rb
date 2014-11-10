@@ -1,5 +1,9 @@
 class OutfitsController < ApplicationController
 
+  def index
+    @outfits = Outfit.all
+  end
+
 	def new
     temp = params[:temperature].to_i || session[:current_temp]
     precip = params[:precipitation].to_f || session[:chance_of_rain]
@@ -25,9 +29,11 @@ class OutfitsController < ApplicationController
 
 	def show
 		@outfit = Outfit.find(params[:id])
-		@tops   = @outfit.articles.select {|article| article.category.type_of == "Top"}
-		@bottom = @outfit.articles.find {|article| article.category.type_of == "Bottom"}
-		@shoes  = @outfit.articles.find {|article| article.category.type_of == "Shoes"}
+		@tops   = @outfit.tops
+		@bottom = @outfit.bottom
+		@shoes  = @outfit.shoes
+    @count = @outfit.count_similar_outfits
+    @fashion_quote, @fashion_quote_author = generate_fashion_quote
 	end
 
   def formality
@@ -64,6 +70,38 @@ class OutfitsController < ApplicationController
       end
     end
     p options["articles"]
+    render json: options, status: 200
+  end
+
+  def outfits_all
+    options = {events: []}
+    Outfit.all.each do |outfit|
+      options[:events] << {
+        title: outfit.id,
+        start: outfit.created_at,
+        outfit_id: outfit.id
+      }
+    end
+    # options = {
+    #   events: [
+    #     {
+    #       title: 'event1',
+    #       start: '2014-11-10',
+    #       outfit_id: 3
+    #     },
+    #     {
+    #       title: 'event2',
+    #       start: '2014-10-05'
+    #     },
+    #     {
+    #       title: 'event3',
+    #       start: '2014-11-09T12:30:00',
+    #     }
+    #   ],
+    #   color: 'black',
+    #   textColor: 'white'
+    # }
+
     render json: options, status: 200
   end
 

@@ -68,6 +68,15 @@ module ApplicationHelper
     rain_message = "And it's definitely not going to rain today. Great success!" if precip < 0.05
     rain_message
   end
+
+  def generate_fashion_quote
+    [
+      ["Fashion is never finished",  "Fake Mark Zuckerberg"],
+      ["Style comes in all shapes and sizes. Therefore, the bigger you are, the more style you have", "Miss Piggy"], 
+      ["If you look good, you feel good. If you feel good, you play good. If you play good, they pay good", "Deion Sanders"], 
+      ["What fun is it being cool if you can't wear a sombrero?",  "Bill Watterson"]
+    ].sample
+  end
 end
 
 

@@ -37,10 +37,17 @@ h2.category-title {
   text-align: center;
 }
 
-.item, .item-choice {
+.item, .item-choice, .item-outfit {
   width: 25%;
   width: 100px;
   height: 100px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.item-outfit {
+  width: 200px;
+  height: 200px;
   margin: 5px;
   padding: 10px;
 }
@@ -115,4 +122,8 @@ ul.nav li {
   border: 3px dotted #444;
   display: inline-block;
   margin: 5px;
+}
+
+#calendar {
+  margin: 20px;
 }
