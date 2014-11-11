@@ -3,15 +3,18 @@
   <div class="item" id="<%= top.id %>" style="background-color:<%= top.primary_color_hex %>">
     <%= image_tag("#{top.get_icon_name}", class: "category-image") %>
     <%= top.category.name %>
+    <%= top.is_neutral? %>
   </div>
   <% end %>
   <div class="item" id="<%= @bottom.id %>" style="background-color:<%= @bottom.primary_color_hex %>">
     <%= image_tag("#{@bottom.get_icon_name}", class: "category-image") %>
     <%= @bottom.category.name %>
+    <%= @bottom.is_neutral? %>
   </div>
   <div class="item" id="<%= @shoes.id %>" style="background-color:<%= @shoes.primary_color_hex %>">
     <%= image_tag("#{@shoes.get_icon_name}", class: "category-image") %>
     <%= @shoes.category.name %>
+    <%= @shoes.is_neutral? %>
   </div>
 </div>
 <%= form_for @outfit do |f| %>
