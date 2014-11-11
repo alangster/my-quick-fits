@@ -13,6 +13,7 @@ class OutfitsController < ApplicationController
 		@bottom = clothes[:bottom]
 		@shoes = clothes[:shoes]
     @message = clothes[:errors].join(" ")
+
 		@outfit = Outfit.new
 	end
 

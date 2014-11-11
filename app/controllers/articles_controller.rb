@@ -20,7 +20,8 @@ class ArticlesController < ApplicationController
 			secondary_color:   secondary_color_name,
 			secondary_color_hex: secondary_color_hex,
 			tertiary_color:   tertiary_color_name,
-			tertiary_color_hex:tertiary_color_hex
+			tertiary_color_hex: tertiary_color_hex,
+			times_worn: 0 
 			)
 		if article.save
 			redirect_to article

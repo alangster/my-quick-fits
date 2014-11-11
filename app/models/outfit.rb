@@ -38,10 +38,9 @@ class Outfit < ActiveRecord::Base
     s << "Had trouble finding matching articles!" if !results[:complementary]
     s << "Had trouble finding a formal article!" if !results[:proper_dress_code]
     s << "Had trouble finding water-resistant articles!" if !results[:water_resistant]
-    s << "Had trouble finding articles in good condition!" if !results[:condition]
+    s << "Had trouble finding articles in good condition!" if !results[:good_condition]
     s << "Had trouble finding clean articles!" if !results[:clean]
     s << "Had trouble finding a formal article!" if !results[:proper_dress_code]
-    s << "Had trouble finding articles suited for this weather!" if !results[:temperature]
     s
   end
 
@@ -51,7 +50,7 @@ class Outfit < ActiveRecord::Base
     bottom_final = results[:articles].sample
 
     errors = outfit_error_messages(results)
-    
+
     outfit_so_far = [bottom_final]
     
     tops = []
@@ -63,10 +62,9 @@ class Outfit < ActiveRecord::Base
       break if results[:within_temp]
       current_layer += 1
       outfit_so_far << tops.last
-      # colors = (colors + tops.map(&primary_color)).uniq
-    end
 
-    errors += outfit_error_messages(results)
+      errors += outfit_error_messages(results)
+    end
 
     shoes = current_wardrobe.get_all_shoes
     results = Article.get_appropriate_articles(shoes, temperature, precipitation, formal, outfit_so_far)

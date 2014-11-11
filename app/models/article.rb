@@ -23,6 +23,7 @@ class Article < ActiveRecord::Base
 
   def clean?
     # find most recent outfit that included item, check if older than 7 days
+    # ignore shoes, jeans, jackets
     self.times_worn == 0
   end
 
