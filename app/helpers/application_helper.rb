@@ -92,6 +92,7 @@ module ApplicationHelper
     end
     [name, hex]
   end
+
 end
 
 

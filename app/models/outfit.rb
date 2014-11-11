@@ -32,10 +32,25 @@ class Outfit < ActiveRecord::Base
     count
   end
 
+
+  def self.outfit_error_messages(results)
+    s = []
+    s << "Had trouble finding matching articles!" if !results[:complementary]
+    s << "Had trouble finding a formal article!" if !results[:proper_dress_code]
+    s << "Had trouble finding water-resistant articles!" if !results[:water_resistant]
+    s << "Had trouble finding articles in good condition!" if !results[:condition]
+    s << "Had trouble finding clean articles!" if !results[:clean]
+    s << "Had trouble finding a formal article!" if !results[:proper_dress_code]
+    s << "Had trouble finding articles suited for this weather!" if !results[:temperature]
+    s
+  end
+
   def self.make_outfit(current_wardrobe, temperature, precipitation, formal)
     bottoms = current_wardrobe.get_all_bottoms
     results = Article.get_appropriate_articles(bottoms, temperature, precipitation, formal)
     bottom_final = results[:articles].sample
+
+    errors = outfit_error_messages(results)
     
     tops = []
     current_layer = 0
@@ -47,10 +62,14 @@ class Outfit < ActiveRecord::Base
       current_layer += 1
     end
 
+    errors += outfit_error_messages(results)
+
     shoes = current_wardrobe.get_all_shoes
     results = Article.get_appropriate_articles(shoes, temperature, precipitation, formal, bottom_final)
     shoes_final = results[:articles].sample
 
-    {tops: tops, bottom: bottom_final, shoes: shoes_final}
+    errors += outfit_error_messages(results)
+
+    {tops: tops, bottom: bottom_final, shoes: shoes_final, errors: errors.uniq}
   end
 end

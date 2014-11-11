@@ -77,6 +77,10 @@ class Article < ActiveRecord::Base
     possibilities = new_articles.select { |article| article.good_condition? }
     possibilities.length != 0 ? new_articles = possibilities : results[:good_condition] = false
 
+    if !results[:good_condition]
+      
+    end
+
     possibilities = new_articles.select { |article| article.clean? }
     possibilities.length != 0 ? new_articles = possibilities : results[:clean] = false
 
