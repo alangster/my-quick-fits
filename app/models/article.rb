@@ -23,6 +23,7 @@ class Article < ActiveRecord::Base
 
   def clean?
     # find most recent outfit that included item, check if older than 7 days
+    # ignore shoes, jeans, jackets
     self.times_worn == 0
   end
 
@@ -90,6 +91,13 @@ class Article < ActiveRecord::Base
     if precipitation
       possibilities = new_articles.select { |article| article.water_resistant? }
       possibilities.length != 0 ? new_articles = possibilities : results[:water_resistant] = false
+    end
+
+    possibilities = new_articles.select { |article| article.good_condition? }
+    possibilities.length != 0 ? new_articles = possibilities : results[:good_condition] = false
+
+    if !results[:good_condition]
+      
     end
 
     possibilities = new_articles.select { |article| article.clean? }
