@@ -1,17 +1,17 @@
 <div class="isotope">
   <% @tops.each do |top| %>
-  <div class="item-outfit" id="<%= top.id %>" style="background-color:<%= top.primary_color_hex %>">
+  <div class="item-outfit" id="<%= top.id %>" style="<%= top.render_gradient %>">
     <%= image_tag("#{top.get_icon_name}", class: "category-image") %>
     <%= link_to "#{top.primary_color} #{top.category.name}", top %>
     <p>Outfit count: <%= top.count_in_outfits %></p>
   </div>
   <% end %>
-  <div class="item-outfit" id="<%= @bottom.id %>" style="background-color:<%= @bottom.primary_color_hex %>">
+  <div class="item-outfit" id="<%= @bottom.id %>" style="<%= @bottom.render_gradient %>">
     <%= image_tag("#{@bottom.get_icon_name}", class: "category-image") %>
     <%= link_to "#{@bottom.primary_color} #{@bottom.category.name}", @bottom %>
     <p>Outfit count: <%= @bottom.count_in_outfits %></p>
   </div>
-  <div class="item-outfit" id="<%= @shoes.id %>" style="background-color:<%= @shoes.primary_color_hex %>">
+  <div class="item-outfit" id="<%= @shoes.id %>" style="<%= @shoes.render_gradient %>">
     <%= image_tag("#{@shoes.get_icon_name}", class: "category-image") %>
     <%= link_to "#{@shoes.primary_color} #{@shoes.category.name}", @shoes %>
     <p>Outfit count: <%= @shoes.count_in_outfits %></p>

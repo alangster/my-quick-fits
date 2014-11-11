@@ -30,10 +30,8 @@ class OutfitsController < ApplicationController
 	end
 
   def formality
-    p params[:temperature]
     temp = params[:temperature].to_i || session[:current_temp]
     precip = params[:precipitation].to_f || session[:chance_of_rain] > 0.5
-    # params[:checked] == "true" ? formality = 1 : formality = 0
     clothes = Outfit.make_outfit(current_wardrobe, temp, precip, params[:formality].to_i)
     @tops = clothes[:tops]
     @bottom = clothes[:bottom]
@@ -44,7 +42,7 @@ class OutfitsController < ApplicationController
 
   def custom_article
     article = Article.find(params[:id])
-    render json: {id: article.id, name: article.category.name, type_of: article.category.type_of, primary_color_hex: article.primary_color_hex, icon: article.get_asset_icon_name}
+    render json: {id: article.id, name: article.category.name, type_of: article.category.type_of, color: article.render_gradient, icon: article.get_asset_icon_name}
   end
 
   def article_options
@@ -55,14 +53,13 @@ class OutfitsController < ApplicationController
     else
       articles = current_wardrobe.get_articles_type_of(category.type_of)
     end
-    options = { "articles" => [{id: article.id, name: article.category.name, type_of: article.category.type_of, primary_color_hex: article.primary_color_hex, icon: article.get_asset_icon_name}] }
+    options = { "articles" => [{id: article.id, name: article.category.name, type_of: article.category.type_of, color: article.render_gradient, icon: article.get_asset_icon_name}] }
     articles.each do |article|
-      article_hash = {id: article.id, name: article.category.name, type_of: article.category.type_of, primary_color_hex: article.primary_color_hex, icon: article.get_asset_icon_name}
+      article_hash = {id: article.id, name: article.category.name, type_of: article.category.type_of, color: article.render_gradient, icon: article.get_asset_icon_name}
       if article.id != params[:id]
         options["articles"] << article_hash
       end
     end
-    p options["articles"]
     render json: options, status: 200
   end
 
@@ -90,9 +87,6 @@ class OutfitsController < ApplicationController
   def outfits_dislike
     outfit = create_outfit_record(params)
     outfit.update_attributes(like: -1)
-    p 'hi'
-    p outfit
-    p 'bye'
     render json: {}, status: 200
   end
 
