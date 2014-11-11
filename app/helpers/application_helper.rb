@@ -93,6 +93,14 @@ module ApplicationHelper
     [name, hex]
   end
 
+  def color_name(hex)
+    RgbTriplet.new(to_rgb(hex)).name
+  end
+
+  def to_rgb(hex)
+    hex.delete('#').scan(/\S{2}/).map(&:hex)
+  end
+
 end
 
 
