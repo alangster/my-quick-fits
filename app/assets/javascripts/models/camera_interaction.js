@@ -17,6 +17,12 @@ $(document).ready(function() {
     $("#"+currentCategoryId).replaceWith(html);
   };
 
+  function revertCategoryImages() {
+    $('#category-images').html(categoryImagesHtml);
+  };
+
+  var categoryImagesHtml = $('#category-images').html();
+
   var currentCategoryId;
 
   $(".swatch").on("click", function(){
@@ -28,6 +34,8 @@ $(document).ready(function() {
       var c = canvas.getContext();
       var p = c.getImageData(x, y, 1, 1).data;
       button.css("background-color", "rgb(" + p[0] + ","+ p[1] + ","+ p[2] + ")");
+      var colorNum = button.attr("id");
+      $('input[name=' + colorNum + ']').val([p[0], p[1], p[2]]);
       canvas.off('mouse:down', doMouseDown);
     }
     canvas.on('mouse:down', doMouseDown);
@@ -55,13 +63,15 @@ $(document).ready(function() {
 
   $(document).on('click', '.item-category-choice', function(event) {
     console.log('ding');
-
     $.ajax({
       type: "POST",
       url: "/custom_category",
       data: {id: $(this).attr("id")},
       success: function(result) {
+        revertCategoryImages();
         replaceOriginalCategory(result);
+        console.log($('input[name=category]'));
+        $('input[name=category]').val(result.id);
         console.log(result);
       }
     });
