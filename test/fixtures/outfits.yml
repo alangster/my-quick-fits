@@ -9,12 +9,9 @@
 #
 # two: {}
 #  column: value
-
-<% 10.times do |n| %>
-	outfit_<%= n %>:
-		wardrobe: wardrobe
-<% end %>
-
+---
 outfit_1:
-	
+  wardrobe: wardrobe
 
+outfit_2:
+  wardrobe: wardrobe

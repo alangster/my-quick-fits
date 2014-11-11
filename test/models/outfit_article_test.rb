@@ -2,7 +2,11 @@ require 'test_helper'
 
 class OutfitArticleTest < ActiveSupport::TestCase
    test "that this record is associated with an outfit" do
-     assert outfit_article_1.valid?
-     assert outfit_article_1.#has a top
+     outfit_article = OutfitArticle.first
+     assert outfit_article.valid?, "it should be valid"
+     outfit_article = OutfitArticle.first
+     outfit_article.article = nil
+     assert_not outfit_article.valid?, "it needs an article (top, bottom, or shoes) so this won't be valid"
+
    end
 end

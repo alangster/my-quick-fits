@@ -4,13 +4,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-
+---
 outfit_articles_1:
-	outfit: outfit_1
-	article: top_1
+  outfit: outfit_1
+  article: top_1
 
 outfit_articles_2:
-	outfit: outfit_1
-	article: bottom_1
+  outfit: outfit_1
+  article: bottom_1
 
-	#make enough to be able to construct a full outfit from. think about layering as well
+  #make enough to be able to construct a full outfit from. think about layering as well

@@ -1,642 +1,642 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # top_seventeen, bottom_fifteen
-
+---
 top_one:
-	wardrobe: wardrobe
-	category: dress_shirts
-	primary_color: "red"
-	primary_color_hex: "#FF0000"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: true
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: dress_shirts
+  primary_color: "red"
+  primary_color_hex: "#FF0000"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: true
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
-	
+
 top_two:
-	wardrobe: wardrobe
-	category: v_neck_sweater
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: "white"
-	secondary_color_hex: "#FFFFFF"
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: "stripes"
-	fabric: "wool"
-	formal?: true
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: v_neck_sweater
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color: "white"
+  secondary_color_hex: "#FFFFFF"
+  tertiary_color:
+  tertiary_color_hex:
+  pattern: "stripes"
+  fabric: "wool"
+  formal?: true
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 
 
 top_three:
-	wardrobe: wardrobe
-	category: cardigan
-	primary_color: "DarkKhaki" 
-	primary_color_hex: "#BDB76B"
-	secondary_color: "Chocolate"
-	secondary_color_hex: "#D2691E"
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: "piping"
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: cardigan
+  primary_color: "DarkKhaki"
+  primary_color_hex: "#BDB76B"
+  secondary_color: "Chocolate"
+  secondary_color_hex: "#D2691E"
+  tertiary_color:
+  tertiary_color_hex:
+  pattern: "piping"
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_four:
-	wardrobe: wardrobe
-	category: polo_shirts
-	primary_color: "DeepSkyBlue"
-	primary_color_hex: "#00BFFF"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: polo_shirts
+  primary_color: "DeepSkyBlue"
+  primary_color_hex: "#00BFFF"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_five:
-	wardrobe: wardrobe
-	category: v_neck_sweater
-	primary_color: "gray"
-	primary_color_hex: "808080"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: v_neck_sweater
+  primary_color: "gray"
+  primary_color_hex: "808080"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_six:
-	wardrobe: wardrobe
-	category: blazer
-	primary_color: "SandyBrown"
-	primary_color_hex: "#F4A460"
-	secondary_color: "SaddleBrown"
-	secondary_color_hex: "#8B4513"
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: "patched"
-	fabric: "tweed"
-	formal?: true
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: blazer
+  primary_color: "SandyBrown"
+  primary_color_hex: "#F4A460"
+  secondary_color: "SaddleBrown"
+  secondary_color_hex: "#8B4513"
+  tertiary_color:
+  tertiary_color_hex:
+  pattern: "patched"
+  fabric: "tweed"
+  formal?: true
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_seven:
-	wardrobe: wardrobe
-	category: peacoat
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "melton wool"
-	formal?: true
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: peacoat
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "melton wool"
+  formal?: true
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_eight:
-	wardrobe: wardrobe
-	category: long_sleeve_t_shirts
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: "white"
-	secondary_color_hex: "#FFFFFF"
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: "jersey"
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: long_sleeve_t_shirts
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color: "white"
+  secondary_color_hex: "#FFFFFF"
+  tertiary_color:
+  tertiary_color_hex:
+  pattern: "jersey"
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_nine:
-	wardrobe: wardrobe
-	category: undershirts
-	primary_color: "white"
-	primary_color_hex: "#FFFFFF"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: undershirts
+  primary_color: "white"
+  primary_color_hex: "#FFFFFF"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_ten:
-	wardrobe: wardrobe
-	category: v_neck_swhooded_pullover_sweatshirteater
-	primary_color: "white"
-	primary_color_hex: "#FFFFFF"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: v_neck_swhooded_pullover_sweatshirteater
+  primary_color: "white"
+  primary_color_hex: "#FFFFFF"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 top_eleven:
-	wardrobe: wardrobe
-	category: t_shirts
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: t_shirts
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_twelve:
-	wardrobe: wardrobe
-	category: business_vests
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "polyester"
-	formal?: true
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: business_vests
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "polyester"
+  formal?: true
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_thirteen:
-	wardrobe: wardrobe
-	category: down_jacket
-	primary_color: "DarkOliveGreen"
-	primary_color_hex: "#556B2F"
-	secondary_color: "DarkOrange"
-	secondary_color_hex: "#FF8C00"
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: "solid"
-	fabric: "nylon"
-	formal?: false
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: down_jacket
+  primary_color: "DarkOliveGreen"
+  primary_color_hex: "#556B2F"
+  secondary_color: "DarkOrange"
+  secondary_color_hex: "#FF8C00"
+  tertiary_color:
+  tertiary_color_hex:
+  pattern: "solid"
+  fabric: "nylon"
+  formal?: false
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_fourteen:
-	wardrobe: wardrobe
-	category: dress_shirts
-	primary_color: "white"
-	primary_color_hex: "#FFFFFF"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: true
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: dress_shirts
+  primary_color: "white"
+  primary_color_hex: "#FFFFFF"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: true
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_fifteen:
-	wardrobe: wardrobe
-	category: long_sleeve_t_shirts
-	primary_color: "Maroon"
-	primary_color_hex: "#800000"
-	secondary_color: "wheat"
-	secondary_color_hex: "#F5DEB3"
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: "jersey"
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: long_sleeve_t_shirts
+  primary_color: "Maroon"
+  primary_color_hex: "#800000"
+  secondary_color: "wheat"
+  secondary_color_hex: "#F5DEB3"
+  tertiary_color:
+  tertiary_color_hex:
+  pattern: "jersey"
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 top_sixteen:
-	wardrobe: wardrobe
-	category: polo_shirts
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: polo_shirts
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 top_seventeen:
-	wardrobe: wardrobe
-	category: cardigan
-	primary_color: "white"
-	primary_color_hex: "#FFFFFF"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "wool"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: cardigan
+  primary_color: "white"
+  primary_color_hex: "#FFFFFF"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "wool"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
-#========================================================================================	
+#========================================================================================
 
 bottom_one:
-	wardrobe: wardrobe
-	category: dress_pants
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "wool"
-	formal?: true
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: dress_pants
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "wool"
+  formal?: true
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 bottom_two:
-	wardrobe: wardrobe
-	category: jean_shorts
-	primary_color: "blue"
-	primary_color_hex: "#0000FF"
-	secondary_color: "white"
-	secondary_color_hex: "#FFFFFF"
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "denim"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: jean_shorts
+  primary_color: "blue"
+  primary_color_hex: "#0000FF"
+  secondary_color: "white"
+  secondary_color_hex: "#FFFFFF"
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "denim"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 bottom_three:
-	wardrobe: wardrobe
-	category: jeans
-	primary_color: "Navy"
-	primary_color_hex: "#000080"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "denim"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: jeans
+  primary_color: "Navy"
+  primary_color_hex: "#000080"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "denim"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_four:
-	wardrobe: wardrobe
-	category: chino_pants
-	primary_color: "khaki"
-	primary_color_hex: "#F0E68C"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "khaki"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: chino_pants
+  primary_color: "khaki"
+  primary_color_hex: "#F0E68C"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "khaki"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_five:
-	wardrobe: wardrobe
-	category: cargo_pants
-	primary_color: "khaki"
-	primary_color_hex: "#F0E68C"
-	secondary_color: nil
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: cargo_pants
+  primary_color: "khaki"
+  primary_color_hex: "#F0E68C"
+  secondary_color:
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_six:
-	wardrobe: wardrobe
-	category: corduroy_pants
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: true
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: corduroy_pants
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: true
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_seven:
-	wardrobe: wardrobe
-	category: sweatpants
-	primary_color: "gray"
-	primary_color_hex: "#808080"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: sweatpants
+  primary_color: "gray"
+  primary_color_hex: "#808080"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 bottom_eight:
-	wardrobe: wardrobe
-	category: cargo_shorts
-	primary_color: "white"
-	primary_color_hex: "#FFFFFF"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: cargo_shorts
+  primary_color: "white"
+  primary_color_hex: "#FFFFFF"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_nine:
-	wardrobe: wardrobe
-	category: athletic_shorts
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: athletic_shorts
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_ten:
-	wardrobe: wardrobe
-	category: jeans
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "denim"
-	formal?: false
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: jeans
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "denim"
+  formal?: false
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 
 
 bottom_eleven:
-	wardrobe: wardrobe
-	category: dress_pants
-	primary_color: "gray"
-	primary_color_hex: "#808080"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "wool"
-	formal?: true
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: dress_pants
+  primary_color: "gray"
+  primary_color_hex: "#808080"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "wool"
+  formal?: true
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_twelve:
-	wardrobe: wardrobe
-	category: cargo_pants
-	primary_color: "brown"
-	primary_color_hex: "#A52A2A"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: cargo_pants
+  primary_color: "brown"
+  primary_color_hex: "#A52A2A"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_thirteen:
-	wardrobe: wardrobe
-	category: athletic_shorts
-	primary_color: "red"
-	primary_color_hex: "#FF0000"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "cotton"
-	formal?: false
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: athletic_shorts
+  primary_color: "red"
+  primary_color_hex: "#FF0000"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "cotton"
+  formal?: false
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 
 bottom_fourteen:
-	wardrobe: wardrobe
-	category: dress_pants
-	primary_color: "brown"
-	primary_color_hex: "#A52A2A"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "polyester"
-	formal?: true
-	water_proof?: true
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: dress_pants
+  primary_color: "brown"
+  primary_color_hex: "#A52A2A"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "polyester"
+  formal?: true
+  water_proof?: true
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 bottom_fifteen:
-	wardrobe: wardrobe
-	category: dress_pants
-	primary_color: "black"
-	primary_color_hex: "#000000"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "wool"
-	formal?: true
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: dress_pants
+  primary_color: "black"
+  primary_color_hex: "#000000"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "wool"
+  formal?: true
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
 shoes_one:
-	wardrobe: wardrobe
-	category: desert_boots
-	primary_color: "khaki"
-	primary_color_hex: "#F0E68C"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "leather"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: desert_boots
+  primary_color: "khaki"
+  primary_color_hex: "#F0E68C"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "leather"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 shoes_two:
-	wardrobe: wardrobe
-	category: penny_loafers 
-	primary_color: "khaki"
-	primary_color_hex: "#F0E68C"
-	secondary_color: "nil"
-	secondary_color_hex: nil
-	tertiary_color: nil
-	tertiary_color_hex: nil
-	pattern: nil
-	fabric: "leather"
-	formal?: false
-	water_proof?: false
-	water_delicate?: false
-	times_worn: 0
-	condition: nil
+  wardrobe: wardrobe
+  category: penny_loafers
+  primary_color: "khaki"
+  primary_color_hex: "#F0E68C"
+  secondary_color: ""
+  secondary_color_hex:
+  tertiary_color:
+  tertiary_color_hex:
+  pattern:
+  fabric: "leather"
+  formal?: false
+  water_proof?: false
+  water_delicate?: false
+  times_worn: 0
+  condition:
 
 
