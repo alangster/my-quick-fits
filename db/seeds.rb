@@ -19,8 +19,7 @@ Category.create!(name: "Crewneck Sweater", type_of: "Top", layerable: 2, min_tem
 Category.create!(name: "Cardigan", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
 Category.create!(name: "V Neck Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
 Category.create!(name: "Half-Zip Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
-Category.create!(name: "Hooded Pullover Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
-Category.create!(name: "Full-Zip Hooded Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
+Category.create!(name: "Hooded Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
 Category.create!(name: "Crewneck Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
 
 Category.create!(name: "Blazer", type_of: "Top", layerable: 3, min_temp: 40, max_temp: 75, formality: 1)
