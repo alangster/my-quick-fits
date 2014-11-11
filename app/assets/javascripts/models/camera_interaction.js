@@ -35,7 +35,7 @@ $(document).ready(function() {
       var p = c.getImageData(x, y, 1, 1).data;
       button.css("background-color", "rgb(" + p[0] + ","+ p[1] + ","+ p[2] + ")");
       var colorNum = button.attr("id");
-      $('input[name=' + colorNum + ']').val([p[0], p[1], p[2]]);
+      $('input[name=' + colorNum.split("-")[0] + ']').val([p[0], p[1], p[2]]);
       canvas.off('mouse:down', doMouseDown);
     }
     canvas.on('mouse:down', doMouseDown);

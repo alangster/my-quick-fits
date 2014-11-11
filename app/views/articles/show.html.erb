@@ -1,5 +1,5 @@
 <div class="isotope">
-  <div class="item" id="<%= @article.id %>" style="<%= article.render_gradient %>">
+  <div class="item" id="<%= @article.id %>" style="<%= @article.render_gradient %>">
     <%= image_tag("#{@article.get_icon_name}", class: "category-image") %>
     <%= @article.category.name %>
   </div>
