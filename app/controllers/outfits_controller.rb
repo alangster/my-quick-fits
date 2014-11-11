@@ -1,7 +1,6 @@
 class OutfitsController < ApplicationController
 
   def index
-    @outfits = Outfit.all
   end
 
 	def new
@@ -76,33 +75,27 @@ class OutfitsController < ApplicationController
   def outfits_all
     options = {events: []}
     Outfit.all.each do |outfit|
+      articles = outfit.tops + [outfit.bottom, outfit.shoes]
+      title = "\n" + articles.map {|article| "#{article.primary_color} #{article.category.name}"}.join("\n")
       options[:events] << {
-        title: outfit.id,
+        title: title,
         start: outfit.created_at,
+        url: outfit_path(outfit),
         outfit_id: outfit.id
       }
     end
-    # options = {
-    #   events: [
-    #     {
-    #       title: 'event1',
-    #       start: '2014-11-10',
-    #       outfit_id: 3
-    #     },
-    #     {
-    #       title: 'event2',
-    #       start: '2014-10-05'
-    #     },
-    #     {
-    #       title: 'event3',
-    #       start: '2014-11-09T12:30:00',
-    #     }
-    #   ],
-    #   color: 'black',
-    #   textColor: 'white'
-    # }
-
     render json: options, status: 200
   end
+
+  # def outfits_show
+  #   options = {articles: [], message: params[:id]}
+  #   outfit = Outfit.find(params[:id].to_i)
+  #   outfit.articles.each do |article|
+  #     options[:articles] << {
+  #       name: "#{article.primary_color} #{article.category.name}"
+  #     }
+  #   end
+  #   render json: options, status: 200
+  # end
 
 end

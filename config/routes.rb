@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/custom_article', to: "outfits#custom_article"
   get '/article_options', to: "outfits#article_options"
   get '/outfits_all', to: "outfits#outfits_all"
+  # get '/outfits_show', to: "outfits#outfits_show"
 
   get '/analysis', to: "wardrobes#analysis" 
 
