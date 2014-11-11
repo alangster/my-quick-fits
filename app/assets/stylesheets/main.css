@@ -24,6 +24,10 @@ ul.wardrobe-show {
   list-style: none
 }
 
+button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 button.bottom-item, button.top-item, button.shoe-item {
 
 }
