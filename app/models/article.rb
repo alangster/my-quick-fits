@@ -8,6 +8,18 @@ class Article < ActiveRecord::Base
 
   NEUTRALS = ["Black", "White", "Grey", "Brown", "Navy", "Beige", "Bisque", "Blanched Almond", "Burly Wood", "Chocolate", "Cornsilk", "Dark Goldenrod", "Dark Gray", "Dark Khaki", "Dim Gray","Floral White", "Gainsboro", "Ghost White","Gray", "Honeydew", "Indigo", "Light Gray", "Slate Gray", "Midnight Blue", "Moccasin", "Navajo White", "Peru", "Saddle Brown", "Sienna", "Snow", "Tan", "Wheat", "White Smoke"]
 
+  NO_NOS = {
+    "Dress Pants"     => ["Sneakers", "TOMs", "Flip-Flops", "Sandals", "T-Shirt", "Tanktop", "Long-Sleeve T-Shirt", "Crewneack, Sweatshirt", "Hooded Pullover Sweatshirt", "Full-Zip Hooded Sweatshirt"],
+    "Jeans"           => ["Dress Shoes"],
+    "Chino Pants"     => ["Flip-Flops"],
+    "Corduroy Pants"  => ["Tanktop", "Dress Shoes", "Flip-Flops", "Sandals"],
+    "Cargo Pants"     => ["Dress Shirt", "Blazer", "Dress Shoes"],
+    "Sweatpants"      => ["Polo Shirt", "Button Down Shirt", "Dress Shirt", "Cardigan", "Crewneck Sweater", "Half-Zip Sweater", "Blazer", "Peacoat", "Dress Shoes", "Desert Boots", "Penny Loafers"],
+    "Chino Shorts"    => ["Dress Shirt", "Dress Shoes", "Desert Boots"],
+    "Athletic Shorts" => ["Polo Shirt", "Button Down Shirt", "Dress Shirt", "Cardigan", "Crewneck Sweater", "Half-Zip Sweater", "Blazer", "Peacoat", "Dress Shoes", "Desert Boots", "Penny Loafers"],
+    "Cargo Shorts"    => ["Polo Shirt", "Button Down Shirt", "Dress Shirt", "Cardigan", "Crewneck Sweater", "Half-Zip Sweater", "Blazer", "Peacoat", "Dress Shoes", "Desert Boots", "Penny Loafers"],
+    "Jean Shorts"     => ["Polo Shirt", "Button Down Shirt", "Dress Shirt", "Cardigan", "Crewneck Sweater", "Half-Zip Sweater", "Blazer", "Peacoat", "Dress Shoes", "Desert Boots", "Penny Loafers"]
+  }
 
   def count_in_outfits
     count = 0
@@ -57,7 +69,8 @@ class Article < ActiveRecord::Base
     end
   end
 
-  def complementary_styles?(article1, other_articles)
+  def complementary_styles?(article, other_articles)
+    # !NO_NOS[other_articles[0]].include?(article)
     true
   end
 
