@@ -1,28 +1,113 @@
-== README
+Coveralls coverage image?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+QuickFits logo?
 
-Things you may want to cover:
+<b>QuickFits</b> is a tool to help men assemble the perfect outfit regardless of formality, weather, and a number of other real life variables. Dress like the freshest cat on the block with QuickFits.
 
-* Ruby version
+Check it out! http://QuickFits.herokuapp.com
 
-* System dependencies
+=== Sample Screenshots
 
-* Configuration
+Include Screenshots
 
-* Database creation
+=== System Requirements
+- Ruby 2.0.0 p-481
+- Rails 4.1.6
+- Postgres 9.3.5
+- Internet access
 
-* Database initialization
+=== Personal Requirements
+- A strong desire to dress like a respectable human being
 
-* How to run the test suite
+=== External APIs and Libraries
+<b>Geofeedia</b>
 
-* Services (job queues, cache servers, search engines, etc.)
+Location-based social media aggregation and monitoring.
 
-* Deployment instructions
+- API: https://app.geofeedia.com/account/apisetup
+- Docs: https://app.geofeedia.com/Content/APIQuickStartGuide.pdf
 
-* ...
+<b>AlchemyAPI</b>
+
+Natural Language Processing and sentiment analysis.
+
+- Demo: http://www.alchemyapi.com/products/demo
+- Docs: http://www.alchemyapi.com/api
+
+<b>D3.js</b>
+
+JavaScript data visualization library utilizing web standards such as SVG, HTML5, and CSS3.
+
+- Gallery: https://github.com/mbostock/d3/wiki/Gallery
+- Docs: https://github.com/mbostock/d3/wiki
+
+=== Getting Started
+
+1. Clone to local machine: <tt>git clone https://github.com/devdame/DBC-final-project.git campuslyfe</tt>
+2. Install dependencies: <tt>bundle</tt>
+3. Initialize database: <tt>rake db:reset</tt>
+4. Run server: <tt>rails s</tt>
+5. Visit http://localhost:3000
+
+=== Workflow
+
+<em>As a collaborator on this project, I hold myself to high standard of code, commit often, and never push to the master branch.</em>
+
+1. Starting out, or if using a new development workstation:
+
+   <tt>git clone https://github.com/devdame/DBC-final-project.git campuslyfe</tt>
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. Create new branch for the feature you're working on:
+
+   <tt>git checkout -b Daniel_awesomebranch</tt>
+3. To bring the local code base up-to-date, first checkout master branch:
+
+   <tt>git checkout master</tt>
+
+4. Pull in the latest code from the master brach:
+
+   <tt>git pull origin master</tt>
+
+5. Then switch back to your feature branch before merging code from master:
+
+   <tt>git checkout Daniel_awesomebranch</tt>
+
+6. Now merge the updated master branch code into your current feature branch:
+
+   <tt>git merge master</tt>
+
+7. Now you may work on the code for your feature branch. COMMIT OFTEN.
+
+8. When you are ready to submit code to the project repo, go ahead and commit one more time. First include files that were changed:
+
+   <tt>git add .</tt>
+
+9. Then commit the changes you've made:
+
+   <tt>git commit -m "Add awesome feature to do awesome thing"</tt>
+
+10. Repeat step <b>3 through 6</b> to ensure your code base is up-to-date with any changes to master that might have occured in the time you were working on your feature branch. Solve conflicts if present.
+
+11. Push your code to your remote feature branch:
+
+    <tt>git push origin Daniel_awesomebranch</tt>
+
+12. Submit a pull request on Github for code review.
+
+=== Database Schema
+
+http://s1294.photobucket.com/user/jhendge/media/ScreenShot2014-11-11at103215AM_zps2662df56.png.html?filters[user]=141818714&filters[recent]=1&sort=1&o=0
+
+=== Running the Test Suite
+
+<tt>rspec</tt>
+
+=== Brought to You By
+Team Photo?
+
+Alex:: https://github.com/alangster
+Peter:: https://github.com/peterxjang
+Aaron:: https://github.com/candidkilsborne
+Joe:: https://github.com/jhendge
+Isaac:: https://github.com/iceykohnn
