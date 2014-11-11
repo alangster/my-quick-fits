@@ -38,11 +38,22 @@ h2.category-title {
 }
 
 .item, .item-choice, .item-outfit {
-  width: 25%;
   width: 100px;
   height: 100px;
   margin: 5px;
   padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px #bbb;
+  color: #000;
+  text-align: center;
+  text-shadow: 1px 1px 2px #bbb;
+}
+
+.item img, .item-choice img, .item-outfit img {
+  display: block;
+  margin: 0 auto;
+}
+.item a, .item-choice a, .item-outfit a {
 }
 
 .item-outfit {
