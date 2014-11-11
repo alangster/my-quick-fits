@@ -72,11 +72,27 @@ module ApplicationHelper
   def generate_fashion_quote
     [
       ["Fashion is never finished",  "Fake Mark Zuckerberg"],
-      ["Style comes in all shapes and sizes. Therefore, the bigger you are, the more style you have", "Miss Piggy"], 
-      ["If you look good, you feel good. If you feel good, you play good. If you play good, they pay good", "Deion Sanders"], 
+      ["Style comes in all shapes and sizes. Therefore, the bigger you are, the more style you have", "Miss Piggy"],
+      ["If you look good, you feel good. If you feel good, you play good. If you play good, they pay good", "Deion Sanders"],
       ["What fun is it being cool if you can't wear a sombrero?",  "Bill Watterson"]
     ].sample
   end
+
+  def rgb_parse(rgb_str)
+    rgb_str.split(',').map {|r| r.to_i}
+  end
+
+  def article_color_data(rgb_str)
+    name = nil
+    hex = nil
+    if rgb_str != ""
+      color = RgbTriplet.new(rgb_parse(rgb_str))
+      name = color.name
+      hex = color.to_hex
+    end
+    [name, hex]
+  end
+
 end
 
 

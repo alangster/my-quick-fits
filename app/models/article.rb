@@ -4,6 +4,10 @@ class Article < ActiveRecord::Base
 	has_many :outfit_articles
 	has_many :outfits, through: :outfit_articles
 	# has_one :type, through: :category
+  validates :category_id, :primary_color, presence: true
+
+  NEUTRALS = ["Black", "White", "Grey", "Brown", "Navy", "Beige", "Bisque", "Blanched Almond", "Burly Wood", "Chocolate", "Cornsilk", "Dark Goldenrod", "Dark Gray", "Dark Khaki", "Dim Gray","Floral White", "Gainsboro", "Ghost White","Gray", "Honeydew", "Indigo", "Light Gray", "Slate Gray", "Midnight Blue", "Moccasin", "Navajo White", "Peru", "Saddle Brown", "Sienna", "Snow", "Tan", "Wheat", "White Smoke"]
+
 
   def count_in_outfits
     count = 0
@@ -19,6 +23,7 @@ class Article < ActiveRecord::Base
 
   def clean?
     # find most recent outfit that included item, check if older than 7 days
+    # ignore shoes, jeans, jackets
     self.times_worn == 0
   end
 
@@ -36,19 +41,27 @@ class Article < ActiveRecord::Base
     self.category.formality == formal
   end
 
-  def complementary?(article)
-    complementary_colors?(self, article) && complementary_styles?(self, article)
+  def is_neutral?
+    NEUTRALS.include?(self.primary_color)
   end
 
-  def complementary_colors?(article1, article2)
+  def complementary?(other_articles)
+    complementary_colors?(self, other_articles) && complementary_styles?(self, other_articles)
+  end
+
+  def complementary_colors?(article, other_articles)
+    if other_articles.all? { |article| article.is_neutral? }
+      return true
+    else
+      article.is_neutral?
+    end
+  end
+
+  def complementary_styles?(article1, other_articles)
     true
   end
 
-  def complementary_styles?(article1, article2)
-    true
-  end
-
-  def self.get_appropriate_articles(articles, temperature, precipitation, formal, second_article=nil)
+  def self.get_appropriate_articles(articles, temperature, precipitation, formal, other_articles=nil)
     new_articles = articles.dup
     possibilities = new_articles
     results = { articles: new_articles,
@@ -59,8 +72,16 @@ class Article < ActiveRecord::Base
                 clean: true,
                 within_temp: true }
 
-    if second_article
-      possibilities = new_articles.select { |article| article.complementary?(second_article) }
+    possibilities = new_articles.select { |article| article.good_condition? }
+    possibilities.length != 0 ? new_articles = possibilities : results[:good_condition] = false
+
+    if temperature
+      possibilities = new_articles.select { |article| article.within_temp?(temperature) }
+      possibilities.length != 0 ? new_articles = possibilities : results[:within_temp] = false
+    end
+
+    if other_articles
+      possibilities = new_articles.select { |article| article.complementary?(other_articles) }
       possibilities.length != 0 ? new_articles = possibilities : results[:complementary] = false
     end
 
@@ -75,13 +96,12 @@ class Article < ActiveRecord::Base
     possibilities = new_articles.select { |article| article.good_condition? }
     possibilities.length != 0 ? new_articles = possibilities : results[:good_condition] = false
 
+    if !results[:good_condition]
+      
+    end
+
     possibilities = new_articles.select { |article| article.clean? }
     possibilities.length != 0 ? new_articles = possibilities : results[:clean] = false
-
-    if temperature
-      possibilities = new_articles.select { |article| article.within_temp?(temperature) }
-      possibilities.length != 0 ? new_articles = possibilities : results[:within_temp] = false
-    end
 
     results[:articles] = new_articles
     results
@@ -93,6 +113,13 @@ class Article < ActiveRecord::Base
 
   def get_asset_icon_name
     ActionController::Base.helpers.asset_path(self.get_icon_name)
+  end
+
+  def render_gradient
+    primary = self.primary_color_hex
+    secondary = (self.secondary_color_hex.nil? ? primary : self.secondary_color_hex)
+    tertiary = (self.tertiary_color_hex.nil? ? secondary : self.tertiary_color_hex)
+    "background: linear-gradient(#{primary} 50%,#{secondary} 50%,#{tertiary})"
   end
 
 end

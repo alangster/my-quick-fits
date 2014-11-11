@@ -9,7 +9,7 @@
 <div class="isotope">
     <% @tops.each do |article| %>
     <%= link_to article do %>
-    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="background-color:<%= article.primary_color_hex %>">
+    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
       <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
         <p><%= article.category.name %></p>
     </div>
@@ -17,7 +17,7 @@
   <% end %>
   <% @bottoms.each do |article| %>
     <%= link_to article do %>
-      <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="background-color:<%= article.primary_color_hex %>">
+      <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
         <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
         <p><%= article.category.name %></p>
       </div>
@@ -25,7 +25,7 @@
   <% end %>
   <% @shoes.each do |article| %>
     <%= link_to article do %>
-    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="background-color:<%= article.primary_color_hex %>">
+    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
       <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
         <p><%= article.category.name %></p>
     </div>

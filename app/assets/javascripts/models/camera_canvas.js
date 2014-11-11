@@ -85,9 +85,10 @@ function picChange(e){
 			fabricCanvas.add(image);
 			fabricCanvas.renderAll();
 			var rgb = getAverageRGB(imgObj);
-			$('#primary').css("background-color", "rgb("+rgb.r+","+rgb.g+","+rgb.b+")");
-			$('#secondary').css("background-color", "white");
-			$('#tertiary').css("background-color", "white");
+			$('#primary-swatch').css("background-color", "rgb("+rgb.r+","+rgb.g+","+rgb.b+")");
+			$('#secondary-swatch').css("background-color", "white");
+			$('#tertiary-swatch').css("background-color", "white");
+      $('input[name=primary]').val([rgb.r, rgb.g, rgb.b]);
 			// var colorThief = new ColorThief();
 			// var primaryColor = colorThief.getColor(imgObj);
 			// var paletteColors = colorThief.getPalette(imgObj, 8);
