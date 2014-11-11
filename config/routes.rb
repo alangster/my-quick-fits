@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   post '/custom_article', to: "outfits#custom_article"
   get '/article_options', to: "outfits#article_options"
   get '/outfits_all', to: "outfits#outfits_all"
-  # get '/outfits_show', to: "outfits#outfits_show"
+  post '/outfits_like', to: "outfits#outfits_like"
+  post '/outfits_dislike', to: "outfits#outfits_dislike"
 
-  get '/analysis', to: "wardrobes#analysis" 
+  get '/analysis', to: "wardrobes#analysis"
 
   get '/logout', to: "sessions#destroy"
 
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :wardrobes
 
-  
+
 
   post '/articles/color', to: "articles#color"
 

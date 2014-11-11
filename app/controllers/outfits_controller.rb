@@ -1,5 +1,4 @@
 class OutfitsController < ApplicationController
-
   def index
   end
 
@@ -17,12 +16,7 @@ class OutfitsController < ApplicationController
 	end
 
 	def create
-    outfit = Outfit.create!(wardrobe: current_wardrobe)
-    outfit.outfit_articles.create!(article_id: params[:bottom][:id])
-    outfit.outfit_articles.create!(article_id: params[:shoes][:id])
-    params[:top][:id].each do |id|
-    	outfit.outfit_articles.create!(article_id: id)
-    end
+    outfit = create_outfit_record(params)
     redirect_to outfit
 	end
 
@@ -74,7 +68,7 @@ class OutfitsController < ApplicationController
 
   def outfits_all
     options = {events: []}
-    Outfit.all.each do |outfit|
+    current_wardrobe.worn_outfits.each do |outfit|
       articles = outfit.tops + [outfit.bottom, outfit.shoes]
       title = "\n" + articles.map {|article| "#{article.primary_color} #{article.category.name}"}.join("\n")
       options[:events] << {
@@ -87,15 +81,30 @@ class OutfitsController < ApplicationController
     render json: options, status: 200
   end
 
-  # def outfits_show
-  #   options = {articles: [], message: params[:id]}
-  #   outfit = Outfit.find(params[:id].to_i)
-  #   outfit.articles.each do |article|
-  #     options[:articles] << {
-  #       name: "#{article.primary_color} #{article.category.name}"
-  #     }
-  #   end
-  #   render json: options, status: 200
-  # end
+  def outfits_like
+    outfit = create_outfit_record(params)
+    outfit.update_attributes(like: 1)
+    render json: {}, status: 200
+  end
 
+  def outfits_dislike
+    outfit = create_outfit_record(params)
+    outfit.update_attributes(like: -1)
+    p 'hi'
+    p outfit
+    p 'bye'
+    render json: {}, status: 200
+  end
+
+  private
+
+  def create_outfit_record(params)
+    outfit = Outfit.create!(wardrobe: current_wardrobe)
+    outfit.outfit_articles.create!(article_id: params[:bottom][:id])
+    outfit.outfit_articles.create!(article_id: params[:shoes][:id])
+    params[:top][:id].each do |id|
+      outfit.outfit_articles.create!(article_id: id)
+    end
+    outfit
+  end
 end

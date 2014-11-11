@@ -72,11 +72,6 @@ $(document).ready(function(){
       url: "/custom_article",
       data: {id: $(this).attr("id")},
       success: function(result) {
-        // $("#outfit-display").html(result);
-        // $('.isotope').isotope({
-        //   itemSelector: '.item',
-        //   layoutMode: 'masonry'
-        // });
         replaceOriginalArticle(result);
         console.log(result);
       }
@@ -86,5 +81,60 @@ $(document).ready(function(){
   $(document).on('click', '#article-choices', function() {
     $(this).remove();
   });
+
+  $(document).on('click', '#like-outfit', function(e) {
+    e.preventDefault();
+    var data = {}
+    $.each($("#new_outfit input"), function(i, v) {
+      var value = $(v).attr('value'), name = $(v).attr('name');
+      if (data[name]) {
+        if (typeof data[name] != 'string') {
+          data[name].push(value);
+        } else {
+          data[name] = [data[name], value];
+        }
+      } else {
+        data[name] = value;
+      }
+    });
+    $.ajax({
+      type: "POST",
+      url: "/outfits_like",
+      data: data,
+      success: function(result) {
+        console.log(result);
+      }
+    });
+    $("#like-outfit").prop('disabled', true);
+    $("#dislike-outfit").prop('disabled', false);
+  });
+
+  $(document).on('click', '#dislike-outfit', function(e) {
+    e.preventDefault();
+    var data = {}
+    $.each($("#new_outfit input"), function(i, v) {
+      var value = $(v).attr('value'), name = $(v).attr('name');
+      if (data[name]) {
+        if (typeof data[name] != 'string') {
+          data[name].push(value);
+        } else {
+          data[name] = [data[name], value];
+        }
+      } else {
+        data[name] = value;
+      }
+    });
+    $.ajax({
+      type: "POST",
+      url: "/outfits_dislike",
+      data: data,
+      success: function(result) {
+        console.log(result);
+      }
+    });
+    $("#like-outfit").prop('disabled', false);
+    $("#dislike-outfit").prop('disabled', true);
+  });
 });
+
 
