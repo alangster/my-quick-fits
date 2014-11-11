@@ -116,14 +116,6 @@ ul.nav li {
   text-align: center;
 }
 
-.swatch {
-  width: 70px;
-  height: 70px;
-  border: 3px dotted #444;
-  display: inline-block;
-  margin: 5px;
-}
-
 #calendar {
   margin: 20px;
 }
