@@ -81,4 +81,4 @@ test:
 production:
   <<: *default
   database: quick-fits_production
-  username: quick-fits
+  # username: quick-fits
