@@ -24,6 +24,7 @@
             <% if current_user %>
               <li><button class="btn btn-default navbar-btn"><%= link_to "Home", current_user %></button></li>
               <li><button class="btn btn-default navbar-btn"><%= link_to "Wardrobe", current_wardrobe %></button></li>
+              <li><button class="btn btn-default navbar-btn"><%= link_to "Outfits", outfits_path %></button></li>
               <li><button class="btn btn-default navbar-btn"><%= link_to "Log Out", logout_path %></button></li>
             <% end %>
           </ul>
