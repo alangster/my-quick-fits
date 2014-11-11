@@ -36,7 +36,7 @@ class Outfit < ActiveRecord::Base
     bottoms = current_wardrobe.get_all_bottoms
     results = Article.get_appropriate_articles(bottoms, temperature, precipitation, formal)
     bottom_final = results[:articles].sample
-
+    
     tops = []
     current_layer = 0
     while current_layer < 4 do 
