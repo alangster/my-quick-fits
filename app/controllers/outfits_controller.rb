@@ -16,12 +16,7 @@ class OutfitsController < ApplicationController
 	end
 
 	def create
-    outfit = Outfit.create!(wardrobe: current_wardrobe)
-    outfit.outfit_articles.create!(article_id: params[:bottom][:id])
-    outfit.outfit_articles.create!(article_id: params[:shoes][:id])
-    params[:top][:id].each do |id|
-    	outfit.outfit_articles.create!(article_id: id)
-    end
+    outfit = create_outfit_record(params)
     redirect_to outfit
 	end
 
@@ -87,12 +82,29 @@ class OutfitsController < ApplicationController
   end
 
   def outfits_like
-    options = {message: params[:bottom]}
-    render json: options, status: 200
-    # render :nothing => true, :status => 200
+    outfit = create_outfit_record(params)
+    outfit.update_attributes(like: 1)
+    render json: {}, status: 200
   end
 
   def outfits_dislike
-    render :nothing => true, :status => 200
+    outfit = create_outfit_record(params)
+    outfit.update_attributes(like: -1)
+    p 'hi'
+    p outfit
+    p 'bye'
+    render json: {}, status: 200
+  end
+
+  private
+
+  def create_outfit_record(params)
+    outfit = Outfit.create!(wardrobe: current_wardrobe)
+    outfit.outfit_articles.create!(article_id: params[:bottom][:id])
+    outfit.outfit_articles.create!(article_id: params[:shoes][:id])
+    params[:top][:id].each do |id|
+      outfit.outfit_articles.create!(article_id: id)
+    end
+    outfit
   end
 end
