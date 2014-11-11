@@ -22,10 +22,10 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <% if current_user %>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Home", current_user %></button></li>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Wardrobe", current_wardrobe %></button></li>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Outfits", outfits_path %></button></li>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Log Out", logout_path %></button></li>
+              <li><%= link_to "Home", current_user, :class => "btn btn-default navbar-btn" %></li>
+              <li><%= link_to "Wardrobe", current_wardrobe, :class => "btn btn-default navbar-btn" %></li>
+              <li><%= link_to "Outfits", outfits_path, :class => "btn btn-default navbar-btn" %></li>
+              <li><%= link_to "Log Out", logout_path, :class => "btn btn-default navbar-btn" %></li>
             <% end %>
           </ul>
         </div>
