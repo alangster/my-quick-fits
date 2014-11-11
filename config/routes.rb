@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # root to: "sessions#new"
-  get '/', to "sessions#new"
+  get '/', to: "sessions#new"
 
   post '/location', to: "sessions#location"
   post '/formality', to: "outfits#formality"
