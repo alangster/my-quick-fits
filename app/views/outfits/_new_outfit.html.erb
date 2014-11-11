@@ -14,11 +14,16 @@
     <%= @shoes.category.name %>
   </div>
 </div>
+
 <%= form_for @outfit do |f| %>
   <% @tops.each do |top| %>
     <input type="hidden" id="top_<%= top.id %>" name="top[id][]" value="<%= top.id %>" />
   <% end %>
   <input type="hidden" id="bottom_<%= @bottom.id %>" name="bottom[id]" value="<%= @bottom.id %>" />
   <input type="hidden" id="shoes_<%= @shoes.id %>" name="shoes[id]" value="<%= @shoes.id %>" />
+<!--   <button id='like-outfit'>Like</button>
+  <button id='dislike-outfit'>Dislike</button> -->
+  <%= f.button "Like", id: "like-outfit" %>
+  <%= f.button "Like", id: "dislike-outfit" %>
   <%= f.submit %>
 <% end %>

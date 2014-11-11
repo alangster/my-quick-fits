@@ -1,5 +1,4 @@
 class OutfitsController < ApplicationController
-
   def index
   end
 
@@ -87,15 +86,13 @@ class OutfitsController < ApplicationController
     render json: options, status: 200
   end
 
-  # def outfits_show
-  #   options = {articles: [], message: params[:id]}
-  #   outfit = Outfit.find(params[:id].to_i)
-  #   outfit.articles.each do |article|
-  #     options[:articles] << {
-  #       name: "#{article.primary_color} #{article.category.name}"
-  #     }
-  #   end
-  #   render json: options, status: 200
-  # end
+  def outfits_like
+    options = {message: params[:bottom]}
+    render json: options, status: 200
+    # render :nothing => true, :status => 200
+  end
 
+  def outfits_dislike
+    render :nothing => true, :status => 200
+  end
 end

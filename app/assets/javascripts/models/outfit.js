@@ -86,5 +86,30 @@ $(document).ready(function(){
   $(document).on('click', '#article-choices', function() {
     $(this).remove();
   });
+
+  $(document).on('click', '#like-outfit', function(e) {
+    e.preventDefault();
+    // console.log($(this).attr("value"));
+    $.ajax({
+      type: "POST",
+      url: "/outfits_like",
+      success: function(result) {
+        console.log(result);
+      }
+    });
+  });
+
+  $(document).on('click', '#dislike-outfit', function() {
+    e.preventDefault();
+    // console.log($(this).attr("value"));
+    $.ajax({
+      type: "POST",
+      url: "/outfits_dislike",
+      success: function(result) {
+        console.log(result);
+      }
+    });
+
+  });
 });
 
