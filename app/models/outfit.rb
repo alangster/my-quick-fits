@@ -37,14 +37,17 @@ class Outfit < ActiveRecord::Base
     results = Article.get_appropriate_articles(bottoms, temperature, precipitation, formal)
     bottom_final = results[:articles].sample
 
+    colors = [bottom_final.primary_color]
+    
     tops = []
     current_layer = 0
     while current_layer < 4 do 
       tops_current_layer = current_wardrobe.get_all_tops(current_layer)
-      results = Article.get_appropriate_articles(tops_current_layer, temperature, precipitation, formal, bottom_final)
+      results = Article.get_appropriate_articles(tops_current_layer, temperature, precipitation, formal, bottom_final, colors)
       tops << results[:articles].sample
       break if results[:within_temp]
       current_layer += 1
+      (colors + tops.map(&primary_color)).uniq
     end
 
     shoes = current_wardrobe.get_all_shoes

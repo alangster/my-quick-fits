@@ -48,7 +48,7 @@ class Article < ActiveRecord::Base
     true
   end
 
-  def self.get_appropriate_articles(articles, temperature, precipitation, formal, second_article=nil)
+  def self.get_appropriate_articles(articles, temperature, precipitation, formal, second_article=nil, colors=[])
     new_articles = articles.dup
     possibilities = new_articles
     results = { articles: new_articles,
