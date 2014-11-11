@@ -34,7 +34,7 @@
 <h3>Damaged Items</h3>
 <div id="damaged-items" class="isotope">
 	<% @stats[:damaged_items].each do |item| %>
-		<div class="item" id="<%= item.category.name %>" style="background-color:<%= item.primary_color_hex %>">
+		<div class="item" id="<%= item.category.name %>" style="<%= item.render_gradient %>">
       <%= image_tag("#{item.get_icon_name}", class: "category-image") %>
       <p><%= item.category.name %></p>
     </div>
@@ -43,5 +43,5 @@
 </div>
 
 
-					
+
 
