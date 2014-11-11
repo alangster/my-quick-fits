@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
 	has_many :outfits, through: :outfit_articles
 	# has_one :type, through: :category
 
+  validates :category_id, :primary_color, presence: true
+
   def count_in_outfits
     count = 0
     Outfit.all.each do |outfit|

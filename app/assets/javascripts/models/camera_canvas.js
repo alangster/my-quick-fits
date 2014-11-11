@@ -88,6 +88,7 @@ function picChange(e){
 			$('#primary').css("background-color", "rgb("+rgb.r+","+rgb.g+","+rgb.b+")");
 			$('#secondary').css("background-color", "white");
 			$('#tertiary').css("background-color", "white");
+      $('input[name=primary]').val([rgb.r, rgb.g, rgb.b]);
 			// var colorThief = new ColorThief();
 			// var primaryColor = colorThief.getColor(imgObj);
 			// var paletteColors = colorThief.getPalette(imgObj, 8);
