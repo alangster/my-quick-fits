@@ -21,19 +21,21 @@ $(document).ready(function() {
     $('#category-images').html(categoryImagesHtml);
   };
 
-  var categoryImagesHtml = $('#category-images').html();
+  var categoryImagesHtml = $('#category-images').html().replace(/Select/g, "");
 
   var currentCategoryId;
 
   $(".swatch").on("click", function(){
     var button = $(this);
     button.css("background-color", "white");
+    button.html("Select a color");
     var canvas = document.getElementById("capturedPhoto").fabric;
     function doMouseDown(e) {
       var x = e.e.layerX, y = e.e.layerY;
       var c = canvas.getContext();
       var p = c.getImageData(x, y, 1, 1).data;
       button.css("background-color", "rgb(" + p[0] + ","+ p[1] + ","+ p[2] + ")");
+      button.html("");
       var colorNum = button.attr("id");
       $('input[name=' + colorNum.split("-")[0] + ']').val([p[0], p[1], p[2]]);
       canvas.off('mouse:down', doMouseDown);
