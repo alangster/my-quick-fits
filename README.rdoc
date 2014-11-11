@@ -20,26 +20,26 @@ Include Screenshots
 - A strong desire to dress like a respectable human being
 
 === External APIs and Libraries
-<b>Geofeedia</b>
+<b>Forecast io</b>
 
-Location-based social media aggregation and monitoring.
+Real-time weather information 
 
-- API: https://app.geofeedia.com/account/apisetup
-- Docs: https://app.geofeedia.com/Content/APIQuickStartGuide.pdf
+- API: https://developer.forecast.io/
+- Docs: https://developer.forecast.io/docs/v2
 
-<b>AlchemyAPI</b>
+<b>Isotope</b>
 
-Natural Language Processing and sentiment analysis.
+Sorting and filtering layouts
 
-- Demo: http://www.alchemyapi.com/products/demo
-- Docs: http://www.alchemyapi.com/api
+- Kitchen Sink: http://isotope.metafizzy.co/#v1
+- Github: https://github.com/metafizzy/isotope
 
-<b>D3.js</b>
+<b>Mustache</b>
 
-JavaScript data visualization library utilizing web standards such as SVG, HTML5, and CSS3.
+Framework-agnostic way to render logic-free views
 
-- Gallery: https://github.com/mbostock/d3/wiki/Gallery
-- Docs: https://github.com/mbostock/d3/wiki
+- Manual: http://mustache.github.io/mustache.5.html
+- Ruby: https://github.com/mustache/mustache
 
 === Getting Started
 
@@ -51,16 +51,16 @@ JavaScript data visualization library utilizing web standards such as SVG, HTML5
 
 === Workflow
 
-<em>As a collaborator on this project, I hold myself to high standard of code, commit often, and never push to the master branch.</em>
+<em>As a collaborator on this project, I hold myself to a high standard of code, commit often, and never push to the master branch.</em>
 
 1. Starting out, or if using a new development workstation:
 
-   <tt>git clone https://github.com/devdame/DBC-final-project.git campuslyfe</tt>
+   <tt>git clone https://github.com/alangster/my-quick-fits.git</tt>
 
 
 2. Create new branch for the feature you're working on:
 
-   <tt>git checkout -b Daniel_awesomebranch</tt>
+   <tt>git checkout -b Joe_sweetbranch</tt>
 3. To bring the local code base up-to-date, first checkout master branch:
 
    <tt>git checkout master</tt>
@@ -71,7 +71,7 @@ JavaScript data visualization library utilizing web standards such as SVG, HTML5
 
 5. Then switch back to your feature branch before merging code from master:
 
-   <tt>git checkout Daniel_awesomebranch</tt>
+   <tt>git checkout Joe_sweetbranch</tt>
 
 6. Now merge the updated master branch code into your current feature branch:
 
@@ -85,13 +85,13 @@ JavaScript data visualization library utilizing web standards such as SVG, HTML5
 
 9. Then commit the changes you've made:
 
-   <tt>git commit -m "Add awesome feature to do awesome thing"</tt>
+   <tt>git commit -m "Added sweet feature to do sweet thing"</tt>
 
 10. Repeat step <b>3 through 6</b> to ensure your code base is up-to-date with any changes to master that might have occured in the time you were working on your feature branch. Solve conflicts if present.
 
 11. Push your code to your remote feature branch:
 
-    <tt>git push origin Daniel_awesomebranch</tt>
+    <tt>git push origin Joe_sweetbranch</tt>
 
 12. Submit a pull request on Github for code review.
 
@@ -104,7 +104,7 @@ http://s1294.photobucket.com/user/jhendge/media/ScreenShot2014-11-11at103215AM_z
 <tt>rspec</tt>
 
 === Brought to You By
-Team Photo?
+http://s1294.photobucket.com/user/jhendge/media/Mobile%20Uploads/2014-11/FFC6984F-1288-4762-A870-C06FADE37DD9_zpseutiswcm.png.html?filters[user]=141818714&filters[recent]=1&sort=1&o=1
 
 Alex:: https://github.com/alangster
 Peter:: https://github.com/peterxjang
