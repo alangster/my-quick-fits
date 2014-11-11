@@ -3,7 +3,10 @@ class Article < ActiveRecord::Base
 	belongs_to :category
 	has_many :outfit_articles
 	has_many :outfits, through: :outfit_articles
-	# has_one :type, through: :category
+
+  validates :category, presence: true
+  validates :wardrobe, presence: true
+  validates :primary_color, presence: true
 
   def count_in_outfits
     count = 0

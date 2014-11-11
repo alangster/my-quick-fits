@@ -4,6 +4,7 @@ class Outfit < ActiveRecord::Base
 	has_many	 :articles, through: :outfit_articles
 
 
+
   def get_articles_type_of(type_of)
     self.articles.select { |article| article.category.type_of == type_of }.sort_by { |a| a.category.name }
   end
@@ -39,7 +40,7 @@ class Outfit < ActiveRecord::Base
 
     tops = []
     current_layer = 0
-    while current_layer < 4 do 
+    while current_layer < 4 do
       tops_current_layer = current_wardrobe.get_all_tops(current_layer)
       results = Article.get_appropriate_articles(tops_current_layer, temperature, precipitation, formal, bottom_final)
       tops << results[:articles].sample

@@ -3,6 +3,9 @@ class Wardrobe < ActiveRecord::Base
 	has_many :outfits
 	has_many :articles
 
+  validates :user, presence: true
+
+
   NEUTRALS = ["green", "orange"] # CHANGE THIS
 
   def get_articles_type_of(type_of)
@@ -39,9 +42,9 @@ class Wardrobe < ActiveRecord::Base
     end
     percent_hash
    end
- 
+
    def damaged
     self.articles.where.not(condition: nil)
    end
- 
+
  end

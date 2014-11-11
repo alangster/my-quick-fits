@@ -2,6 +2,9 @@ class Category < ActiveRecord::Base
 	belongs_to :type
 	has_many :articles
 
+  validates :type_of, presence: true
+
+
 	NECESSITIES = ["T-Shirt", "Polo Shirt", "Button Down Shirt", "Dress Shirt", "Blazer", "Down Jacket", "Rain Jacket", "Dress Pants", "Jeans", "Chino Shorts", "Dress Shoes", "Sneakers"]
 
 	def icon_name
@@ -19,5 +22,5 @@ class Category < ActiveRecord::Base
 	def self.find_missing_names(wardrobe)
 		NECESSITIES - wardrobe.articles.map {|article| article.category.name}.uniq
 	end
-	
+
 end
