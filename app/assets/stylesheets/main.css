@@ -1,10 +1,9 @@
-.new-form {
-  text-align: center;
-  margin-top: 4em;
+/********** General Layout **********/
+.body {
+  font-family: 'IM Fell Double Pica SC', serif;
 }
 
 .layout-header {
-  /*background-color: #5284E8;*/
   background-color: rgba(114, 142, 166, 1.0);
 }
 
@@ -24,6 +23,25 @@ ul.wardrobe-show {
   list-style: none
 }
 
+/********** Logo **********/
+.logo {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 2em;
+}
+
+
+/********** Links **********/
+a {
+  text-decoration: none;
+  color: rgba(114, 142, 166, 1.0);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+/********** Buttons **********/
 button {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -36,6 +54,44 @@ button.bottom-item p, button.top-item p, button.shoe-item p {
   text-align: center;
   color: white;
 }
+
+
+/********** Login Form **********/
+.form-group {
+  color: rgba(114, 142, 166, 1.0);
+  font-family: 'IM Fell Double Pica SC', serif;
+}
+
+.form-group label {
+  font-size: 2.5em;
+}
+
+.form-group input {
+  height: 3.25em;
+  width: 250px;
+}
+
+.new-form {
+  text-align: center;
+  margin-top: 4em;
+}
+
+.new-form button {
+  font-family: 'IM Fell Double Pica SC', serif;
+  color: rgba(114, 142, 166, 1.0);
+  margin: 5px 10px;
+}
+
+.form-buttons {
+  font-family: 'IM Fell Double Pica SC', serif;
+  color: rgba(114, 142, 166, 1.0);
+  display: inline;
+  margin: 5px 10px;
+}
+
+
+
+
 
 h2.category-title {
   text-align: center;
@@ -72,6 +128,9 @@ div#article-choices {
   overflow: scroll;
 }
 
+
+
+/********** NavBar / Hamburger **********/
 ul.nav {
   float: right;
   margin-right: 25px;
@@ -108,6 +167,8 @@ ul.nav li {
     transform: rotate(-45deg);
 }
 
+
+/********** **********/
 .page-header {
   margin-top: 100px;
 }
