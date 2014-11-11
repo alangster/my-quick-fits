@@ -52,20 +52,24 @@ class Outfit < ActiveRecord::Base
 
     errors = outfit_error_messages(results)
     
+    outfit_so_far = [bottom_final]
+    
     tops = []
     current_layer = 0
     while current_layer < 4 do
       tops_current_layer = current_wardrobe.get_all_tops(current_layer)
-      results = Article.get_appropriate_articles(tops_current_layer, temperature, precipitation, formal, bottom_final)
+      results = Article.get_appropriate_articles(tops_current_layer, temperature, precipitation, formal, outfit_so_far)
       tops << results[:articles].sample
       break if results[:within_temp]
       current_layer += 1
+      outfit_so_far << tops.last
+      # colors = (colors + tops.map(&primary_color)).uniq
     end
 
     errors += outfit_error_messages(results)
 
     shoes = current_wardrobe.get_all_shoes
-    results = Article.get_appropriate_articles(shoes, temperature, precipitation, formal, bottom_final)
+    results = Article.get_appropriate_articles(shoes, temperature, precipitation, formal, outfit_so_far)
     shoes_final = results[:articles].sample
 
     errors += outfit_error_messages(results)
