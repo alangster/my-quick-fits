@@ -74,7 +74,7 @@ class OutfitsController < ApplicationController
 
   def outfits_all
     options = {events: []}
-    Outfit.all.each do |outfit|
+    current_wardrobe.worn_outfits.each do |outfit|
       articles = outfit.tops + [outfit.bottom, outfit.shoes]
       title = "\n" + articles.map {|article| "#{article.primary_color} #{article.category.name}"}.join("\n")
       options[:events] << {
