@@ -1,14 +1,14 @@
 $(document).ready(function(){
 
   function showArticles(response) {
-    var template = "{{#articles}}<div id='{{id}}' class='item-choice {{type_of}}' style='background-color:{{primary_color_hex}}'>" +
+    var template = "{{#articles}}<div id='{{id}}' class='item-choice {{type_of}}' style='{{color}}'>" +
                    "<img src='{{icon}}' class='category-image' /><p>{{name}}</p></div>{{/articles}}";
     var html = Mustache.to_html(template, response);
     $('#article-choices').html(html);
   }
 
   function replaceOriginalArticle(response) {
-    var template = "<div id='{{id}}' class='item {{type_of}}' style='background-color:{{primary_color_hex}}'>" +
+    var template = "<div id='{{id}}' class='item {{type_of}}' style='{{color}}'>" +
                    "<img src='{{icon}}' class='category-image' />{{name}}</div>";
     var html = Mustache.to_html(template, response);
     $('.isotope').isotope('remove', $('#' + currentArticleId));

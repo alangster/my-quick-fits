@@ -130,3 +130,8 @@ ul.nav li {
 #calendar {
   margin: 20px;
 }
+
+.btn-lg {
+  margin: 10px;
+  width: 200px;
+}

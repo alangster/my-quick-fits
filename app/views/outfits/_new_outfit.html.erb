@@ -1,15 +1,15 @@
 <div class="isotope">
   <% @tops.each do |top| %>
-  <div class="item" id="<%= top.id %>" style="background-color:<%= top.primary_color_hex %>">
+  <div class="item" id="<%= top.id %>" style="<%= top.render_gradient %>">
     <%= image_tag("#{top.get_icon_name}", class: "category-image") %>
     <%= top.category.name %>
   </div>
   <% end %>
-  <div class="item" id="<%= @bottom.id %>" style="background-color:<%= @bottom.primary_color_hex %>">
+  <div class="item" id="<%= @bottom.id %>" style="<%= @bottom.render_gradient %>">
     <%= image_tag("#{@bottom.get_icon_name}", class: "category-image") %>
     <%= @bottom.category.name %>
   </div>
-  <div class="item" id="<%= @shoes.id %>" style="background-color:<%= @shoes.primary_color_hex %>">
+  <div class="item" id="<%= @shoes.id %>" style="<%= @shoes.render_gradient %>">
     <%= image_tag("#{@shoes.get_icon_name}", class: "category-image") %>
     <%= @shoes.category.name %>
   </div>

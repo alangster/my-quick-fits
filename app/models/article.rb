@@ -97,4 +97,11 @@ class Article < ActiveRecord::Base
     ActionController::Base.helpers.asset_path(self.get_icon_name)
   end
 
+  def render_gradient
+    primary = self.primary_color_hex
+    secondary = (self.secondary_color_hex.nil? ? primary : self.secondary_color_hex)
+    tertiary = (self.tertiary_color_hex.nil? ? secondary : self.tertiary_color_hex)
+    "background: linear-gradient(#{primary} 50%,#{secondary} 50%,#{tertiary})"
+  end
+
 end
