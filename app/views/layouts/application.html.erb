@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>My Quick Fits</title>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <meta charset="UTF-8">
     <link rel="apple-touch-icon" href="">
   </head>
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top layout-header">
     	<div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,22 +36,7 @@
       <div class="error">
         <%= @message %>
       </div>
-      <div class="row">
-    <%= yield %>
-      </div>
+      <%= yield %>
     </div>
-
   </body>
 </html>
-
-<!-- <div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#">QuickFits</a>
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a>
-      </li>
-            </ul>
-  </div>
-</div> -->
