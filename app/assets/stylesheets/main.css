@@ -328,6 +328,11 @@ div#outfit-display {
   text-align: center;
 }
 
+.outfit-text {
+  color: rgba(0, 0, 0, 1.0);
+  -webkit-text-outline: 2px 1px #fff;
+}
+
 
 /********** **********/
 .category-image {
