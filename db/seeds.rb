@@ -238,7 +238,7 @@ NEUTRALS = ["Black", "White", "Grey", "Brown", "Navy", "Beige", "Bisque", "Blanc
 
 User.all.each do |user|
   wardrobe = user.wardrobes.create!
-  40.times do
+  200.times do
     category = Category.all.sample
     color = COLORS.sample
     color_hex = COLOR_HEXES[color]
@@ -258,7 +258,7 @@ User.all.each do |user|
                               water_delicate?: [false, false, false, false, false, false, true].sample,
                               times_worn: 0)
   end
-  3.times do
+  10.times do
     color = ['Dark Gray', 'Midnight Blue', 'Navy'].sample
     color_hex = COLOR_HEXES[color]
     wardrobe.articles.create!(category: Category.find_by_name('Jeans'),

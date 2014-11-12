@@ -8,7 +8,7 @@ class Article < ActiveRecord::Base
 
   include HamburgerHelper
 
-  NEUTRALS = ["Black", "White", "Grey", "Brown", "Navy", "Beige", "Bisque", "Blanched Almond", "Burly Wood", "Chocolate", "Cornsilk", "Dark Goldenrod", "Dark Gray", "Dark Khaki", "Dim Gray","Floral White", "Gainsboro", "Ghost White","Gray", "Honeydew", "Indigo", "Light Gray", "Slate Gray", "Midnight Blue", "Moccasin", "Navajo White", "Peru", "Saddle Brown", "Sienna", "Snow", "Tan", "Wheat", "White Smoke"]
+  NEUTRALS = ["Black", "White", "Grey", "Brown", "Navy", "Beige", "Bisque", "Blanched Almond", "Burly Wood", "Chocolate", "Cornsilk", "Dark Goldenrod", "Dark Gray", "Dark Khaki", "Dim Gray","Floral White", "Gainsboro", "Ghost White","Gray", "Honeydew", "Light Gray", "Slate Gray", "Midnight Blue", "Moccasin", "Navajo White", "Peru", "Saddle Brown", "Sienna", "Snow", "Tan", "Wheat", "White Smoke"]
 
   NO_NOS = {
     "Dress Pants"     => ["Sneakers", "TOMs", "Flip-Flops", "Sandals", "T-Shirt", "Tanktop", "Long-Sleeve T-Shirt", "Crewneack, Sweatshirt", "Hooded Pullover Sweatshirt", "Full-Zip Hooded Sweatshirt"],
@@ -38,7 +38,8 @@ class Article < ActiveRecord::Base
   def clean?
     # find most recent outfit that included item, check if older than 7 days
     # ignore shoes, jeans, jackets
-    self.times_worn == 0
+    # self.times_worn == 0
+    true
   end
 
   def within_temp?(temperature)
@@ -56,18 +57,20 @@ class Article < ActiveRecord::Base
   end
 
   def is_neutral?
-    NEUTRALS.include?(self.primary_color)
+    result = NEUTRALS.include?(self.primary_color) #&& NEUTRALS.include?(self.secondary_color)
+    # puts "#{self.primary_color}, #{self.secondary_color}" if result
+    result
   end
 
   def complementary?(other_articles)
-    complementary_colors?(self, other_articles) && complementary_styles?(self, other_articles)
+    self.complementary_colors?(other_articles) #&& complementary_styles?(self, other_articles)
   end
 
-  def complementary_colors?(article, other_articles)
-    if other_articles.all? { |article| article.is_neutral? }
+  def complementary_colors?(other_articles)
+    if other_articles.all? { |a| a.is_neutral? }
       return true
     else
-      article.is_neutral?
+      self.is_neutral?
     end
   end
 
@@ -76,11 +79,10 @@ class Article < ActiveRecord::Base
     true
   end
 
-  def self.get_appropriate_articles(articles, temperature, precipitation, formal, other_articles=nil)
+  def self.get_appropriate_articles(articles, temperature, precipitation, formal, other_articles=[])
     new_articles = articles.dup
     possibilities = new_articles
-    results = { articles: new_articles,
-                complementary: true,
+    results = { complementary: true,
                 proper_dress_code: true,
                 water_resistant: true,
                 good_condition: true,
@@ -95,7 +97,7 @@ class Article < ActiveRecord::Base
       possibilities.length != 0 ? new_articles = possibilities : results[:within_temp] = false
     end
 
-    if other_articles
+    if other_articles.length > 0
       possibilities = new_articles.select { |article| article.complementary?(other_articles) }
       possibilities.length != 0 ? new_articles = possibilities : results[:complementary] = false
     end
@@ -106,13 +108,6 @@ class Article < ActiveRecord::Base
     if precipitation
       possibilities = new_articles.select { |article| article.water_resistant? }
       possibilities.length != 0 ? new_articles = possibilities : results[:water_resistant] = false
-    end
-
-    possibilities = new_articles.select { |article| article.good_condition? }
-    possibilities.length != 0 ? new_articles = possibilities : results[:good_condition] = false
-
-    if !results[:good_condition]
-      
     end
 
     possibilities = new_articles.select { |article| article.clean? }
