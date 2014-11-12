@@ -21,7 +21,7 @@ $(document).ready(function() {
     $('#category-images').html(categoryImagesHtml);
   };
 
-  var categoryImagesHtml = $('#category-images').html(); 
+  var categoryImagesHtml = $('#category-images').html();
   if (categoryImagesHtml) {
     categoryImagesHtml = categoryImagesHtml.replace(/Select/g, "");
   }
@@ -30,20 +30,26 @@ $(document).ready(function() {
 
   $(".swatch").on("click", function(){
     var button = $(this);
-    button.css("background-color", "white");
-    button.html("Select a color");
-    var canvas = document.getElementById("capturedPhoto").fabric;
-    function doMouseDown(e) {
-      var x = e.e.layerX, y = e.e.layerY;
-      var c = canvas.getContext();
-      var p = c.getImageData(x, y, 1, 1).data;
-      button.css("background-color", "rgb(" + p[0] + ","+ p[1] + ","+ p[2] + ")");
-      button.html("");
-      var colorNum = button.attr("id");
-      $('input[name=' + colorNum.split("-")[0] + ']').val([p[0], p[1], p[2]]);
-      canvas.off('mouse:down', doMouseDown);
+    var fullHtml = '';
+    $('.swatch').each(function() {
+      fullHtml += $(this).html();
+    });
+    if(fullHtml === ''){
+      button.css("background-color", "white");
+      button.html("Select a color");
+      var canvas = document.getElementById("capturedPhoto").fabric;
+      function doMouseDown(e) {
+        var x = e.e.layerX, y = e.e.layerY;
+        var c = canvas.getContext();
+        var p = c.getImageData(x, y, 1, 1).data;
+        button.css("background-color", "rgb(" + p[0] + ","+ p[1] + ","+ p[2] + ")");
+        button.html("");
+        var colorNum = button.attr("id");
+        $('input[name=' + colorNum.split("-")[0] + ']').val([p[0], p[1], p[2]]);
+        canvas.off('mouse:down', doMouseDown);
+      }
+      canvas.on('mouse:down', doMouseDown);
     }
-    canvas.on('mouse:down', doMouseDown);
   });
 
   $(document).on('click', '.item-category', function(event) {
