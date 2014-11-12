@@ -10,9 +10,21 @@
 				<%= label_tag :password, "Password" %></br>
 				<%= password_field_tag :password %>
 		  </div>
-			<%= submit_tag "Login" %>
-			<% end %>
-			<%= link_to "Join Us", new_user_path %>
+		  <div class="form-buttons">
+				<%= submit_tag "Login" %>
+				<% end %>
+				<button><%= link_to "Join Us", new_user_path %></button>
+			</div>
 		</div>
 	</div>
 </div>
+
+<style type="text/css">
+	body { 
+	  background: url(menswear.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+</style>
