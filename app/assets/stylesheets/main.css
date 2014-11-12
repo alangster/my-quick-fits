@@ -121,7 +121,7 @@ button.bottom-item p, button.top-item p, button.shoe-item p {
   margin: 7px 0 15px;
 }
 
-#analysis-link button {
+#analysis-link .analysis {
   width: 300px;
   font-family: 'Oswald', sans-serif;
   font-size: 1.25em;
