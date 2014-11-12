@@ -1,28 +1,123 @@
-== README
+<b>MyQuickFits</b> is a tool to help men assemble the perfect outfit regardless of formality, weather, or a number of other real life variables. Dress like the freshest cat on the block with MyQuickFits.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Check it out! http://QuickFits.herokuapp.com
 
-Things you may want to cover:
+=== Sample Screenshots
 
-* Ruby version
+*Include Screenshots*
 
-* System dependencies
+=== System Requirements
+- Ruby 2.0.0 p-481
+- Rails 4.1.6
+- Postgres 9.3.5
+- Internet access
 
-* Configuration
+=== Personal Requirements
+- A strong desire to dress like a respectable human being
 
-* Database creation
+=== External APIs and Libraries
+<b>Forecast io</b>
 
-* Database initialization
+Real-time weather information 
 
-* How to run the test suite
+- API: https://developer.forecast.io/
+- Docs: https://developer.forecast.io/docs/v2
 
-* Services (job queues, cache servers, search engines, etc.)
+<b>Isotope</b>
 
-* Deployment instructions
+Sorting and filtering layouts
 
-* ...
+- Kitchen Sink: http://isotope.metafizzy.co/#v1
+- Github: https://github.com/metafizzy/isotope
+
+<b>Mustache</b>
+
+Framework-agnostic way to render logic-free views
+
+- Manual: http://mustache.github.io/mustache.5.html
+- Ruby: https://github.com/mustache/mustache
+
+<b>Fabric.js</b>
+
+Create, populate, and doing crazy stuff with objects on canvas
+
+- Tutorial: http://fabricjs.com/articles/
+- Docs: http://fabricjs.com/docs/
+
+<b>PxLoader</b>
+
+JavaScript preloader for HTML5 applications
+
+- Samples: http://thinkpixellab.com/pxloader/#sample1
+- Docs: http://thinkpixellab.com/pxloader/#api
+
+=== Getting Started
+
+1. Clone to local machine: <tt>git clone https://github.com/devdame/DBC-final-project.git campuslyfe</tt>
+2. Install dependencies: <tt>bundle</tt>
+3. Initialize database: <tt>rake db:reset</tt>
+4. Run server: <tt>rails s</tt>
+5. Visit http://localhost:3000
+
+=== Workflow
+
+<em>As a collaborator on this project, I hold myself to a high standard of code, commit often, and never push to the master branch.</em>
+
+1. Starting out, or if using a new development workstation:
+
+   <tt>git clone https://github.com/alangster/my-quick-fits.git</tt>
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. Create new branch for the feature you're working on:
+
+   <tt>git checkout -b Joe_sweetbranch</tt>
+3. To bring the local code base up-to-date, first checkout master branch:
+
+   <tt>git checkout master</tt>
+
+4. Pull in the latest code from the master brach:
+
+   <tt>git pull origin master</tt>
+
+5. Then switch back to your feature branch before merging code from master:
+
+   <tt>git checkout Joe_sweetbranch</tt>
+
+6. Now merge the updated master branch code into your current feature branch:
+
+   <tt>git merge master</tt>
+
+7. Now you may work on the code for your feature branch. COMMIT OFTEN.
+
+8. When you are ready to submit code to the project repo, go ahead and commit one more time. First include files that were changed:
+
+   <tt>git add .</tt>
+
+9. Then commit the changes you've made:
+
+   <tt>git commit -m "Added sweet feature to do sweet thing"</tt>
+
+10. Repeat step <b>3 through 6</b> to ensure your code base is up-to-date with any changes to master that might have occured in the time you were working on your feature branch. Solve conflicts if present.
+
+11. Push your code to your remote feature branch:
+
+    <tt>git push origin Joe_sweetbranch</tt>
+
+12. Submit a pull request on Github for code review.
+
+=== Database Schema
+
+http://s1294.photobucket.com/user/jhendge/media/ScreenShot2014-11-11at103215AM_zps2662df56.png.html?filters[user]=141818714&filters[recent]=1&sort=1&o=0
+
+=== Running the Test Suite
+
+<tt>rspec</tt>
+
+=== Brought to You By
+http://s1294.photobucket.com/user/jhendge/media/Mobile%20Uploads/2014-11/FFC6984F-1288-4762-A870-C06FADE37DD9_zpseutiswcm.png.html?filters[user]=141818714&filters[recent]=1&sort=1&o=1
+
+Alex:: https://github.com/alangster
+Peter:: https://github.com/peterxjang
+Aaron:: https://github.com/candidkilsborne
+Joe:: https://github.com/jhendge
+Isaac:: https://github.com/iceykohnn
