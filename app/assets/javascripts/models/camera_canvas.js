@@ -44,33 +44,35 @@ function sendRGB(mainColor, otherColors) {
 }
 
 function picChange(e){
-	var opts = {
-	  lines: 13, // The number of lines to draw
-	  length: 20, // The length of each line
-	  width: 10, // The line thickness
-	  radius: 30, // The radius of the inner circle
-	  corners: 1, // Corner roundness (0..1)
-	  rotate: 0, // The rotation offset
-	  direction: 1, // 1: clockwise, -1: counterclockwise
-	  color: '#000', // #rgb or #rrggbb or array of colors
-	  speed: 1, // Rounds per second
-	  trail: 60, // Afterglow percentage
-	  shadow: false, // Whether to render a shadow
-	  hwaccel: false, // Whether to use hardware acceleration
-	  className: 'spinner', // The CSS class to assign to the spinner
-	  zIndex: 2e9, // The z-index (defaults to 2000000000)
-	  top: '50%', // Top position relative to parent
-	  left: '50%' // Left position relative to parent
-	};
-	var target = document.getElementById('upload-display');
-	var spinner = new Spinner(opts).spin(target);
 
-
+	var spinner;
 
 	var fabricCanvas = document.getElementById("capturedPhoto").fabric;
 	fabricCanvas.clear();
 	var reader = new FileReader();
 	var imgObj = new Image();
+	reader.onloadstart = function(event) {
+		var opts = {
+		  lines: 13, // The number of lines to draw
+		  length: 20, // The length of each line
+		  width: 10, // The line thickness
+		  radius: 30, // The radius of the inner circle
+		  corners: 1, // Corner roundness (0..1)
+		  rotate: 0, // The rotation offset
+		  direction: 1, // 1: clockwise, -1: counterclockwise
+		  color: '#000', // #rgb or #rrggbb or array of colors
+		  speed: 1, // Rounds per second
+		  trail: 60, // Afterglow percentage
+		  shadow: false, // Whether to render a shadow
+		  hwaccel: false, // Whether to use hardware acceleration
+		  className: 'spinner', // The CSS class to assign to the spinner
+		  zIndex: 2e9, // The z-index (defaults to 2000000000)
+		  top: '50%', // Top position relative to parent
+		  left: '50%' // Left position relative to parent
+		};
+		var target = document.getElementById('upload-display');
+		spinner = new Spinner(opts).spin(target);
+	};
 	reader.onloadend = function(event) {
 		imgObj.src = event.target.result;
 		imgObj.onload = function() {
@@ -95,7 +97,7 @@ function picChange(e){
 			// var rgb = primaryColor;
 			// $('#upload-display').css("background-color", "rgb("+rgb[0]+","+rgb[1]+","+rgb[2]+")");
 			spinner.stop();
-		}
+		};
 	};
 	var fileInput = e.target.files;
 	if (fileInput.length > 0) {
@@ -114,5 +116,16 @@ $(document).ready(function(){
 	  fabricCanvas.renderOnAddRemove = false;
 		$canvas.fabric = fabricCanvas;
 	}
+
+  window.addEventListener('resize', function() {
+		var $canvas = document.getElementById("capturedPhoto")
+		if ($canvas != null) {
+			var canvas = $canvas.fabric;
+	    canvas.setWidth($("#upload-display").width());
+	    canvas.setHeight($("#upload-display").height());
+	    canvas.renderAll();
+	  }
+  }, false);
+
 });
 
