@@ -254,7 +254,6 @@ User.all.each do |user|
                               secondary_color_hex: second_color_hex,
                               tertiary_color: third_color,
                               tertiary_color_hex: third_color_hex,
-                              formal?: [true, false].sample,
                               water_proof?: [true, false].sample,
                               water_delicate?: [false, false, false, false, false, false, true].sample,
                               times_worn: 0)

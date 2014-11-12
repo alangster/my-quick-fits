@@ -12,6 +12,15 @@ class OutfitsController < ApplicationController
 		@tops = clothes[:tops]
 		@bottom = clothes[:bottom]
 		@shoes = clothes[:shoes]
+    @message = clothes[:errors].join(" ")
+    rain_jacket = current_wardrobe.articles.where(category: Category.find_by(name: "Rain Jacket"))[0]
+    if precip > 0.5 && rain_jacket && temp <= rain_jacket.category.max_temp
+      if @tops.last.category.layerable < 3
+        @tops << rain_jacket
+      else
+        @tops[-1] = rain_jacket
+      end
+    end
 		@outfit = Outfit.new
 	end
 

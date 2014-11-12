@@ -48,6 +48,8 @@ gem 'capistrano-rvm', github: "capistrano/rvm"
 # Use unicorn as the app server
 gem 'unicorn', group: :production
 
+gem 'jquery-minicolors-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

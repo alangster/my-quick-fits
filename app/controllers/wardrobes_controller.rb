@@ -8,10 +8,19 @@ class WardrobesController < ApplicationController
 
 	def analysis
  		@missing_categories = Category.find_missing(current_wardrobe)
- 		@stats = {
- 			color_percentages: current_wardrobe.color_percentages,
- 			damaged_items:     current_wardrobe.damaged
- 		}
+    @favorite_categories = item_counts(current_wardrobe.articles.map {|article| article.category}).first(3)
+ 		@damaged = current_wardrobe.damaged
+ 		@avg_count = Article.all.count / User.all.count
+    @tops_percent = calculate_percent(current_wardrobe.get_articles_type_of("Top").count, current_wardrobe.articles.count)
+    @avg_tops = Article.all.select {|article| article.category.type_of == "Top"}.count / User.all.count
+    @bottoms_percent = calculate_percent(current_wardrobe.get_articles_type_of("Bottom").count, current_wardrobe.articles.count)
+    @avg_bottoms = Article.all.select {|article| article.category.type_of == "Bottom"}.count / User.all.count
+    @shoes_percent = calculate_percent(current_wardrobe.get_articles_type_of("Shoes").count, current_wardrobe.articles.count)
+    @avg_shoes = Article.all.select {|article| article.category.type_of == "Shoes"}.count / User.all.count
+
+    @fav_colors = item_percents(current_wardrobe.articles.map {|article| article.primary_color}, current_wardrobe.articles.count).first(3)
+    @least_categories = item_counts(current_wardrobe.articles.map {|article| article.category}).last(3)
+    @least_fav_colors = item_percents(current_wardrobe.articles.map {|article| article.primary_color}, current_wardrobe.articles.count).last(3)
  	end
 
   def wardrobe_categories

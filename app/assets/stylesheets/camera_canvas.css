@@ -13,14 +13,17 @@
   border: 3px dotted #444;
   display: inline-block;
   margin: 5px;
+  vertical-align:top;
 }
 
 .item-category {
   width: 70px;
   height: 70px;
   margin: 5px;
+  padding: 2px;
   display: inline-block;
   border: 1px solid gray;
+  vertical-align:top;
 }
 
 .item-category img{
