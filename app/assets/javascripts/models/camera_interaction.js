@@ -21,7 +21,10 @@ $(document).ready(function() {
     $('#category-images').html(categoryImagesHtml);
   };
 
-  var categoryImagesHtml = $('#category-images').html().replace(/Select/g, "");
+  var categoryImagesHtml = $('#category-images').html(); 
+  if (categoryImagesHtml) {
+    categoryImagesHtml = categoryImagesHtml.replace(/Select/g, "");
+  }
 
   var currentCategoryId;
 
