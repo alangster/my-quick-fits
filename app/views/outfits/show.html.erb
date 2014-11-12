@@ -2,7 +2,11 @@
 
 <div class="stats">
 <p>Statistics</p>
-<p>Number of times you've worn this outfit: <%= @count %></p>
+<% if @count != 1 %>
+	<p>You've worn this outfit <%= @count %> times.</p>
+<% else %>
+	<p>You've worn this outfit 1 time.</p>
+<% end %>
 </div>
 
 <div id="outfit-display">
