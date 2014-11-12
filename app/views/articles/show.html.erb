@@ -10,7 +10,7 @@
 	<div id="tertiary-color-wheel"></div>
 </div>
 <h3>You've worn this <%= @article.times_worn %> times.</h3>
-<h3>The last time you wore this was <%= @article.times_worn %>.</h3>
+<h3><% if @article.most_recent_wear %><%= @article.most_recent_wear %><% end %></h3>
 <h3>This <%= @article.category.name %> has been in your wardrobe since <%= @article.created_at.strftime("%B %d, %Y") %>.</h3>
 <h3>Condition: <%= @article.descriptive_condition %><h3> 
 

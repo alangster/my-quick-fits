@@ -141,4 +141,13 @@ class Article < ActiveRecord::Base
     "Fresh" unless /S+/.match(self.condition)
   end
 
+  def most_recent_wear
+    wear_dates = self.outfits.pluck(:created_at)
+    if wear_dates == []
+      false
+    else
+      "The last time you wore this was #{wear_dates.last.strftime("%B %d, %Y")}."
+    end
+  end
+
 end
