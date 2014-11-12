@@ -1,17 +1,15 @@
 /********** General Layout **********/
 .body {
-
+  font-family: 'Belleza', sans-serif;
 }
 
-.btn-lg {
-  margin: 10px;
-  width: 200px;
+.row {
+  margin-top: 35px;
 }
-
 
 /********** Navbar **********/
 .layout-header {
-  background-color: #5284E8;
+  background-color: rgba(0, 16, 74, 1.0);
 }
 
 .layout-header ul {
@@ -56,6 +54,83 @@ ul.nav li {
 .navbar-toggle.active .icon-bar:nth-of-type(3) {
     top: -6px;
     transform: rotate(-45deg);
+}
+
+
+/********** Logo **********/
+.logo {
+  font-family: 'Belleza', sans-serif;
+  font-size: 2em;
+  margin: 10px 15px;
+}
+
+
+/********** Links **********/
+a {
+  text-decoration: none;
+  color: rgba(114, 142, 166, 1.0);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/********** Buttons **********/
+button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+button.bottom-item, button.top-item, button.shoe-item {
+
+}
+
+button.bottom-item p, button.top-item p, button.shoe-item p {
+  text-align: center;
+  color: white;
+}
+
+.btn-lg {
+  margin: 10px;
+  width: 200px;
+}
+
+
+/********** Login Form **********/
+.form-group {
+  font-family: 'Belleza', sans-serif;
+  color: rgba(0, 16, 74, 1.0);
+}
+
+.form-group label {
+  font-size: 2.5em;
+  color: rgba(0, 16, 74, 1.0);
+}
+
+.form-group input {
+  height: 3.25em;
+  width: 250px;
+}
+
+.new-form {
+  text-align: center;
+  margin-top: 4em;
+}
+
+.new-form button {
+  font-family: 'Belleza', sans-serif;
+  color: rgba(0, 16, 74, 1.0);
+  margin: 5px 10px;
+}
+
+.form-buttons {
+  font-family: 'Belleza', sans-serif;
+  display: inline;
+  color: rgba(0, 16, 74, 1.0);
+  margin: 5px 10px;
+}
+
+.form-buttons button a {
+  color: rgba(0, 16, 74, 1.0);
 }
 
 
@@ -105,6 +180,9 @@ h2.category-title {
   margin: 0 auto;
 }
 
+.item a, .item-choice a, .item-outfit a {
+}
+
 .item-outfit {
   width: 200px;
   height: 200px;
@@ -112,6 +190,8 @@ h2.category-title {
   padding: 10px;
 }
 
+
+/********** **********/
 .category-image {
   display: block;
   height: 60%;
