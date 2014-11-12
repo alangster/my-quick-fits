@@ -93,6 +93,64 @@ module ApplicationHelper
     [name, hex]
   end
 
+  def color_name(hex)
+    hex.nil? ? nil : RgbTriplet.new(to_rgb(hex)).name
+  end
+
+  def to_rgb(hex)
+    hex.delete('#').scan(/\S{2}/).map(&:hex)
+  end
+
+  def calculate_percent(top_number, total)
+    (top_number / total.to_f * 100).to_i
+  end
+
+  # def get_count_hash(mode, limit=nil)
+  #   count_hash = mode.inject({}) { |k, v| k[v] = mode.count(v); k }
+  #   if limit.nil?
+  #     count_hash = count_hash.sort_by{|k,v| v}.first(limit)
+  #   end
+  #   count_hash
+  # end
+
+  # def mode(mode)
+  #   mode_return = get_count_hash(mode)
+  #   mode_return.select { |k,v| v == mode_return.values.max }.keys
+  # end
+  def item_counts_hash(ary)
+    seen = Hash.new(0)
+    ary.each {|value| seen[value] += 1}
+    seen
+    # max = seen.values.max
+    # seen.find_all {|key,value| value == max}[0] #.map {|key,value| key}
+  end
+
+  def item_counts(ary)
+    item_counts_hash(ary).sort_by {|k,v| -v}
+  end
+
+  def mode(ary)
+    seen = item_counts_hash(ary)
+    max = seen.values.max
+    seen.find_all {|key,value| value == max}[0] #.map {|key,value| key}
+  end
+
+  def last_wear(category)
+    dates = []
+    Outfit.get_worn_outfits(current_wardrobe).each do |outfit|
+      outfit.articles.each do |article|
+        if article.category == category
+          dates << outfit.created_at
+        end
+      end
+    end
+    return dates.length != 0 ? dates.sort.last : "never"
+  end
+
+  def item_percents(ary, total)
+    item_counts(ary).map {|item, count| [item, calculate_percent(count,total)]}
+  end
+
 end
 
 

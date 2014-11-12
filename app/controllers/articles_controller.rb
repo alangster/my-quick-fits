@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 			secondary_color_hex: secondary_color_hex,
 			tertiary_color:   tertiary_color_name,
 			tertiary_color_hex: tertiary_color_hex,
-			times_worn: 0 
+			times_worn: 0
 			)
 		if article.save
 			redirect_to current_user
@@ -37,12 +37,23 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
+		p params
+		# creater RgbTriplet objects using hex, find name
 		@article = Article.find(params[:id])
-		@article.update_attributes(article_update_params)
+		@article.primary_color_hex   = params["primary-hex"] unless params["primary-hex"] == ""
+		@article.primary_color       = color_name(@article.primary_color_hex) #params["primary-name"] unless params["primary-name"] == ""
+		@article.secondary_color_hex = params["secondary-hex"] unless params["secondary-hex"] == ""
+		@article.secondary_color     = color_name(@article.secondary_color_hex) #params["secondary-name"] unless params["secondary-name"] == ""
+		@article.tertiary_color_hex  = params["tertiary-hex"] unless params["tertiary-hex"] == ""
+		@article.tertiary_color      = color_name(@article.tertiary_color_hex) #params["tertiary-name"] unless params["tertiary-name"] == ""
+		@article.condition           = params[:article][:condition] unless params[:article][:condition].blank?
+
 		if @article.save
 			redirect_to current_wardrobe
 		else
+			@message = @article.errors.first
 			render "show"
+
 		end
 	end
 

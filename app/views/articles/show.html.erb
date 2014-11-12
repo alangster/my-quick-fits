@@ -4,6 +4,11 @@
     <%= @article.category.name %>
   </div>
 </div>
+<div id="color-wheels">
+	<div id="primary-color-wheel"></div>
+	<div id="secondary-color-wheel"></div>
+	<div id="tertiary-color-wheel"></div>
+</div>
 <table>
 	<tr>
 		<th colspan=2>Stats</th>
@@ -16,14 +21,12 @@
 	</tr>
 </table>
  <%= form_for @article do |f| %>
-	<%= f.label :primary_color %></br>
-	<%= f.text_field :primary_color %></br>
-	<%= f.label :secondary_color %></br>
-	<%= f.text_field :secondary_color %></br>
-	<%= f.label :tertiary_color %></br>
-	<%= f.text_field :tertiary_color %></br>
+	<input type="hidden" name="primary-hex" value="<%= @article.primary_color_hex %>">	
+	<input type="hidden" name="secondary-hex" value="<%= @article.secondary_color_hex %>">	
+	<input type="hidden" name="tertiary-hex" value="<%= @article.tertiary_color_hex %>">	
 	<%= f.label :condition %></br>
 	<%= f.text_field :condition %></br>
  	<%= f.submit %>
  <% end %>
+
 

@@ -32,6 +32,9 @@ class Outfit < ActiveRecord::Base
     count
   end
 
+  def self.get_worn_outfits(wardrobe)
+    wardrobe.outfits
+  end
 
   def self.outfit_error_messages(results)
     s = []
@@ -52,7 +55,7 @@ class Outfit < ActiveRecord::Base
     errors = outfit_error_messages(results)
 
     outfit_so_far = [bottom_final]
-    
+
     tops = []
     current_layer = 0
     while current_layer < 4 do
