@@ -29,7 +29,7 @@ $(document).ready(function(){
     };
   }
 
-  $('#formality input').on("change", function(event){
+  var post_formality = function(event) {
     var formality = 0;
     if ($('input[name=outfit]:checked', '#formality').val() == "formal") {
       formality = 1;
@@ -46,7 +46,9 @@ $(document).ready(function(){
         });
       }
     });
-  });
+  };
+
+  $('#formality input').on("change", post_formality);
 
   var currentArticleId;
 
@@ -73,7 +75,6 @@ $(document).ready(function(){
       data: {id: $(this).attr("id")},
       success: function(result) {
         replaceOriginalArticle(result);
-        console.log(result);
       }
     });
   });
@@ -106,7 +107,6 @@ $(document).ready(function(){
       }
     });
     $("#like-outfit").prop('disabled', true);
-    $("#dislike-outfit").prop('disabled', false);
   });
 
   $(document).on('click', '#dislike-outfit', function(e) {
@@ -132,8 +132,8 @@ $(document).ready(function(){
         console.log(result);
       }
     });
+    post_formality(e);
     $("#like-outfit").prop('disabled', false);
-    $("#dislike-outfit").prop('disabled', true);
   });
 });
 

@@ -13,7 +13,7 @@ $(document).ready(function() {
           },
           defaultView: 'basicWeek',
           eventSources: [result]
-        }); 
+        });
       }
     });
   }

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>My Quick Fits</title>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <meta charset="UTF-8">
     <link rel="apple-touch-icon" href="">
+    <link href='http://fonts.googleapis.com/css?family=Belleza' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    
+    <script type="text/javascript">
+      document.addEventListener("touchstart", function(){}, true);
+    </script>
 
     <div class="navbar navbar-inverse navbar-fixed-top layout-header">
     	<div class="navbar-header">
@@ -22,10 +28,10 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <% if current_user %>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Home", current_user %></button></li>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Wardrobe", current_wardrobe %></button></li>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Outfits", outfits_path %></button></li>
-              <li><button class="btn btn-default navbar-btn"><%= link_to "Log Out", logout_path %></button></li>
+              <li><%= link_to "Home", current_user, :class => "btn btn-default navbar-btn" %></li>
+              <li><%= link_to "Wardrobe", current_wardrobe, :class => "btn btn-default navbar-btn" %></li>
+              <li><%= link_to "Outfits", outfits_path, :class => "btn btn-default navbar-btn" %></li>
+              <li><%= link_to "Log Out", logout_path, :class => "btn btn-default navbar-btn" %></li>
             <% end %>
           </ul>
         </div>
@@ -36,22 +42,7 @@
       <div class="error">
         <%= @message %>
       </div>
-      <div class="row">
-    <%= yield %>
-      </div>
+      <%= yield %>
     </div>
-
   </body>
 </html>
-
-<!-- <div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#">QuickFits</a>
-  </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a>
-      </li>
-            </ul>
-  </div>
-</div> -->

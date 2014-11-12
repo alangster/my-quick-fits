@@ -1,11 +1,23 @@
-.new-form {
-  text-align: center;
-  margin-top: 4em;
+/********** General Layout **********/
+.body {
+  font-family: 'Belleza', sans-serif;
 }
 
+.row {
+  margin-top: 35px;
+}
+
+/*.show-row {
+  background: url(background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+/********** Navbar **********/
 .layout-header {
-  /*background-color: #5284E8;*/
-  background-color: rgba(114, 142, 166, 1.0);
+  background-color: rgba(0, 16, 74, 1.0);
 }
 
 .layout-header ul {
@@ -14,69 +26,6 @@
 
 .layout-header li {
   display: inline
-}
-
-div #welcome {
-  text-align: center
-}
-
-ul.wardrobe-show {
-  list-style: none
-}
-
-button.bottom-item, button.top-item, button.shoe-item {
-
-}
-
-button.bottom-item p, button.top-item p, button.shoe-item p {
-  text-align: center;
-  color: white;
-}
-
-h2.category-title {
-  text-align: center;
-}
-
-.item, .item-choice, .item-outfit {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 3px 3px 4px #bbb;
-  color: #000;
-  text-align: center;
-  text-shadow: 1px 1px 2px #bbb;
-}
-
-.item img, .item-choice img, .item-outfit img {
-  display: block;
-  margin: 0 auto;
-}
-.item a, .item-choice a, .item-outfit a {
-}
-
-.item-outfit {
-  width: 200px;
-  height: 200px;
-  margin: 5px;
-  padding: 10px;
-}
-
-.category-image {
-  display: block;
-  height: 60%;
-  width: 60%;
-}
-
-div#article-choices {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: auto;
-  background-color: rgba(0,0,0,0.8);
-  z-index: 1;
-  overflow: scroll;
 }
 
 ul.nav {
@@ -115,23 +64,172 @@ ul.nav li {
     transform: rotate(-45deg);
 }
 
-.page-header {
-  margin-top: 100px;
+.navbar-toggle {
+  margin-top: 20px;
 }
 
-.container-fluid {
-  margin-top: 60px;
+.nav .navbar-btn {
+  font-family: 'Belleza', sans-serif;
 }
 
-.items {
+
+/********** Logo **********/
+.logo {
+  font-family: 'Belleza', sans-serif;
+  font-size: 2em;
+  margin: 10px 15px;
+}
+
+
+/********** Links **********/
+a {
+  text-decoration: none;
+  color: rgba(114, 142, 166, 1.0);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/********** Buttons **********/
+button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+button.bottom-item, button.top-item, button.shoe-item {
+
+}
+
+button.bottom-item p, button.top-item p, button.shoe-item p {
   text-align: center;
-}
-
-#calendar {
-  margin: 20px;
+  color: white;
 }
 
 .btn-lg {
   margin: 10px;
   width: 200px;
+}
+
+
+/********** Login Form **********/
+.form-group {
+  font-family: 'Belleza', sans-serif;
+  color: rgba(0, 16, 74, 1.0);
+}
+
+.form-group label {
+  font-size: 2.5em;
+  color: rgba(0, 16, 74, 1.0);
+}
+
+.form-group input {
+  height: 3.25em;
+  width: 250px;
+}
+
+.new-form {
+  text-align: center;
+  margin-top: 4em;
+}
+
+.new-form button {
+  font-family: 'Belleza', sans-serif;
+  color: rgba(0, 16, 74, 1.0);
+  margin: 5px 10px;
+}
+
+.form-buttons {
+  font-family: 'Belleza', sans-serif;
+  display: inline;
+  color: rgba(0, 16, 74, 1.0);
+  margin: 5px 10px;
+}
+
+.form-buttons button a {
+  color: rgba(0, 16, 74, 1.0);
+}
+
+
+/********** Header **********/
+.page-header {
+  margin-top: 100px;
+  text-align: center
+}
+
+.page-header h1 {
+  font-family: 'Belleza', sans-serif;
+}
+
+.new-form {
+  text-align: center;
+  margin-top: 4em;
+}
+
+ul.wardrobe-show {
+  list-style: none
+}
+
+button.bottom-item p, button.top-item p, button.shoe-item p {
+  text-align: center;
+  color: white;
+}
+
+h2.category-title {
+  text-align: center;
+}
+
+
+/********** Items **********/
+.items {
+  font-family: 'Belleza', sans-serif;
+  text-align: center;
+}
+
+.item, .item-choice, .item-outfit {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 4px #bbb;
+  color: #000;
+  text-align: center;
+  text-shadow: 1px 1px 2px #bbb;
+}
+
+.item img, .item-choice img, .item-outfit img {
+  display: block;
+  margin: 0 auto;
+}
+
+.item a, .item-choice a, .item-outfit a {
+}
+
+.item-outfit {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  padding: 10px;
+}
+
+
+/********** **********/
+.category-image {
+  display: block;
+  height: 60%;
+  width: 60%;
+}
+
+div#article-choices {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  overflow: scroll;
+}
+
+#calendar {
+  margin: 20px;
 }
