@@ -280,6 +280,55 @@ h2.category-title {
 }
 
 
+/********** Show Outfit Page **********/
+.quote {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.0);
+  border-left: 10px solid rgba(0, 16, 74, 1.0);
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+cite {
+  display: block;
+  float: right;
+  font-size: 1.25em;
+}
+
+blockquote:before {
+  color: rgba(0, 16, 74, 1.0);
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote:after {
+  color: rgba(0, 16, 74, 1.0);
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  font-family: 'Oswald', sans-serif;
+  display: inline-block;
+  font-size: 1.75em;
+}
+
+.stats {
+  font-family: 'Oswald', sans-serif;
+}
+
+div#outfit-display {
+  text-align: center;
+}
+
+
 /********** **********/
 .category-image {
   display: block;
