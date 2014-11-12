@@ -27,7 +27,7 @@ class Outfit < ActiveRecord::Base
   def count_similar_outfits
     count = 0
     Outfit.all.each do |outfit|
-      count += 1 if self.articles == outfit.articles
+      count += 1 if self.articles == outfit.articles && outfit.like == 0
     end
     count
   end

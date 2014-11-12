@@ -1,8 +1,11 @@
 <h2>"<%= @fashion_quote %>"</h2><h3><%= @fashion_quote_author %></h3>
 
 <div class="stats">
-<p>Statistics</p>
-<p>Number of times you've worn this outfit: <%= @count %></p>
+<% if @count != 1 %>
+	<h3>You've worn this outfit <%= @count %> times.</h3>
+<% else %>
+	<h3>You've worn this outfit 1 time.</h3>
+<% end %>
 </div>
 
 <div id="outfit-display">

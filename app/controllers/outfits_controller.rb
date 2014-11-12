@@ -31,6 +31,7 @@ class OutfitsController < ApplicationController
 
 	def create
     outfit = create_outfit_record(params)
+    outfit.articles.each {|article| article.increment!(:times_worn)}
     redirect_to outfit
 	end
 
