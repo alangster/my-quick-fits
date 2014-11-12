@@ -1,27 +1,40 @@
-
-
-div#wardrobe-analysis {
+/********** Analysis General Style **********/
+div.wardrobe-analysis {
   font-family: 'Oswald', sans-serif;
   margin: 0;
   padding: 0;
 }
-div#wardrobe-analysis h2 {
+
+div.wardrobe-analysis h2 {
   font-size: 5em;
   padding-top: 0.5em;
 }
 
-div#wardrobe-analysis ul {
+div.wardrobe-analysis ul {
   list-style: none;
   padding-left: 10px;
   padding-bottom: 1em;
 }
 
-div#wardrobe-analysis h3 {
+div.wardrobe-analysis h3 {
   padding-left: 10px;
   font-size: 2em;
 }
 
-div#wardrobe-analysis h4 {
+div.wardrobe-analysis h4 {
   margin: 0;
   padding-top: 15px;
+}
+
+/********** Specific Styles **********/
+div#things-you-own {
+  text-align: center;
+}
+
+div#stuff-you-like {
+  text-align: center;
+}
+
+div#stuff-you-not-like {
+  text-align: center;
 }
