@@ -29,11 +29,10 @@ function colorWheels() {
 
 $(function() {
 
-	
-
 	$('#show-edit-article-form').on('click', function(e) {
 		e.preventDefault();
 		$(this).hide();
+		$('#condition-description').hide();
 		colorWheels();
 		$('#update-item-form').show();
 	});
