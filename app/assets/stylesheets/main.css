@@ -115,6 +115,12 @@ button.bottom-item p, button.top-item p, button.shoe-item p {
 }
 
 
+/********** Welcome Page Buttons **********/
+.show-row .user-options {
+  background-color: rgba(0, 16, 74, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+}
+
 /********** Wardrobe Top Buttons **********/
 #analysis-link {
   text-align: center;
@@ -194,6 +200,7 @@ button.bottom-item p, button.top-item p, button.shoe-item p {
 
 .page-header h1 {
   font-family: 'Belleza', sans-serif;
+  color: rgba(0, 16, 74, 1.0);
 }
 
 .new-form {
