@@ -42,9 +42,12 @@
 }
 
 canvas {
-	width: 100%;
+	width: 50%;
 	height: auto;
-	border: 1px solid black;
+  border-top: 5px dashed #ccc;
+	border-bottom: 5px dashed #ccc;
+  margin: auto;
+  text-align:center;
 }
 
 .fileUpload {
