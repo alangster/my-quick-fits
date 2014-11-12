@@ -65,10 +65,13 @@ function drawImageIOSFix(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {
     //         console.log("hi");
     //     }
     // }
-    if (iOS) {
+        // console.log(detectTransparency(ctx));
+    if (iOS && detectTransparency(ctx)) {
       var angle = Math.PI/2;
       ctx.rotate(angle);
-      ctx.drawImage(img, sx, sy, sw, sh * 2.041);
+      // ctx.drawImage(img, sx, sy, sw, sh * 2.041);
+      ctx.drawImage(img, sx * vertSquashRatio, sy * vertSquashRatio,
+                       sw * vertSquashRatio, sh * vertSquashRatio);
       ctx.rotate(-angle);
     }
     else {
