@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
 			times_worn: 0
 			)
 		if article.save
+			flash[:notice] = "#{article.category.name} successfully added!"
 			redirect_to current_user
 		else
 			@article = Article.new
