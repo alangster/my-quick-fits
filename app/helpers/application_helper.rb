@@ -104,22 +104,14 @@ module ApplicationHelper
     hex.delete('#').scan(/\S{2}/).map(&:hex)
   end
 
+  def dark?(rgb_arr)
+    rgb.all? {|val| val <= 50 }
+  end
+
   def calculate_percent(top_number, total)
     (top_number / total.to_f * 100).to_i
   end
 
-  # def get_count_hash(mode, limit=nil)
-  #   count_hash = mode.inject({}) { |k, v| k[v] = mode.count(v); k }
-  #   if limit.nil?
-  #     count_hash = count_hash.sort_by{|k,v| v}.first(limit)
-  #   end
-  #   count_hash
-  # end
-
-  # def mode(mode)
-  #   mode_return = get_count_hash(mode)
-  #   mode_return.select { |k,v| v == mode_return.values.max }.keys
-  # end
   def item_counts_hash(ary)
     seen = Hash.new(0)
     ary.each {|value| seen[value] += 1}
@@ -156,16 +148,3 @@ module ApplicationHelper
 
 end
 
-
-
-# def daily_forecast(latitude, longitude)
-#     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-#     current_weather = ForecastIO.forecast(session[:latitude], session[:longitude])
-#     forecast = []
-#     summary = current_weather.daily.data[0].summary
-#     maxTemp = current_weather.daily.data[0].temperatureMax
-#     minTemp = current_weather.daily.data[0].temperatureMin
-#     chanceOfRain = current_weather.daily.data[0].precipProbability
-#     forecast << summary << maxTemp << minTemp << chanceOfRain
-#     forecast
-#   end
