@@ -130,13 +130,11 @@ class Article < ActiveRecord::Base
   end
 
   def get_icon_name
-    puts icon_name(self.category.name)
-    icon_name(self.category.name)
+    icon_name(self.category.name, self.primary_color_hex)
   end
 
   def get_asset_icon_name
-    puts asset_icon_name(self.category.name)
-    asset_icon_name(self.category.name)
+    asset_icon_name(self.category.name, self.primary_color_hex)
   end
 
 end

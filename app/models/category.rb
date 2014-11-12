@@ -27,11 +27,11 @@ class Category < ActiveRecord::Base
 	end
 
 	def get_icon_name
-		icon_name(self.name)
+		icon_name(self.name, "#FFFFFF")
 	end
 
 	def get_asset_icon_name
-		asset_icon_name(self.name)
+		asset_icon_name(self.name, "#FFFFFF")
 	end
 
 	private
