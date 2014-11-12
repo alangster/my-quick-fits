@@ -30,6 +30,7 @@ class Wardrobe < ActiveRecord::Base
 
     wardrobe_count = self.articles.count
     color_percentages_hash(colors.map {|color| { "#{color}" => (self.articles.where(primary_color: color).count / wardrobe_count.to_f) * 100 }})
+    # Hash[color_percentages_hash.sort_by { |color,percent| -percent }[0..4]]
   end
 
   def color_percentages_hash(color_arr)
@@ -41,11 +42,11 @@ class Wardrobe < ActiveRecord::Base
         percent_hash[:colors] << color_hash
       end
     end
-    percent_hash
+    Hash[percent_hash.sort_by { |color,percent| -percent }[0..4]]
    end
 
-   def damaged
+  def damaged
     self.articles.where.not(condition: nil)
-   end
+  end
 
  end

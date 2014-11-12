@@ -19,5 +19,35 @@ class Category < ActiveRecord::Base
 	def self.find_missing_names(wardrobe)
 		NECESSITIES - wardrobe.articles.map {|article| article.category.name}.uniq
 	end
-	
+
+	def user_count(current_wardrobe)
+		mode_count(current_wardrobe.articles.map(&:category))
+	end
+
+	def month_wears(current_wardrobe)
+		current_wardrobe.articles.where(category: self).group("DATE_TRUNC('month', created_at)").count.values[0]
+	end
+
+	def fav_color(current_wardrobe)
+		mode(current_wardrobe.articles.where(category: self).map(&:primary_color))[0]
+	end
+
+	private
+
+	def item_counts_hash(ary)
+	  seen = Hash.new(0)
+	  ary.each {|value| seen[value] += 1}
+	  seen
+	end
+
+	def item_counts(ary)
+		item_counts_hash(ary).sort_by {|k,v| -v}
+	end
+
+	def mode(ary)
+	  seen = item_counts_hash(ary)
+	  max = seen.values.max
+	  seen.find_all {|key,value| value == max}[0]
+	end
+
 end
