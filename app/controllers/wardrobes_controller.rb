@@ -29,7 +29,7 @@ class WardrobesController < ApplicationController
     options = { "categories" => [] }
     categories = Category.where(type_of: params[:id])
     categories.each do |category|
-      category_hash = {id: category.id, name: category.name, type_of: category.type_of, icon: category.icon_name}
+      category_hash = {id: category.id, name: category.name, type_of: category.type_of, icon: category.get_asset_icon_name}
       options["categories"] << category_hash
     end
     render json: options, status: 200
@@ -37,7 +37,7 @@ class WardrobesController < ApplicationController
 
   def custom_category
     category = Category.find(params[:id])
-    render json: {id: category.id, name: category.name, type_of: category.type_of, icon: category.icon_name}
+    render json: {id: category.id, name: category.name, type_of: category.type_of, icon: category.get_asset_icon_name}
   end
 
 end

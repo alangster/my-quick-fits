@@ -2,15 +2,9 @@ class Category < ActiveRecord::Base
 	belongs_to :type
 	has_many :articles
 
+	include HamburgerHelper
+
 	NECESSITIES = ["T-Shirt", "Polo Shirt", "Button Down Shirt", "Dress Shirt", "Blazer", "Down Jacket", "Rain Jacket", "Dress Pants", "Jeans", "Chino Shorts", "Dress Shoes", "Sneakers"]
-
-	def icon_name
-		ActionController::Base.helpers.asset_path(self.icon_name_format)
-	end
-
-	def icon_name_format
-		self.name.gsub(" ", "-") + ".png"
-	end
 
 	def self.find_missing(wardrobe)
 		find_missing_names(wardrobe).map {|name| Category.find_by(name:name)}
@@ -30,6 +24,14 @@ class Category < ActiveRecord::Base
 
 	def fav_color(current_wardrobe)
 		mode(current_wardrobe.articles.where(category: self).map(&:primary_color))[0]
+	end
+
+	def get_icon_name
+		icon_name(self.name, "#FFFFFF")
+	end
+
+	def get_asset_icon_name
+		asset_icon_name(self.name, "#FFFFFF")
 	end
 
 	private

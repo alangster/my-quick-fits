@@ -4,5 +4,7 @@ class ApplicationController < ActionController::Base
 
   include ApplicationHelper
 
+  include HamburgerHelper
+
   protect_from_forgery with: :exception
 end

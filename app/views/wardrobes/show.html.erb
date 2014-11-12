@@ -1,14 +1,20 @@
 <div class="row">
-  <div id="filters" class="button-group">  
-    <button class="button is-checked" data-filter="*">All Clothes</button>
-    <button class="button" data-filter="top">Tops</button>
-    <button class="button" data-filter="bottom">Bottoms</button>
-    <button class="button" data-filter="shoes">Shoes</button>
-    <div id="analysis-link">
-      <button><%= link_to "Analyze", analysis_path %></button>
+  <div class="col-md-3-offset-3">
+    <div id="filters" class="button-group">  
+      <button class="button is-checked" data-filter="*">All Clothes</button>
+      <button class="button" data-filter="top">Tops</button>
+      <button class="button" data-filter="bottom">Bottoms</button>
+      <button class="button" data-filter="shoes">Shoes</button>
     </div>
   </div>
-  <div class="isotope">
+</div>
+<div class="row">
+  <div id="analysis-link">
+    <%= link_to "Analyze", analysis_path, :class => "analysis" %>
+  </div>
+</div>
+<div class="row">
+  <div class="isotope col-lg-12">
       <% @tops.each do |article| %>
       <%= link_to article do %>
       <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
@@ -35,3 +41,9 @@
     <% end %>
   </div>
 </div>
+
+<style type="text/css">
+  body {
+    background-image: url(/fresh_snow.png);
+  }
+</style>
