@@ -4,7 +4,7 @@
 }
 
 .row {
-  margin-top: 35px;
+  margin-top: 75px;
 }
 
 /*.show-row {
@@ -112,6 +112,16 @@ button.bottom-item p, button.top-item p, button.shoe-item p {
 .btn-lg {
   margin: 10px;
   width: 200px;
+}
+
+.button-group {
+  display: inline;
+  margin-left: 5%;
+}
+
+#analysis-link {
+  float: right;
+  margin-right: 10%;
 }
 
 
