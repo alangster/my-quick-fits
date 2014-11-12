@@ -137,4 +137,8 @@ class Article < ActiveRecord::Base
     asset_icon_name(self.category.name, self.primary_color_hex)
   end
 
+  def descriptive_condition
+    "Fresh" unless /S+/.match(self.condition)
+  end
+
 end

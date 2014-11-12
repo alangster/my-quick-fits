@@ -1,3 +1,7 @@
 div#update-item-form {
 	display: none;
 }
+
+div#primary-color-wheel, div#secondary-color-wheel, div#tertiary-color-wheel {
+	display: none;
+}

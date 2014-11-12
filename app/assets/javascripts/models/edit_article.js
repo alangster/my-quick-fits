@@ -1,4 +1,7 @@
-$(function() {
+function colorWheels() {
+	$('#primary-color-wheel').show();
+	$('#secondary-color-wheel').show();
+	$('#tertiary-color-wheel').show();
 
 	$.minicolors.defaults.changeDelay = 400;
 
@@ -22,10 +25,16 @@ $(function() {
 		}
 	});
 	$("#tertiary-color-wheel").minicolors('value', $('input[name=tertiary-hex]').val());
+}
+
+$(function() {
+
+	
 
 	$('#show-edit-article-form').on('click', function(e) {
 		e.preventDefault();
 		$(this).hide();
+		colorWheels();
 		$('#update-item-form').show();
 	});
 	
