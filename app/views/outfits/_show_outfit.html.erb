@@ -3,7 +3,11 @@
   <div class="item-outfit" id="<%= top.id %>" style="<%= top.render_gradient %>">
     <%= image_tag("#{top.get_icon_name}", class: "category-image") %>
     <%= link_to "#{top.primary_color} #{top.category.name}", top %>
-    <p>Outfit count: <%= top.count_in_outfits %></p>
+    <% if top.count_in_outfits != 1 %>
+      <p>Included in <%= top.count_in_outfits %> outfits.</p>
+    <% else %>
+      <p>Included in 1 outfit.</p>
+    <% end %>
   </div>
   <% end %>
   <div class="item-outfit" id="<%= @bottom.id %>" style="<%= @bottom.render_gradient %>">
