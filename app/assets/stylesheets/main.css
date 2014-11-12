@@ -15,6 +15,15 @@
   background-size: cover;
 }*/
 
+.isotope.item {
+  text-align: center;
+}
+
+.article-info {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+}
+
 /********** Navbar **********/
 .layout-header {
   background-color: rgba(0, 16, 74, 1.0);
@@ -152,6 +161,21 @@ button.bottom-item p, button.top-item p, button.shoe-item p {
   background-image: url(/footer_lodyas.png);
   padding: 20px;
 }
+
+
+/********** Article Show Page Buttons **********/
+button#show-edit-article-form {
+  background-color: rgba(140, 20, 20, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.edit-button {
+  text-align: center;
+}
+
 
 /********** Login Form **********/
 .form-group {
