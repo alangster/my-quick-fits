@@ -1,47 +1,53 @@
-<h2>Missing Items</h2>
-<div id="missing-articles" class="isotope">
-	<% @missing_categories.each do |category| %>
-		<div class="item" id="<%= category.name %>" >
-      <%= image_tag("#{category.icon_name_format}", class: "category-image") %>
-      <p><%= category.name %></p>
-    </div>
-	<% end %>
-</div>
-<div id="wardrobe-stats">
-	<h3>Color Breakdown</h3>
-	<table>
-		<tr>
-			<th>Color</th><th>Percentage</th>
-		</tr>
-		<tr>
-			<th colspan=2>Neutral Colors</th>
-		</tr>
-		<% @stats[:color_percentages][:neutrals].each do |color| %>
-			<tr>
-				<td><%= color.keys[0].capitalize %></td><td><%= color.values[0].ceil %>%</td>
-			</tr>
+<div id="stuff-you-like">
+	<h3>You like to wear...</h3>
+	<ul>
+		<% @favorite_categories.each do |category, count| %>
+			<li><%= category.name %></li>
+			<ul>
+				<li>You own <%= count %> of them.</li>
+				<li>You've worn them <%= category.month_wears(current_wardrobe) %> times this month.</li>
+				<li>Your favorite is the <%= category.fav_color(current_wardrobe) %> one.</li>
+			</ul>
 		<% end %>
-		<tr>
-			<th colspan=2>Bright Colors</th>
-		</tr>
-		<% @stats[:color_percentages][:colors].each do |color| %>
-			<tr>
-				<td><%= color.keys[0].capitalize %></td><td><%= color.values[0].ceil %>%</td>
-			</tr>
+	</ul>
+	<h3>Your favorite colors include...</h3>
+	<ul>
+		<% @fav_colors.each do |name, percent| %>
+			<li><%= name %> (<%= percent %>% of your wardrobe)</li>
 		<% end %>
-	</table>
+	</ul>
+	<h2>Things you own...</h2>
+	<ul>
+		<li>Your wardrobe has <%= current_wardrobe.articles.count %> items. (The typical MyQuickFits user owns <%= @avg_count %>)</li>
+		<li><%= @tops_percent %>% tops (The typical MyQuickFits user owns <%= @avg_tops %>% tops)</li>
+		<li><%= @bottoms_percent %>% bottoms (The typical MyQuickFits user owns <%= @avg_bottoms %>% bottoms)</li>
+		<li><%= @shoes_percent %>% shoes (The typical MyQuickFits user owns <%= @avg_shoes %>% shoes)</li>
+	</ul>
 </div>
-<h3>Damaged Items</h3>
-<div id="damaged-items" class="isotope">
-	<% @stats[:damaged_items].each do |item| %>
-		<div class="item" id="<%= item.category.name %>" style="<%= item.render_gradient %>">
-      <%= image_tag("#{item.get_icon_name}", class: "category-image") %>
-      <p><%= item.category.name %></p>
-    </div>
-    <p><%= item.condition.capitalize %></p>
-	<% end %>
+<div id="stuff-you-not-like">
+  <h2>Stuff You Dislike</h2>
+  <h3>You hardly wear...</h3>
+  <ul>
+    <% @least_categories.each do |category, count| %>
+    <li><%= category.name %></li>
+    <ul>
+      <li>You own <%= count %> of them.</li>
+      <li>The last time you wore one was <%= last_wear(category.name) %>.</li>
+    </ul>
+    <% end %>
+    <li>You might want to think about giving these away.</li>
+  </ul>
+  <h3>Your least favorite colors include...</h3>
+  <ul>
+    <% @least_fav_colors.each do |name, percent| %>
+      <li><%= name %> (<%= percent %>% of your wardrobe)</li>
+    <% end %>
+  </ul>
+  <h3>You are missing...</h3>
+    <ul>
+      <% @missing_categories.each do |cat| %>
+        <li><%= cat.name %></li>
+      <% end %>
+      <li>Acquiring these will help you assemble fresher fits.</li>
+    </ul>
 </div>
-
-
-
-
