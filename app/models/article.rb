@@ -6,6 +6,8 @@ class Article < ActiveRecord::Base
 	# has_one :type, through: :category
   validates :category_id, :primary_color, presence: true
 
+  include HamburgerHelper
+
   NEUTRALS = ["Black", "White", "Grey", "Brown", "Navy", "Beige", "Bisque", "Blanched Almond", "Burly Wood", "Chocolate", "Cornsilk", "Dark Goldenrod", "Dark Gray", "Dark Khaki", "Dim Gray","Floral White", "Gainsboro", "Ghost White","Gray", "Honeydew", "Indigo", "Light Gray", "Slate Gray", "Midnight Blue", "Moccasin", "Navajo White", "Peru", "Saddle Brown", "Sienna", "Snow", "Tan", "Wheat", "White Smoke"]
 
   NO_NOS = {
@@ -120,19 +122,21 @@ class Article < ActiveRecord::Base
     results
   end
 
-  def get_icon_name
-    self.category.name.gsub(" ", "-") + ".png"
-  end
-
-  def get_asset_icon_name
-    ActionController::Base.helpers.asset_path(self.get_icon_name)
-  end
-
   def render_gradient
     primary = self.primary_color_hex
     secondary = (self.secondary_color_hex.nil? ? primary : self.secondary_color_hex)
     tertiary = (self.tertiary_color_hex.nil? ? secondary : self.tertiary_color_hex)
     "background: linear-gradient(#{primary} 50%,#{secondary} 50%,#{tertiary})"
+  end
+
+  def get_icon_name
+    puts icon_name(self.category.name)
+    icon_name(self.category.name)
+  end
+
+  def get_asset_icon_name
+    puts asset_icon_name(self.category.name)
+    asset_icon_name(self.category.name)
   end
 
 end
