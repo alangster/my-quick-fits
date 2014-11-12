@@ -7,7 +7,7 @@
   <button><%= link_to "Analyze", analysis_path %></button>
 </div>
 <div class="isotope">
-    <% @tops.each do |article| %>
+  <% @tops.each do |article| %>
     <%= link_to article do %>
     <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
       <%= image_tag("#{article.get_icon_name}", class: "category-image") %>

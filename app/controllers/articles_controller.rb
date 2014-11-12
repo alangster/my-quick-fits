@@ -37,17 +37,15 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		p params
-		primary_color_name = (params["primary-hex"] == "" ?  : )
 		@article = Article.find(params[:id])
-		@article.update_attributes(
-			primary_color: color_name(params["primary-hex"]),
-			primary_color_hex: params["primary-hex"],
-			secondary_color: color_name(params["secondary-hex"]),
-			secondary_color_hex: params["secondary-hex"],
-			tertiary_color: color_name(params["tertiary-hex"]),
-			tertiary_color_hex: params["tertiary_color_hex"]
-			)
+		@article.primary_color       = params["primary-name"] unless params["primary-name"] == ""
+		@article.primary_color_hex   = params["primary-hex"] unless params["primary-hex"] == ""
+		@article.secondary_color     = params["secondary-name"] unless params["secondary-name"] == ""
+		@article.secondary_color_hex = params["secondary-hex"] unless params["secondary-hex"] == ""
+		@article.tertiary_color      = params["tertiary-name"] unless params["tertiary-name"] == ""
+		@article.tertiary_color_hex  = params["tertiary-hex"] unless params["tertiary-hex"] == ""
+		@article.condition           = params[:condition] unless params[:condition].blank?
+
 		if @article.save
 			redirect_to current_wardrobe
 		else

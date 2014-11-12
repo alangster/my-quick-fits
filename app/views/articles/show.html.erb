@@ -21,9 +21,9 @@
 	</tr>
 </table>
  <%= form_for @article do |f| %>
-	<input type="hidden" name="primary-hex">	
-	<input type="hidden" name="secondary-hex">	
-	<input type="hidden" name="tertiary-hex">	
+	<input type="hidden" name="primary-hex" value="<%= @article.primary_color_hex %>">	
+	<input type="hidden" name="secondary-hex" value="<%= @article.secondary_color_hex %>">	
+	<input type="hidden" name="tertiary-hex" value="<%= @article.tertiary_color_hex %>">	
 	<%= f.label :condition %></br>
 	<%= f.text_field :condition %></br>
  	<%= f.submit %>
