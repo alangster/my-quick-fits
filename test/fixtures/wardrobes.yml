@@ -6,5 +6,5 @@
 #
 ---
 wardrobe:
-  user: joe
-  name: "all in one"
+  user : joe
+  name : "all in one"

@@ -6,31 +6,31 @@
 #
 ---
 joe:
-  first_name: "Joe"
-  last_name: "Bags"
-  email: "Joe@Bags.com"
-  password_digest: "boom"
+  first_name : "Joe"
+  last_name : "Bags"
+  email : "Joe@Bags.com"
+  password_digest : "boom"
 
 pete:
-  first_name: "Pete"
-  last_name: "Jang"
-  email: "Pete@Jang.com"
-  password_digest: "python"
+  first_name : "Pete"
+  last_name : "Jang"
+  email : "Pete@Jang.com"
+  password_digest : "python"
 
 alex:
-  first_name: "Alex"
-  last_name: "Lang"
-  email: "Alex@Lang.com"
-  password_digest: "jquery"
+  first_name : "Alex"
+  last_name : "Lang"
+  email : "Alex@Lang.com"
+  password_digest : "jquery"
 
 isaac:
-  first_name: "Isaac"
-  last_name: "Keith"
-  email: "Isaac@Keith.com"
-  password_digest: "sideshow"
+  first_name : "Isaac"
+  last_name : "Keith"
+  email : "Isaac@Keith.com"
+  password_digest : "sideshow"
 
 aaron:
-  first_name: "Aaron"
-  last_name: "Pee"
-  email: "Aaron@Pee.com"
-  password_digest: "anime"
+  first_name : "Aaron"
+  last_name : "Pee"
+  email : "Aaron@Pee.com"
+  password_digest : "anime"

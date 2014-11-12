@@ -3,7 +3,7 @@ class Outfit < ActiveRecord::Base
 	has_many	 :outfit_articles
 	has_many	 :articles, through: :outfit_articles
 
-
+  validates :wardrobe, presence: true
 
   def get_articles_type_of(type_of)
     self.articles.select { |article| article.category.type_of == type_of }.sort_by { |a| a.category.name }
