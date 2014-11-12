@@ -5,29 +5,25 @@
   </div>
 </div>
 <div id="color-wheels">
-	<div id="primary-color-wheel"></div>
+	<div id="primary-color-wheel"></div><div
 	<div id="secondary-color-wheel"></div>
 	<div id="tertiary-color-wheel"></div>
 </div>
-<table>
-	<tr>
-		<th colspan=2>Stats</th>
-	</tr>
-	<tr>
-		<td>Wear Count</td><td><%= @article.times_worn %></td>
-	</tr>
-	<tr>
-		<td>Date Added</td><td><%= @article.created_at.strftime("%B %d, %Y") %></td>
-	</tr>
-</table>
- <%= form_for @article do |f| %>
-	<input type="hidden" name="primary-hex" value="<%= @article.primary_color_hex %>">	
-	<input type="hidden" name="secondary-hex" value="<%= @article.secondary_color_hex %>">	
-	<input type="hidden" name="tertiary-hex" value="<%= @article.tertiary_color_hex %>">	
-	<%= f.label :condition %></br>
-	<%= f.text_field :condition %></br>
- 	<%= f.submit %>
- <% end %>
+<h3>Wear Count:<h3> <h4><%= @article.times_worn %></h4>
+<h3>Last Worn:<h3> <h4><%= @article.times_worn %></h4>
+<h3>Date Added:<h3> <h4><%= @article.created_at.strftime("%B %d, %Y") %></h4>
+<h3>Condition:<h3> <h4><% if @article.condition == nil? %><%= "Fresh" %><% else %><%= @article.condition %><% end %></h4>
+<div id="update-item-form">
+	<%= form_for @article do |f| %>
+		<input type="hidden" name="primary-hex" value="<%= @article.primary_color_hex %>">	
+		<input type="hidden" name="secondary-hex" value="<%= @article.secondary_color_hex %>">	
+		<input type="hidden" name="tertiary-hex" value="<%= @article.tertiary_color_hex %>">	
+		<%= f.label :condition %></br>
+		<%= f.text_field :condition %></br>
+		<%= f.submit "Update #{@article.category.name}" %>
+	<% end %>
+</div>
+<button id="show-edit-article-form">This isn't right</button>
 
 <style type="text/css">
   body {
