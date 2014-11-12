@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
 		@article.condition           = params[:article][:condition] unless params[:article][:condition].blank?
 
 		if @article.save
-			redirect_to current_wardrobe
+			redirect_to @article
 		else
 			@message = @article.errors.first
 			render "show"

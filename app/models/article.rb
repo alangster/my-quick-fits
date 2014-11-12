@@ -137,4 +137,17 @@ class Article < ActiveRecord::Base
     asset_icon_name(self.category.name, self.primary_color_hex)
   end
 
+  def descriptive_condition
+    "Fresh" unless /S+/.match(self.condition)
+  end
+
+  def most_recent_wear
+    wear_dates = self.outfits.pluck(:created_at)
+    if wear_dates == []
+      false
+    else
+      "The last time you wore this was #{wear_dates.last.strftime("%B %d, %Y")}."
+    end
+  end
+
 end
