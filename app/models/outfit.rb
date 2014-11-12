@@ -44,7 +44,6 @@ class Outfit < ActiveRecord::Base
     s << "Had trouble finding clothes in good condition!" if !results[:good_condition]
     s << "Had trouble finding clean clothes!" if !results[:clean]
     # s << "Had trouble finding clothes for the weather!" if !results[:within_temp]
-    s << (1..100000).to_a.sample.to_s
     s
   end
 
