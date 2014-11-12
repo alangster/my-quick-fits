@@ -10,7 +10,7 @@
 </div>
 <div class="row">
   <div id="analysis-link">
-    <button><%= link_to "Analyze", analysis_path %></button>
+    <%= link_to "Analyze", analysis_path, :class => "analysis" %>
   </div>
 </div>
 <div class="row">
@@ -43,7 +43,7 @@
 </div>
 
 <style type="text/css">
-body {
-  background-image: url(/fresh_snow.png);
-}
+  body {
+    background-image: url(/fresh_snow.png);
+  }
 </style>
