@@ -1,14 +1,10 @@
-Coveralls coverage image?
-
-QuickFits logo?
-
-<b>QuickFits</b> is a tool to help men assemble the perfect outfit regardless of formality, weather, and a number of other real life variables. Dress like the freshest cat on the block with QuickFits.
+<b>MyQuickFits</b> is a tool to help men assemble the perfect outfit regardless of formality, weather, or a number of other real life variables. Dress like the freshest cat on the block with MyQuickFits.
 
 Check it out! http://QuickFits.herokuapp.com
 
 === Sample Screenshots
 
-Include Screenshots
+*Include Screenshots*
 
 === System Requirements
 - Ruby 2.0.0 p-481
@@ -40,6 +36,20 @@ Framework-agnostic way to render logic-free views
 
 - Manual: http://mustache.github.io/mustache.5.html
 - Ruby: https://github.com/mustache/mustache
+
+<b>Fabric.js</b>
+
+Create, populate, and doing crazy stuff with objects on canvas
+
+- Tutorial: http://fabricjs.com/articles/
+- Docs: http://fabricjs.com/docs/
+
+<b>PxLoader</b>
+
+JavaScript preloader for HTML5 applications
+
+- Samples: http://thinkpixellab.com/pxloader/#sample1
+- Docs: http://thinkpixellab.com/pxloader/#api
 
 === Getting Started
 
