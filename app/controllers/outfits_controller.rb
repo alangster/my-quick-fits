@@ -21,7 +21,12 @@ class OutfitsController < ApplicationController
         @tops[-1] = rain_jacket
       end
     end
-		@outfit = Outfit.new
+    if @tops.any?(&:nil?) || @bottom.nil? || @shoes.nil?
+      flash[:notice] = "You don't have enough in your wardrobe to make an outfit!"
+      redirect_to current_user
+    else
+		  @outfit = Outfit.new
+    end
 	end
 
 	def create
