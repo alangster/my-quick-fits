@@ -73,10 +73,10 @@ module ApplicationHelper
     [
       ["Fashion is never finished",  "Fake Mark Zuckerberg"],
       ["If you look good, you feel good. If you feel good, you play good. If you play good, they pay good", "Deion Sanders"],
-      ["What fun is it being cool if you can't wear a sombrero?",  "Bill Watterson"]
-      ["Sweatpants are a sign of defeat. You lost control of your life so you bought some sweatpants.",  "Karl Lagerfeld"]
-      ["Looking good isn’t self-importance; it’s self-respect.",  "Charles Hix"]
-      ["If I think about it too much, I can’t get dressed.",  "Daphne Guinness"]
+      ["What fun is it being cool if you can't wear a sombrero?",  "Bill Watterson"],
+      ["Sweatpants are a sign of defeat. You lost control of your life so you bought some sweatpants.",  "Karl Lagerfeld"],
+      ["Looking good isn’t self-importance; it’s self-respect.",  "Charles Hix"],
+      ["If I think about it too much, I can’t get dressed.",  "Daphne Guinness"],
       ["Do I make fashion mistakes? Yes, but I won’t say what.",  "Domenico Dolce"]
     ].sample
   end
