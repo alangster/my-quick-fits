@@ -1,34 +1,37 @@
-<div id="filters" class="button-group">  <button class="button is-checked" data-filter="*">All Clothes</button>
-  <button class="button" data-filter="top">Tops</button>
-  <button class="button" data-filter="bottom">Bottoms</button>
-  <button class="button" data-filter="shoes">Shoes</button>
-</div>
-<div id="analysis-link">
-  <button><%= link_to "Analyze", analysis_path %></button>
-</div>
-<div class="isotope">
-    <% @tops.each do |article| %>
-    <%= link_to article do %>
-    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
-      <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
-        <p><%= article.category.name %></p>
+<div class="row">
+  <div id="filters" class="button-group">  
+    <button class="button is-checked" data-filter="*">All Clothes</button>
+    <button class="button" data-filter="top">Tops</button>
+    <button class="button" data-filter="bottom">Bottoms</button>
+    <button class="button" data-filter="shoes">Shoes</button>
+    <div id="analysis-link">
+      <button><%= link_to "Analyze", analysis_path %></button>
     </div>
-    <% end %>
-  <% end %>
-  <% @bottoms.each do |article| %>
-    <%= link_to article do %>
+  </div>
+  <div class="isotope">
+      <% @tops.each do |article| %>
+      <%= link_to article do %>
       <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
         <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
-        <p><%= article.category.name %></p>
+          <p><%= article.category.name %></p>
       </div>
+      <% end %>
     <% end %>
-  <% end %>
-  <% @shoes.each do |article| %>
-    <%= link_to article do %>
-    <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
-      <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
-        <p><%= article.category.name %></p>
-    </div>
+    <% @bottoms.each do |article| %>
+      <%= link_to article do %>
+        <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
+          <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
+          <p><%= article.category.name %></p>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+    <% @shoes.each do |article| %>
+      <%= link_to article do %>
+      <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
+        <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
+          <p><%= article.category.name %></p>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
