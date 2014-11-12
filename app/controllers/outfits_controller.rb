@@ -1,7 +1,5 @@
 class OutfitsController < ApplicationController
-
   def index
-    @outfits = Outfit.all
   end
 
 	def new
@@ -14,16 +12,20 @@ class OutfitsController < ApplicationController
 		@tops = clothes[:tops]
 		@bottom = clothes[:bottom]
 		@shoes = clothes[:shoes]
+    @message = clothes[:errors].join(" ")
+    rain_jacket = current_wardrobe.articles.where(category: Category.find_by(name: "Rain Jacket"))[0]
+    if precip > 0.5 && rain_jacket && temp <= rain_jacket.category.max_temp
+      if @tops.last.category.layerable < 3
+        @tops << rain_jacket
+      else
+        @tops[-1] = rain_jacket
+      end
+    end
 		@outfit = Outfit.new
 	end
 
 	def create
-    outfit = Outfit.create!(wardrobe: current_wardrobe)
-    outfit.outfit_articles.create!(article_id: params[:bottom][:id])
-    outfit.outfit_articles.create!(article_id: params[:shoes][:id])
-    params[:top][:id].each do |id|
-    	outfit.outfit_articles.create!(article_id: id)
-    end
+    outfit = create_outfit_record(params)
     redirect_to outfit
 	end
 
@@ -37,10 +39,8 @@ class OutfitsController < ApplicationController
 	end
 
   def formality
-    p params[:temperature]
     temp = params[:temperature].to_i || session[:current_temp]
     precip = params[:precipitation].to_f || session[:chance_of_rain] > 0.5
-    # params[:checked] == "true" ? formality = 1 : formality = 0
     clothes = Outfit.make_outfit(current_wardrobe, temp, precip, params[:formality].to_i)
     @tops = clothes[:tops]
     @bottom = clothes[:bottom]
@@ -51,7 +51,7 @@ class OutfitsController < ApplicationController
 
   def custom_article
     article = Article.find(params[:id])
-    render json: {id: article.id, name: article.category.name, type_of: article.category.type_of, primary_color_hex: article.primary_color_hex, icon: article.get_asset_icon_name}
+    render json: {id: article.id, name: article.category.name, type_of: article.category.type_of, color: article.render_gradient, icon: article.get_asset_icon_name}
   end
 
   def article_options
@@ -62,47 +62,52 @@ class OutfitsController < ApplicationController
     else
       articles = current_wardrobe.get_articles_type_of(category.type_of)
     end
-    options = { "articles" => [{id: article.id, name: article.category.name, type_of: article.category.type_of, primary_color_hex: article.primary_color_hex, icon: article.get_asset_icon_name}] }
+    options = { "articles" => [{id: article.id, name: article.category.name, type_of: article.category.type_of, color: article.render_gradient, icon: article.get_asset_icon_name}] }
     articles.each do |article|
-      article_hash = {id: article.id, name: article.category.name, type_of: article.category.type_of, primary_color_hex: article.primary_color_hex, icon: article.get_asset_icon_name}
+      article_hash = {id: article.id, name: article.category.name, type_of: article.category.type_of, color: article.render_gradient, icon: article.get_asset_icon_name}
       if article.id != params[:id]
         options["articles"] << article_hash
       end
     end
-    p options["articles"]
     render json: options, status: 200
   end
 
   def outfits_all
     options = {events: []}
-    Outfit.all.each do |outfit|
+    current_wardrobe.worn_outfits.each do |outfit|
+      articles = outfit.tops + [outfit.bottom, outfit.shoes]
+      title = "\n" + articles.map {|article| "#{article.primary_color} #{article.category.name}"}.join("\n")
       options[:events] << {
-        title: outfit.id,
+        title: title,
         start: outfit.created_at,
+        url: outfit_path(outfit),
         outfit_id: outfit.id
       }
     end
-    # options = {
-    #   events: [
-    #     {
-    #       title: 'event1',
-    #       start: '2014-11-10',
-    #       outfit_id: 3
-    #     },
-    #     {
-    #       title: 'event2',
-    #       start: '2014-10-05'
-    #     },
-    #     {
-    #       title: 'event3',
-    #       start: '2014-11-09T12:30:00',
-    #     }
-    #   ],
-    #   color: 'black',
-    #   textColor: 'white'
-    # }
-
     render json: options, status: 200
   end
 
+  def outfits_like
+    outfit = create_outfit_record(params)
+    outfit.update_attributes(like: 1)
+    render json: {}, status: 200
+  end
+
+  def outfits_dislike
+    outfit = create_outfit_record(params)
+    outfit.update_attributes(like: -1)
+    render json: {}, status: 200
+  end
+
+  private
+
+  def create_outfit_record(params)
+    outfit = Outfit.create!(wardrobe: current_wardrobe)
+    outfit.outfit_articles.create!(article_id: params[:bottom][:id])
+    outfit.outfit_articles.create!(article_id: params[:shoes][:id])
+    params[:top][:id].each do |id|
+      outfit.outfit_articles.create!(article_id: id)
+    end
+    outfit
+  end
 end

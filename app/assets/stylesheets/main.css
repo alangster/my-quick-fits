@@ -1,11 +1,17 @@
-.new-form {
-  text-align: center;
-  margin-top: 4em;
+/********** General Layout **********/
+.body {
+
 }
 
+.btn-lg {
+  margin: 10px;
+  width: 200px;
+}
+
+
+/********** Navbar **********/
 .layout-header {
-  /*background-color: #5284E8;*/
-  background-color: rgba(114, 142, 166, 1.0);
+  background-color: #5284E8;
 }
 
 .layout-header ul {
@@ -14,58 +20,6 @@
 
 .layout-header li {
   display: inline
-}
-
-div #welcome {
-  text-align: center
-}
-
-ul.wardrobe-show {
-  list-style: none
-}
-
-button.bottom-item, button.top-item, button.shoe-item {
-
-}
-
-button.bottom-item p, button.top-item p, button.shoe-item p {
-  text-align: center;
-  color: white;
-}
-
-h2.category-title {
-  text-align: center;
-}
-
-.item, .item-choice, .item-outfit {
-  width: 25%;
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  padding: 10px;
-}
-
-.item-outfit {
-  width: 200px;
-  height: 200px;
-  margin: 5px;
-  padding: 10px;
-}
-
-.category-image {
-  display: block;
-  height: 60%;
-  width: 60%;
-}
-
-div#article-choices {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: auto;
-  background-color: rgba(0,0,0,0.8);
-  z-index: 1;
-  overflow: scroll;
 }
 
 ul.nav {
@@ -104,24 +58,74 @@ ul.nav li {
     transform: rotate(-45deg);
 }
 
+
+/********** Header **********/
 .page-header {
   margin-top: 100px;
+  text-align: center
+}
+.new-form {
+  text-align: center;
+  margin-top: 4em;
 }
 
-.container-fluid {
-  margin-top: 60px;
+ul.wardrobe-show {
+  list-style: none
 }
 
+button.bottom-item p, button.top-item p, button.shoe-item p {
+  text-align: center;
+  color: white;
+}
+
+h2.category-title {
+  text-align: center;
+}
+
+
+/********** Items **********/
 .items {
   text-align: center;
 }
 
-.swatch {
-  width: 70px;
-  height: 70px;
-  border: 3px dotted #444;
-  display: inline-block;
+.item, .item-choice, .item-outfit {
+  width: 100px;
+  height: 100px;
   margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 4px #bbb;
+  color: #000;
+  text-align: center;
+  text-shadow: 1px 1px 2px #bbb;
+}
+
+.item img, .item-choice img, .item-outfit img {
+  display: block;
+  margin: 0 auto;
+}
+
+.item-outfit {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.category-image {
+  display: block;
+  height: 60%;
+  width: 60%;
+}
+
+div#article-choices {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  overflow: scroll;
 }
 
 #calendar {

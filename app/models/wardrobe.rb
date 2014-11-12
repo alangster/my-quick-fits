@@ -8,6 +8,10 @@ class Wardrobe < ActiveRecord::Base
 
   NEUTRALS = ["green", "orange"] # CHANGE THIS
 
+  def worn_outfits
+    self.outfits.select { |outfit| outfit.like != -1 }
+  end
+
   def get_articles_type_of(type_of)
     self.articles.select { |article| article.category.type_of == type_of }.sort_by { |a| a.category.name }
   end

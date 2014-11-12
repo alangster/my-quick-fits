@@ -1,14 +1,14 @@
 $(document).ready(function(){
 
   function showArticles(response) {
-    var template = "{{#articles}}<div id='{{id}}' class='item-choice {{type_of}}' style='background-color:{{primary_color_hex}}'>" +
+    var template = "{{#articles}}<div id='{{id}}' class='item-choice {{type_of}}' style='{{color}}'>" +
                    "<img src='{{icon}}' class='category-image' /><p>{{name}}</p></div>{{/articles}}";
     var html = Mustache.to_html(template, response);
     $('#article-choices').html(html);
   }
 
   function replaceOriginalArticle(response) {
-    var template = "<div id='{{id}}' class='item {{type_of}}' style='background-color:{{primary_color_hex}}'>" +
+    var template = "<div id='{{id}}' class='item {{type_of}}' style='{{color}}'>" +
                    "<img src='{{icon}}' class='category-image' />{{name}}</div>";
     var html = Mustache.to_html(template, response);
     $('.isotope').isotope('remove', $('#' + currentArticleId));
@@ -29,7 +29,7 @@ $(document).ready(function(){
     };
   }
 
-  $('#formality input').on("change", function(event){
+  var post_formality = function(event) {
     var formality = 0;
     if ($('input[name=outfit]:checked', '#formality').val() == "formal") {
       formality = 1;
@@ -46,7 +46,9 @@ $(document).ready(function(){
         });
       }
     });
-  });
+  };
+
+  $('#formality input').on("change", post_formality);
 
   var currentArticleId;
 
@@ -72,13 +74,7 @@ $(document).ready(function(){
       url: "/custom_article",
       data: {id: $(this).attr("id")},
       success: function(result) {
-        // $("#outfit-display").html(result);
-        // $('.isotope').isotope({
-        //   itemSelector: '.item',
-        //   layoutMode: 'masonry'
-        // });
         replaceOriginalArticle(result);
-        console.log(result);
       }
     });
   });
@@ -86,5 +82,59 @@ $(document).ready(function(){
   $(document).on('click', '#article-choices', function() {
     $(this).remove();
   });
+
+  $(document).on('click', '#like-outfit', function(e) {
+    e.preventDefault();
+    var data = {}
+    $.each($("#new_outfit input"), function(i, v) {
+      var value = $(v).attr('value'), name = $(v).attr('name');
+      if (data[name]) {
+        if (typeof data[name] != 'string') {
+          data[name].push(value);
+        } else {
+          data[name] = [data[name], value];
+        }
+      } else {
+        data[name] = value;
+      }
+    });
+    $.ajax({
+      type: "POST",
+      url: "/outfits_like",
+      data: data,
+      success: function(result) {
+        console.log(result);
+      }
+    });
+    $("#like-outfit").prop('disabled', true);
+  });
+
+  $(document).on('click', '#dislike-outfit', function(e) {
+    e.preventDefault();
+    var data = {}
+    $.each($("#new_outfit input"), function(i, v) {
+      var value = $(v).attr('value'), name = $(v).attr('name');
+      if (data[name]) {
+        if (typeof data[name] != 'string') {
+          data[name].push(value);
+        } else {
+          data[name] = [data[name], value];
+        }
+      } else {
+        data[name] = value;
+      }
+    });
+    $.ajax({
+      type: "POST",
+      url: "/outfits_dislike",
+      data: data,
+      success: function(result) {
+        console.log(result);
+      }
+    });
+    post_formality(e);
+    $("#like-outfit").prop('disabled', false);
+  });
 });
+
 

@@ -1,5 +1,5 @@
 <div class="isotope">
-  <div class="item" id="<%= @article.id %>" style="background-color:<%= @article.primary_color_hex %>">
+  <div class="item" id="<%= @article.id %>" style="<%= @article.render_gradient %>">
     <%= image_tag("#{@article.get_icon_name}", class: "category-image") %>
     <%= @article.category.name %>
   </div>
@@ -16,16 +16,14 @@
 	</tr>
 </table>
  <%= form_for @article do |f| %>
- <%= f.label :pattern %></br> 
-	<%= f.text_field :pattern %></br>
-	<%= f.label :primary_color %></br> 
+	<%= f.label :primary_color %></br>
 	<%= f.text_field :primary_color %></br>
-	<%= f.label :secondary_color %></br> 
+	<%= f.label :secondary_color %></br>
 	<%= f.text_field :secondary_color %></br>
-	<%= f.label :tertiary_color %></br> 
+	<%= f.label :tertiary_color %></br>
 	<%= f.text_field :tertiary_color %></br>
 	<%= f.label :condition %></br>
 	<%= f.text_field :condition %></br>
  	<%= f.submit %>
  <% end %>
- 
+

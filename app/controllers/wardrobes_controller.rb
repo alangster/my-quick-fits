@@ -10,8 +10,25 @@ class WardrobesController < ApplicationController
  		@missing_categories = Category.find_missing(current_wardrobe)
  		@stats = {
  			color_percentages: current_wardrobe.color_percentages,
- 			damaged_items:     current_wardrobe.damaged 
+ 			damaged_items:     current_wardrobe.damaged
  		}
  	end
+
+  def wardrobe_categories
+    # category = Category.find(params[:id])
+    # category = article.category
+    options = { "categories" => [] }
+    categories = Category.where(type_of: params[:id])
+    categories.each do |category|
+      category_hash = {id: category.id, name: category.name, type_of: category.type_of, icon: category.icon_name}
+      options["categories"] << category_hash
+    end
+    render json: options, status: 200
+  end
+
+  def custom_category
+    category = Category.find(params[:id])
+    render json: {id: category.id, name: category.name, type_of: category.type_of, icon: category.icon_name}
+  end
 
 end
