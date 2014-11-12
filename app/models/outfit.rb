@@ -38,23 +38,19 @@ class Outfit < ActiveRecord::Base
 
   def self.outfit_error_messages(results)
     s = []
-    s << "Had trouble finding matching articles!" if !results[:complementary]
-    s << "Had trouble finding a formal article!" if !results[:proper_dress_code]
-    s << "Had trouble finding water-resistant articles!" if !results[:water_resistant]
-    s << "Had trouble finding articles in good condition!" if !results[:good_condition]
-    s << "Had trouble finding clean articles!" if !results[:clean]
-    s << "Had trouble finding a formal article!" if !results[:proper_dress_code]
+    s << "Had trouble finding matching clothes!" if !results[:complementary]
+    s << "Had trouble finding clothes with proper dress code!" if !results[:proper_dress_code]
+    s << "Had trouble finding water-resistant clothes!" if !results[:water_resistant]
+    s << "Had trouble finding clothes in good condition!" if !results[:good_condition]
+    s << "Had trouble finding clean clothes!" if !results[:clean]
+    # s << "Had trouble finding clothes for the weather!" if !results[:within_temp]
     s
   end
 
   def self.make_outfit(current_wardrobe, temperature, precipitation, formal)
-    bottoms = current_wardrobe.get_all_bottoms
-    results = Article.get_appropriate_articles(bottoms, temperature, precipitation, formal)
-    bottom_final = results[:articles].sample
 
-    errors = outfit_error_messages(results)
-
-    outfit_so_far = [bottom_final]
+    outfit_so_far = []
+    errors = []
 
     tops = []
     current_layer = 0
@@ -65,14 +61,18 @@ class Outfit < ActiveRecord::Base
       break if results[:within_temp]
       current_layer += 1
       outfit_so_far << tops.last
-
       errors += outfit_error_messages(results)
     end
+
+    bottoms = current_wardrobe.get_all_bottoms
+    results = Article.get_appropriate_articles(bottoms, temperature, precipitation, formal, outfit_so_far)
+    bottom_final = results[:articles].sample
+    errors += outfit_error_messages(results)
+    outfit_so_far << bottom_final
 
     shoes = current_wardrobe.get_all_shoes
     results = Article.get_appropriate_articles(shoes, temperature, precipitation, formal, outfit_so_far)
     shoes_final = results[:articles].sample
-
     errors += outfit_error_messages(results)
 
     {tops: tops, bottom: bottom_final, shoes: shoes_final, errors: errors.uniq}

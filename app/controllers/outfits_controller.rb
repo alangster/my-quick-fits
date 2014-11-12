@@ -8,11 +8,11 @@ class OutfitsController < ApplicationController
     @message_temp = make_temperature_statement(temp)
     @message_precip = "(#{make_precipitation_statement(precip)})"
 		formal = 0
-		clothes = Outfit.make_outfit(current_wardrobe, temp, precip > 0.5, formal)
-		@tops = clothes[:tops]
-		@bottom = clothes[:bottom]
-		@shoes = clothes[:shoes]
-    @message = clothes[:errors].join(" ")
+		results = Outfit.make_outfit(current_wardrobe, temp, precip > 0.5, formal)
+		@tops = results[:tops]
+		@bottom = results[:bottom]
+		@shoes = results[:shoes]
+    @outfit_issues = results[:errors].join(" ")
     rain_jacket = current_wardrobe.articles.where(category: Category.find_by(name: "Rain Jacket"))[0]
     if precip > 0.5 && rain_jacket && temp <= rain_jacket.category.max_temp
       if @tops.last.category.layerable < 3
@@ -47,10 +47,11 @@ class OutfitsController < ApplicationController
   def formality
     temp = params[:temperature].to_i || session[:current_temp]
     precip = params[:precipitation].to_f || session[:chance_of_rain] > 0.5
-    clothes = Outfit.make_outfit(current_wardrobe, temp, precip, params[:formality].to_i)
-    @tops = clothes[:tops]
-    @bottom = clothes[:bottom]
-    @shoes = clothes[:shoes]
+    results = Outfit.make_outfit(current_wardrobe, temp, precip, params[:formality].to_i)
+    @tops = results[:tops]
+    @bottom = results[:bottom]
+    @shoes = results[:shoes]
+    @outfit_issues = results[:errors].join(" ")
     @outfit = Outfit.new
     return render partial: "new_outfit", layout: false
   end
