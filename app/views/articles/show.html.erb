@@ -30,7 +30,11 @@
 </div>
 
 <div class="col-lg-12 edit-button">
-	<button id="show-outfit-page">Perfect</button>
+	<!-- <button id="show-outfit-page">Perfect</button> -->
+  <%= link_to current_wardrobe do %>
+    <%= button_tag "Perfect", id: "show-outfit-page" %>
+  <% end %>
+   <!-- <#%= button_to "Perfect", {action: wardrobe_path, method: :get}, form_id: "show-outfit-page" %> -->
 	<button id="show-edit-article-form">This isn't right</button>
 </div>
 
