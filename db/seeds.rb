@@ -423,7 +423,7 @@ brown_cords = Article.create!(wardrobe: wardrobe, category: cords, primary_color
 gray_cords = Article.create!(wardrobe: wardrobe, category: cords, primary_color: "Gray", primary_color_hex: "#808080", water_proof?: false, water_delicate?: false, times_worn: 10)
 
 # # Sweatpants
-# black_sweatpants = Article.create!(wardrobe: wardrobe, category: sweatpants, primary_color: "Black", primary_color_hex: "#000000", water_proof?: false, water_delicate?: false, times_worn: 120)
+black_sweatpants = Article.create!(wardrobe: wardrobe, category: sweatpants, primary_color: "Black", primary_color_hex: "#000000", water_proof?: false, water_delicate?: false, times_worn: 120)
 
 # # Chino-Shorts
 khaki_shorts = Article.create!(wardrobe: wardrobe, category: chino_shorts, primary_color: "Khaki", primary_color_hex: "#f0e68c", water_proof?: false, water_delicate?: false, times_worn: 30)
