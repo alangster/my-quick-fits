@@ -515,6 +515,20 @@ div#outfit-display {
 }
 
 
+/********** Add Item **********/
+.upload {
+  background-color: rgba(0, 16, 74, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+}
+
+.fileUpload {
+  background-color: rgba(0, 16, 74, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+}
+
+
 /********** **********/
 .category-image {
   display: block;
