@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   function replaceOriginalArticle(response) {
     var template = "<div id='{{id}}' class='item {{type_of}}' style='{{color}}'>" +
-                   "<img src='{{icon}}' class='category-image' />{{name}}</div>";
+                   "<img src='{{icon}}' class='category-image' /><p>{{name}}</p></div>";
     var html = Mustache.to_html(template, response);
     $('.isotope').isotope('remove', $('#' + currentArticleId));
     $('.isotope').isotope('insert', $(html));
