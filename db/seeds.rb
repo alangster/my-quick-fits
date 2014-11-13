@@ -431,3 +431,56 @@ dark_green_chino = Article.create!(wardrobe_id: 1, category_id: 20, primary_colo
 sky_blue_chino = Article.create!(wardrobe_id: 1, category_id: 20, primary_color: "Sky Blue", primary_color_hex: "#87ceeb", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 45)
 maroon_chino = Article.create!(wardrobe_id: 1, category_id: 20, primary_color: "Maroon", primary_color_hex: "#800000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 45)
 khaki_chino = Article.create!(wardrobe_id: 1, category_id: 20, primary_color: "Khaki", primary_color_hex: "#f0e68c", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 30)
+
+# Corduroy-Pants
+
+brown_cords = Article.create!(wardrobe_id: 1, category_id: 21, primary_color: "Brown", primary_color_hex: "#a52a2a", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 18)
+gray_cords = Article.create!(wardrobe_id: 1, category_id: 21, primary_color: "Gray", primary_color_hex: "#808080", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 10)
+
+# Sweatpants
+
+black_sweatpants = Article.create!(wardrobe_id: 1, category_id: 23, primary_color: "Black", primary_color_hex: "#000000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 120)
+
+# Chino-Shorts
+
+khaki_shorts = Article.create!(wardrobe_id: 1, category_id: 24, primary_color: "Khaki", primary_color_hex: "#f0e68c", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 30)
+navy_shorts = Article.create!(wardrobe_id: 1, category_id: 24, primary_color: "Navy", primary_color_hex: "#000080", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 30)
+slate_shorts = Article.create!(wardrobe_id: 1, category_id: 24, primary_color: "Dark Slate Gray", primary_color_hex: "#2f4f4f", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 45)
+black_shorts = Article.create!(wardrobe_id: 1, category_id: 24, primary_color: "Black", primary_color_hex: "#000000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 45)
+
+# Athletic-Shorts
+
+black_athletic_shorts = Article.create!(wardrobe_id: 1, category_id: 25, primary_color: "Black", primary_color_hex: "#000000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 140)
+navy_athletic_shorts = Article.create!(wardrobe_id: 1, category_id: 25, primary_color: "Navy", primary_color_hex: "#000080", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 90)
+
+# Cargo-Shorts
+
+black_cargo_shorts = Article.create!(wardrobe_id: 1, category_id: 26, primary_color: "Black", primary_color_hex: "#000000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 25)
+
+# Dress-Shoes
+
+black_dress_shoes = Article.create!(wardrobe_id: 1, category_id: 28, primary_color: "Black", primary_color_hex: "#000000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 100)
+brown_dress_shoes1 = Article.create!(wardrobe_id: 1, category_id: 28, primary_color: "Brown", primary_color_hex: "#a52a2a", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 30)
+brown_dress_shoes2 = Article.create!(wardrobe_id: 1, category_id: 28, primary_color: "Brown", primary_color_hex: "#a52a2a", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 50)
+
+# Desert-Boots
+
+tan_desert_boots = Article.create!(wardrobe_id: 1, category_id: 29, primary_color: "Tan", primary_color_hex: "#d2b48c", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 100)
+
+# Sneakers
+
+white_sneakers = Article.create!(wardrobe_id: 1, category_id: 31, primary_color: "White", primary_color_hex: "#ffffff", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 120)
+purple_aqua_sneakers = Article.create!(wardrobe_id: 1, category_id: 31, primary_color: "Purple", primary_color_hex: "#800080", secondary_color: "Aqua", secondary_color_hex: "#00ffff", tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 200)
+white_neon_sneakers = Article.create!(wardrobe_id: 1, category_id: 31, primary_color: "White", primary_color_hex: "#ffffff", secondary_color: "Green Yellow", secondary_color_hex: "#adff2f", tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 70)
+black_blue_sneakers = Article.create!(wardrobe_id: 1, category_id: 31, primary_color: "Black", primary_color_hex: "#000000", secondary_color: "Blue", secondary_color_hex: "#0000ff", tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 30)
+black_sneakers = Article.create!(wardrobe_id: 1, category_id: 31, primary_color: "Black", primary_color_hex: "#000000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 50)
+gray_sneakers = Article.create!(wardrobe_id: 1, category_id: 31, primary_color: "Gray", primary_color_hex: "#808080", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 60)
+red_sneakers = Article.create!(wardrobe_id: 1, category_id: 31, primary_color: "Red", primary_color_hex: "#ff0000", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 70)
+
+# Flip-Flops
+
+navy_flip_flops = Article.create!(wardrobe_id: 1, category_id: 33, primary_color: "Navy", primary_color_hex: "#000080", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 100)
+
+# Business-Vest
+
+brown_biz_vest = Article.create!(wardrobe_id: 1, category_id: 36, primary_color: "Brown", primary_color_hex: "#a52a2a", secondary_color: , secondary_color_hex: , tertiary_color: , tertiary_color_hex: , water_proof: false, water_delicate: false, times_worn: 2)
