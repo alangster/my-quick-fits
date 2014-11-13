@@ -27,6 +27,8 @@
   <%= f.submit "Create", class: "create" %>
 <% end %>
 
-<div class="outfit-issues">
+<% if @outfit_issues != "" %>
+<div class="outfit-issues">  
   <%= @outfit_issues %>
 </div>
+<% end %>
