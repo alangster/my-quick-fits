@@ -1,7 +1,7 @@
 <div class="isotope col-lg-12">
   <div class="item" id="<%= @article.id %>" style="<%= @article.render_gradient %>">
     <%= image_tag("#{@article.get_icon_name}", class: "category-image") %>
-    <%= @article.category.name %>
+    <p><%= @article.category.name %></p>
   </div>
 </div>
 
@@ -15,13 +15,13 @@
 	<h3>You've worn this <%= @article.times_worn %> times.</h3>
 	<h3><% if @article.most_recent_wear %><%= @article.most_recent_wear %><% end %></h3>
 	<h3>This <%= @article.category.name %> has been in your wardrobe since <%= @article.created_at.strftime("%B %d, %Y") %>.</h3>
-	<h3 id="condition-description">Condition: <%= @article.descriptive_condition %><h3> 
+	<h3 id="condition-description">Condition: <%= @article.descriptive_condition %><h3>
 
 	<div id="update-item-form">
 		<%= form_for @article do |f| %>
-		<input type="hidden" name="primary-hex" value="<%= @article.primary_color_hex %>">	
-		<input type="hidden" name="secondary-hex" value="<%= @article.secondary_color_hex %>">	
-		<input type="hidden" name="tertiary-hex" value="<%= @article.tertiary_color_hex %>">	
+		<input type="hidden" name="primary-hex" value="<%= @article.primary_color_hex %>">
+		<input type="hidden" name="secondary-hex" value="<%= @article.secondary_color_hex %>">
+		<input type="hidden" name="tertiary-hex" value="<%= @article.tertiary_color_hex %>">
 		<%= f.label :condition %></br>
 		<%= f.text_field :condition, class: "condition" %></br>
 		<%= f.submit "That's better", class: "fixed" %>
@@ -30,7 +30,11 @@
 </div>
 
 <div class="col-lg-12 edit-button">
-	<button id="show-outfit-page">Perfect</button>
+	<!-- <button id="show-outfit-page">Perfect</button> -->
+  <%= link_to current_wardrobe do %>
+    <%= button_tag "Perfect", id: "show-outfit-page" %>
+  <% end %>
+   <!-- <#%= button_to "Perfect", {action: wardrobe_path, method: :get}, form_id: "show-outfit-page" %> -->
 	<button id="show-edit-article-form">This isn't right</button>
 </div>
 
