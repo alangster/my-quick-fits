@@ -10,9 +10,12 @@ class OutfitsController < ApplicationController
 		formal = 0
 		results = Outfit.make_outfit(current_wardrobe, temp, precip > 0.5, formal)
 		@tops = results[:tops]
+    @top_names = results[:top_names]
 		@bottom = results[:bottom]
-		@shoes = results[:shoes]
-    @outfit_issues = results[:errors].join(" ")
+    @bottom_name = results[:bottom_name]
+    @shoes = results[:shoes]
+		@shoes_name = results[:shoes_name]
+    @outfit_issues = render_error_message(results)
     rain_jacket = current_wardrobe.articles.where(category: Category.find_by(name: "Rain Jacket"))[0]
     if precip > 0.5 && rain_jacket && temp <= rain_jacket.category.max_temp
       if @tops.last.category.layerable < 3
@@ -49,9 +52,12 @@ class OutfitsController < ApplicationController
     precip = params[:precipitation].to_f || session[:chance_of_rain] > 0.5
     results = Outfit.make_outfit(current_wardrobe, temp, precip, params[:formality].to_i)
     @tops = results[:tops]
+    @top_names = results[:top_names]
     @bottom = results[:bottom]
+    @bottom_name = results[:bottom_name]
     @shoes = results[:shoes]
-    @outfit_issues = results[:errors].join(" ")
+    @shoes_name = results[:shoes_name]
+    @outfit_issues = render_error_message(results)
     @outfit = Outfit.new
     return render partial: "new_outfit", layout: false
   end
@@ -116,5 +122,11 @@ class OutfitsController < ApplicationController
       outfit.outfit_articles.create!(article_id: id)
     end
     outfit
+  end
+
+  def render_error_message(results)
+    msg = results[:errors].join(" ")
+    msg = "* " + msg if msg.strip() != ""
+    msg
   end
 end
