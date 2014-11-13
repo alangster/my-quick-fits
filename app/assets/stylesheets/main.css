@@ -19,9 +19,15 @@
   text-align: center;
 }
 
-#isotope-new-outfit {
-  margin-left: auto;
-  margin-right: auto;
+.isotope {
+  margin: 0 auto;
+}
+
+/* clear fix */
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .article-info {
