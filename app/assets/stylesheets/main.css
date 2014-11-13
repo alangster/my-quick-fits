@@ -168,7 +168,7 @@ button#show-edit-article-form {
   background-color: rgba(140, 20, 20, 1.0);
   color: rgba(255, 255, 255, 1.0);
   font-family: 'Oswald', sans-serif;
-  font-size: 1.5;
+  font-size: 1.5em;
   border-radius: 15px;
   padding: 10px;
 }
@@ -177,6 +177,7 @@ button#show-outfit-page {
   background-color: rgba(63, 140, 42, 1.0);
   color: rgba(255, 255, 255, 1.0);
   font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
   border-radius: 15px;
   padding: 10px;
 }
@@ -188,6 +189,23 @@ button#show-outfit-page {
 /********** Article Hidden Update Page **********/
 #update-item-form {
   font-family: 'Oswald', sans-serif;
+}
+
+#color-wheels {
+  margin-left: 25px;
+}
+
+.condition {
+  margin-top: 15px;
+}
+
+.fixed {
+  background-color: rgba(63, 140, 42, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 25px;
 }
 
 
@@ -315,6 +333,74 @@ h2.category-title {
   height: 200px;
   margin: 5px;
   padding: 10px;
+}
+
+
+/********** New Outfits Page **********/
+.weather {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.0);
+  border-left: 10px solid rgba(0, 16, 74, 1.0);
+  font-family: 'Oswald', sans-serif;
+  color: rgba(0, 16, 74, 1.0);
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+
+.weather h4 {
+  font-size: 1.5em;
+}
+
+.radios {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25em;
+  color: rgba(0, 16, 74, 1.0);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.article-row {
+  text-align: center;
+}
+
+.dislike {
+  background-color: rgba(140, 20, 20, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.like {
+  background-color: rgba(63, 140, 42, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.create {
+  background-color: rgba(0, 16, 74, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.outfit-issues {
+  background-color: rgba(0, 16, 74, 0.5);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25em;
+  border-radius: 15px;
+  padding: 5px;
+  margin-top: 10px;
 }
 
 
