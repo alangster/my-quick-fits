@@ -1,12 +1,26 @@
-<h2>"<%= @fashion_quote %>"</h2><h3><%= @fashion_quote_author %></h3>
-
-<div class="stats">
-<p>Statistics</p>
-<p>Number of times you've worn this outfit: <%= @count %></p>
+<div class="row">
+	<div class="col-lg-12 quote">
+		<blockquote>
+			<p><%= @fashion_quote %></p>
+		</blockquote>
+		<div class="col-lg-9">
+			<cite>-<%= @fashion_quote_author %></cite>
+		</div>
+	</div>
 </div>
-
-<div id="outfit-display">
-  <%= render partial: "show_outfit", layout: false %>
+<div class="row">
+	<div class="stats col-xs-6">
+		<% if @count != 1 %>
+			<div class="col-md-4"><h3>You've worn this outfit <%= @count %> times.</h3></div>
+		<% else %>
+			<div class="col-md-4"><h3>You've worn this outfit 1 time.</h3></div>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div id="outfit-display" class="col-lg-12 col-xs-12">
+	  <%= render partial: "show_outfit", layout: false %>
+	</div>
 </div>
 
 <style type="text/css">

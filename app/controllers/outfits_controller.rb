@@ -8,11 +8,14 @@ class OutfitsController < ApplicationController
     @message_temp = make_temperature_statement(temp)
     @message_precip = "(#{make_precipitation_statement(precip)})"
 		formal = 0
-		clothes = Outfit.make_outfit(current_wardrobe, temp, precip > 0.5, formal)
-		@tops = clothes[:tops]
-		@bottom = clothes[:bottom]
-		@shoes = clothes[:shoes]
-    @message = clothes[:errors].join(" ")
+		results = Outfit.make_outfit(current_wardrobe, temp, precip > 0.5, formal)
+		@tops = results[:tops]
+    @top_names = results[:top_names]
+		@bottom = results[:bottom]
+    @bottom_name = results[:bottom_name]
+    @shoes = results[:shoes]
+		@shoes_name = results[:shoes_name]
+    @outfit_issues = render_error_message(results)
     rain_jacket = current_wardrobe.articles.where(category: Category.find_by(name: "Rain Jacket"))[0]
     if precip > 0.5 && rain_jacket && temp <= rain_jacket.category.max_temp
       if @tops.last.category.layerable < 3
@@ -21,11 +24,17 @@ class OutfitsController < ApplicationController
         @tops[-1] = rain_jacket
       end
     end
-		@outfit = Outfit.new
+    if @tops.any?(&:nil?) || @bottom.nil? || @shoes.nil?
+      flash[:notice] = "You don't have enough in your wardrobe to make an outfit!"
+      redirect_to current_user
+    else
+		  @outfit = Outfit.new
+    end
 	end
 
 	def create
     outfit = create_outfit_record(params)
+    outfit.articles.each {|article| article.increment!(:times_worn)}
     redirect_to outfit
 	end
 
@@ -41,10 +50,14 @@ class OutfitsController < ApplicationController
   def formality
     temp = params[:temperature].to_i || session[:current_temp]
     precip = params[:precipitation].to_f || session[:chance_of_rain] > 0.5
-    clothes = Outfit.make_outfit(current_wardrobe, temp, precip, params[:formality].to_i)
-    @tops = clothes[:tops]
-    @bottom = clothes[:bottom]
-    @shoes = clothes[:shoes]
+    results = Outfit.make_outfit(current_wardrobe, temp, precip, params[:formality].to_i)
+    @tops = results[:tops]
+    @top_names = results[:top_names]
+    @bottom = results[:bottom]
+    @bottom_name = results[:bottom_name]
+    @shoes = results[:shoes]
+    @shoes_name = results[:shoes_name]
+    @outfit_issues = render_error_message(results)
     @outfit = Outfit.new
     return render partial: "new_outfit", layout: false
   end
@@ -109,5 +122,11 @@ class OutfitsController < ApplicationController
       outfit.outfit_articles.create!(article_id: id)
     end
     outfit
+  end
+
+  def render_error_message(results)
+    msg = results[:errors].join(" ")
+    msg = "* " + msg if msg.strip() != ""
+    msg
   end
 end
