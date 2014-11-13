@@ -18,6 +18,8 @@
 }
 
 .item-category {
+  font-family: 'Oswald', sans-serif;
+  border-radius: 8px;
   width: 70px;
   height: 70px;
   margin: 5px;
@@ -33,6 +35,8 @@
 }
 
 .item-category-choice {
+  font-family: 'Oswald', sans-serif;
+  border-radius: 8px;
 	width: 25%;
   width: 100px;
   height: 100px;

@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
 		@article.secondary_color     = color_name(@article.secondary_color_hex) #params["secondary-name"] unless params["secondary-name"] == ""
 		@article.tertiary_color_hex  = params["tertiary-hex"] unless params["tertiary-hex"] == ""
 		@article.tertiary_color      = color_name(@article.tertiary_color_hex) #params["tertiary-name"] unless params["tertiary-name"] == ""
-		@article.condition           = params[:article][:condition] unless params[:article][:condition].blank?
+		@article.condition           = params[:article][:condition] #unless params[:article][:condition].blank?
 
 		if @article.save
 			redirect_to @article

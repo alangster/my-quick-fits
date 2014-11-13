@@ -35,6 +35,7 @@ $(function() {
 		$('#condition-description').hide();
 		colorWheels();
 		$('#update-item-form').show();
+		$('#show-outfit-page').hide();
 	});
-	
+
 });

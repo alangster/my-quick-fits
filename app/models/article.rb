@@ -133,7 +133,8 @@ class Article < ActiveRecord::Base
   end
 
   def descriptive_condition
-    "Fresh" unless /S+/.match(self.condition)
+    return "Fresh" if self.condition.nil?
+    self.condition.strip() == '' ? "Fresh" : self.condition
   end
 
   def most_recent_wear
