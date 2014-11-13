@@ -16,14 +16,15 @@
 	<h3><% if @article.most_recent_wear %><%= @article.most_recent_wear %><% end %></h3>
 	<h3>This <%= @article.category.name %> has been in your wardrobe since <%= @article.created_at.strftime("%B %d, %Y") %>.</h3>
 	<h3 id="condition-description">Condition: <%= @article.descriptive_condition %><h3> 
+
 	<div id="update-item-form">
 		<%= form_for @article do |f| %>
 		<input type="hidden" name="primary-hex" value="<%= @article.primary_color_hex %>">	
 		<input type="hidden" name="secondary-hex" value="<%= @article.secondary_color_hex %>">	
 		<input type="hidden" name="tertiary-hex" value="<%= @article.tertiary_color_hex %>">	
 		<%= f.label :condition %></br>
-		<%= f.text_field :condition %></br>
-		<%= f.submit "That's better" %>
+		<%= f.text_field :condition, class: "condition" %></br>
+		<%= f.submit "That's better", class: "fixed" %>
 		<% end %>
 	</div>
 </div>

@@ -1,22 +1,30 @@
 <div class="row">
-<h4><%= @message_temp %></h4>
-<h4><%= @message_precip %></h4>
-
-<!-- <form id="formality">
-<input type="radio" name="formal" value="casual" checked="checked">Casual
-<input type="radio" name="formal" value="formal">Formal
-</form> -->
-
-<%= form_tag '/', id: "formality" do %>
-  <%= label_tag "Casual" %>
-  <%= radio_button_tag("outfit", "casual", checked: "checked") %>
-  <%= label_tag "Business" %>
-  <%= radio_button_tag("outfit", "formal") %>
-<% end %>
-
-<div id="outfit-display">
-  <%= render partial: "new_outfit", layout: false %>
+	<div class="weather">
+		<h4><%= @message_temp %></h4>
+		<h4><%= @message_precip %></h4>
+	</div>
 </div>
+
+<div class="row">
+	<!-- <form id="formality">
+	<input type="radio" name="formal" value="casual" checked="checked">Casual
+	<input type="radio" name="formal" value="formal">Formal
+	</form> -->
+
+	<div class="radios col-lg-12">
+		<%= form_tag '/', id: "formality" do %>
+		  <%= label_tag "Casual" %>
+		  <%= radio_button_tag("outfit", "casual", checked: "checked") %>
+		  <%= label_tag "Business" %>
+		  <%= radio_button_tag("outfit", "formal") %>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div id="outfit-display" class="article-row col-lg-12 col-xs-12">
+	  <%= render partial: "new_outfit", layout: false %>
+	</div>
 </div>
 
 <style type="text/css">
