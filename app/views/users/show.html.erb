@@ -11,12 +11,12 @@
 	</div>
 	<div class="make-outfit items col-md-4">
 		<%= link_to "Make Outfit", new_outfit_path, :class => "btn btn-default btn-lg user-options" %>
-		<% if flash[:notice] %><h3 class="added-item"><%= flash[:notice] %></h3><% end %>
 	</div>
 	<div class="see-wardrobe items col-md-4">
 		<%= link_to "See Wardrobe", wardrobe_path(current_wardrobe), :class => "btn btn-default btn-lg user-options" %>
 	</div>
 	<% end %>
+	<% if flash[:notice] %><h3 class="added-item"><%= flash[:notice] %></h3><% end %>
 </div>
 
 <style type="text/css">
