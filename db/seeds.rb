@@ -7,38 +7,38 @@ Category.delete_all
 
 # CATEGORIES
 tshirt = Category.create!(name: "T-Shirt", type_of: "Top", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
-Category.create!(name: "Tanktop", type_of: "Top", layerable: 0, min_temp: 70, max_temp: 100, formality: 0)
+tanktop = Category.create!(name: "Tanktop", type_of: "Top", layerable: 0, min_temp: 70, max_temp: 100, formality: 0)
 # Category.create!(name: "Undershirts", type_of: "Top", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
-Category.create!(name: "Long Sleeve T-Shirt", type_of: "Top", layerable: 0, min_temp: 45, max_temp: 70, formality: 0)
-Category.create!(name: "Polo Shirt", type_of: "Top", layerable: 0, min_temp: 60, max_temp: 100, formality: 1)
+long_sleeve = Category.create!(name: "Long Sleeve T-Shirt", type_of: "Top", layerable: 0, min_temp: 45, max_temp: 70, formality: 0)
+polo = Category.create!(name: "Polo Shirt", type_of: "Top", layerable: 0, min_temp: 60, max_temp: 100, formality: 1)
 
-Category.create!(name: "Button Down Shirt", type_of: "Top", layerable: 1, min_temp: 50, max_temp: 80, formality: 0)
-Category.create!(name: "Dress Shirt", type_of: "Top", layerable: 1, min_temp: 50, max_temp: 80, formality: 1)
+button_down = Category.create!(name: "Button Down Shirt", type_of: "Top", layerable: 1, min_temp: 50, max_temp: 80, formality: 0)
+dress_shirt = Category.create!(name: "Dress Shirt", type_of: "Top", layerable: 1, min_temp: 50, max_temp: 80, formality: 1)
 
-Category.create!(name: "Crewneck Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
-Category.create!(name: "Cardigan", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
-Category.create!(name: "V Neck Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
-Category.create!(name: "Half-Zip Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
-Category.create!(name: "Hooded Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
-Category.create!(name: "Crewneck Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
+crew_sweater = Category.create!(name: "Crewneck Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
+cardigan = Category.create!(name: "Cardigan", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
+v_neck_sweater = Category.create!(name: "V Neck Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
+half_zip_sweater = Category.create!(name: "Half-Zip Sweater", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 1) # can be either biz casual or casual...
+hoodie = Category.create!(name: "Hooded Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
+crew_sweatshirt = Category.create!(name: "Crewneck Sweatshirt", type_of: "Top", layerable: 2, min_temp: 45, max_temp: 70, formality: 0)
 
-Category.create!(name: "Blazer", type_of: "Top", layerable: 3, min_temp: 40, max_temp: 75, formality: 1)
-Category.create!(name: "Peacoat", type_of: "Top", layerable: 3, min_temp: 0, max_temp: 65, formality: 1)
-Category.create!(name: "Down Jacket", type_of: "Top", layerable: 3, min_temp: 0, max_temp: 60, formality: 0)
-Category.create!(name: "Trench Coat", type_of: "Top", layerable: 3, min_temp: 20, max_temp: 65, formality: 1)
-Category.create!(name: "Rain Jacket", type_of: "Top", layerable: 3, min_temp: 35, max_temp: 70, formality: 0)
+blazer = Category.create!(name: "Blazer", type_of: "Top", layerable: 3, min_temp: 40, max_temp: 75, formality: 1)
+peacoat = Category.create!(name: "Peacoat", type_of: "Top", layerable: 3, min_temp: 0, max_temp: 65, formality: 1)
+down_jacket = Category.create!(name: "Down Jacket", type_of: "Top", layerable: 3, min_temp: 0, max_temp: 60, formality: 0)
+trench = Category.create!(name: "Trench Coat", type_of: "Top", layerable: 3, min_temp: 20, max_temp: 65, formality: 1)
+rain_jacket = Category.create!(name: "Rain Jacket", type_of: "Top", layerable: 3, min_temp: 35, max_temp: 70, formality: 0)
 
-Category.create!(name: "Dress Pants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 100, formality: 1)
-Category.create!(name: "Jeans", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 80, formality: 0) # can be either biz casual or casual...
-Category.create!(name: "Chino Pants", type_of: "Bottom", layerable: 0, min_temp: 35, max_temp: 100, formality: 1)
-Category.create!(name: "Corduroy Pants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 70, formality: 1) # can be either biz casual or casual...
-Category.create!(name: "Cargo Pants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 80, formality: 0)
-Category.create!(name: "Sweatpants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 80, formality: 0)
+dress_pants = Category.create!(name: "Dress Pants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 100, formality: 1)
+jeans = Category.create!(name: "Jeans", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 80, formality: 0) # can be either biz casual or casual...
+chino_pants = Category.create!(name: "Chino Pants", type_of: "Bottom", layerable: 0, min_temp: 35, max_temp: 100, formality: 1)
+cords = Category.create!(name: "Corduroy Pants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 70, formality: 1) # can be either biz casual or casual...
+cargo_pants = Category.create!(name: "Cargo Pants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 80, formality: 0)
+sweatpants = Category.create!(name: "Sweatpants", type_of: "Bottom", layerable: 0, min_temp: 0, max_temp: 80, formality: 0)
 
-Category.create!(name: "Chino Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
-Category.create!(name: "Athletic Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
-Category.create!(name: "Cargo Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
-Category.create!(name: "Jean Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
+chino_shorts = Category.create!(name: "Chino Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
+athletic_shorts = Category.create!(name: "Athletic Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
+cargo_shorts = Category.create!(name: "Cargo Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
+jorts = Category.create!(name: "Jean Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
 
 Category.create!(name: "Dress Shoes", type_of: "Shoes", layerable: 0, min_temp: 0, max_temp: 80, formality: 1)
 Category.create!(name: "Desert Boots", type_of: "Shoes", layerable: 0, min_temp: 0, max_temp: 80, formality: 1) # can be either biz casual or casual...
