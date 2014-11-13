@@ -331,6 +331,16 @@ h2.category-title {
   padding: 10px;
 }
 
+.added-item {
+  background-color: rgba(0, 16, 74, 0.5);
+  display: block;
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25em;
+  border-radius: 15px;
+  padding: 5px;
+  margin-top: 10px;
+}
 
 /********** New Outfits Page **********/
 .weather {
