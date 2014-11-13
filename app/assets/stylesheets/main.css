@@ -35,6 +35,7 @@
   text-align: center;
 }
 
+
 /********** Navbar **********/
 .layout-header {
   background-color: rgba(0, 16, 74, 1.0);
@@ -228,7 +229,7 @@ button#show-outfit-page {
 
 .form-group label {
   font-size: 2.5em;
-  color: rgba(0, 16, 74, 1.0);
+  color: rgba(255, 255, 255, 1.0);
 }
 
 .form-group input {
@@ -239,6 +240,11 @@ button#show-outfit-page {
 .new-form {
   text-align: center;
   margin-top: 4em;
+  background-color: rgba(0, 16, 74, 0.5);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25em;
+  padding: 5px;
 }
 
 .new-form button {
@@ -256,6 +262,20 @@ button#show-outfit-page {
 
 .form-buttons button a {
   color: rgba(0, 16, 74, 1.0);
+}
+
+.form-button {
+  background-color: rgba(0, 16, 74, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Belleza', sans-serif;
+  font-size: 1.5em;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.form-button:hover {
+  color: rgba(36, 62, 115, 1.0);
 }
 
 
@@ -362,6 +382,16 @@ h2.category-title {
   padding: 10px;
 }
 
+.added-item {
+  background-color: rgba(0, 16, 74, 0.5);
+  display: block;
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25em;
+  border-radius: 15px;
+  padding: 5px;
+  margin-top: 10px;
+}
 
 /********** New Outfits Page **********/
 .weather {

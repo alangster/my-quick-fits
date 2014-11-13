@@ -11,9 +11,9 @@
 				<%= password_field_tag :password %>
 		  </div>
 		  <div class="form-buttons">
-				<%= submit_tag "Login" %>
+				<%= submit_tag "Login", class: "form-button btn" %>
 				<% end %>
-				<button><%= link_to "Join Us", new_user_path %></button>
+				<%= link_to "Join Us", new_user_path, class: "form-button btn" %>
 			</div>
 		</div>
 	</div>
