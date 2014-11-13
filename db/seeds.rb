@@ -41,7 +41,7 @@ cargo_shorts = Category.create!(name: "Cargo Shorts", type_of: "Bottom", layerab
 jorts = Category.create!(name: "Jean Shorts", type_of: "Bottom", layerable: 0, min_temp: 60, max_temp: 100, formality: 0)
 
 dress_shoes = Category.create!(name: "Dress Shoes", type_of: "Shoes", layerable: 0, min_temp: 0, max_temp: 80, formality: 1)
-boots = Category.create!(name: "Desert Boots", type_of: "Shoes", layerable: 0, min_temp: 0, max_temp: 80, formality: 1) # can be either biz casual or casual...
+boots = Category.create!(name: "Desert Boots", type_of: "Shoes", layerable: 0, min_temp: 0, max_temp: 80, formality: 0) # can be either biz casual or casual...
 loafers = Category.create!(name: "Penny Loafers", type_of: "Shoes", layerable: 0, min_temp: 0, max_temp: 100, formality: 1)
 sneakers = Category.create!(name: "Sneakers", type_of: "Shoes", layerable: 0, min_temp: 0, max_temp: 100, formality: 0)
 toms = Category.create!(name: "TOMs", type_of: "Shoes", layerable: 0, min_temp: 40, max_temp: 100, formality: 0)
@@ -444,7 +444,7 @@ black_cargo_shorts = Article.create!(wardrobe: wardrobe, category: cargo_shorts,
 # brown_dress_shoes2 = Article.create!(wardrobe: wardrobe, category: dress_shoes, primary_color: "Brown", primary_color_hex: "#a52a2a", water_proof?: false, water_delicate?: false, times_worn: 50)
 
 # # Desert-Boots
-# tan_desert_boots = Article.create!(wardrobe: wardrobe, category: boots, primary_color: "Tan", primary_color_hex: "#d2b48c", water_proof?: false, water_delicate?: false, times_worn: 100)
+tan_desert_boots = Article.create!(wardrobe: wardrobe, category: boots, primary_color: "Tan", primary_color_hex: "#d2b48c", water_proof?: false, water_delicate?: false, times_worn: 100)
 
 # # Sneakers
 white_sneakers = Article.create!(wardrobe: wardrobe, category: sneakers, primary_color: "White", primary_color_hex: "#ffffff", water_proof?: false, water_delicate?: false, times_worn: 120)
@@ -477,7 +477,7 @@ outfit.outfit_articles.create!(article: purple_aqua_sneakers)
 outfit = Outfit.create!(wardrobe: wardrobe, created_at: 8.days.ago)
 outfit.outfit_articles.create!(article: white_blue_dress_shirt)
 outfit.outfit_articles.create!(article: dark_green_chino)
-outfit.outfit_articles.create!(article: white_sneakers)
+outfit.outfit_articles.create!(article: tan_desert_boots)
 
 outfit = Outfit.create!(wardrobe: wardrobe, created_at: 7.days.ago)
 outfit.outfit_articles.create!(article: gray_nike_long)
@@ -488,7 +488,7 @@ outfit.outfit_articles.create!(article: white_sneakers)
 outfit = Outfit.create!(wardrobe: wardrobe, created_at: 6.days.ago)
 outfit.outfit_articles.create!(article: navy_bd)
 outfit.outfit_articles.create!(article: dark_blue_jeans3)
-outfit.outfit_articles.create!(article: white_sneakers)
+outfit.outfit_articles.create!(article: tan_desert_boots)
 
 outfit = Outfit.create!(wardrobe: wardrobe, created_at: 5.days.ago)
 outfit.outfit_articles.create!(article: gray_green_oregon)
@@ -499,7 +499,7 @@ outfit.outfit_articles.create!(article: gray_sneakers)
 outfit = Outfit.create!(wardrobe: wardrobe, created_at: 4.days.ago)
 outfit.outfit_articles.create!(article: white_purple_bd)
 outfit.outfit_articles.create!(article: sky_blue_chino)
-outfit.outfit_articles.create!(article: white_sneakers)
+outfit.outfit_articles.create!(article: tan_desert_boots)
 
 outfit = Outfit.create!(wardrobe: wardrobe, created_at: 3.days.ago)
 outfit.outfit_articles.create!(article: white_usa)
@@ -511,7 +511,7 @@ outfit = Outfit.create!(wardrobe: wardrobe, created_at: 2.days.ago)
 outfit.outfit_articles.create!(article: slate_jcrew)
 outfit.outfit_articles.create!(article: navy_sweater)
 outfit.outfit_articles.create!(article: dark_blue_jeans1)
-outfit.outfit_articles.create!(article: purple_aqua_sneakers)
+outfit.outfit_articles.create!(article: tan_desert_boots)
 
 outfit = Outfit.create!(wardrobe: wardrobe, created_at: 1.days.ago)
 outfit.outfit_articles.create!(article: gray_green_oregon)
