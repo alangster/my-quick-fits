@@ -48,15 +48,16 @@ class Outfit < ActiveRecord::Base
   end
 
   def self.has_error?(results)
-    flag = results[:complementary] && 
-           results[:proper_dress_code] && 
-           results[:water_resistant] && 
+    flag = results[:complementary] &&
+           results[:proper_dress_code] &&
+           results[:water_resistant] &&
            results[:good_condition] &&
            results[:clean]
     !flag
   end
 
   def self.get_modified_name(article, results)
+    return "" if article.nil?
     name = article.category.name
     name += " *" if has_error?(results)
     name
@@ -82,6 +83,8 @@ class Outfit < ActiveRecord::Base
     end
 
     bottoms = current_wardrobe.get_all_bottoms
+
+
     results = Article.get_appropriate_articles(bottoms, temperature, precipitation, formal, outfit_so_far)
     bottom_final = results[:articles].sample
     bottom_name = get_modified_name(bottom_final, results)
@@ -89,6 +92,7 @@ class Outfit < ActiveRecord::Base
     outfit_so_far << bottom_final
 
     shoes = current_wardrobe.get_all_shoes
+
     results = Article.get_appropriate_articles(shoes, temperature, precipitation, formal, outfit_so_far)
     shoes_final = results[:articles].sample
     shoes_name = get_modified_name(shoes_final, results)
