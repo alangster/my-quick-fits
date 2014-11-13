@@ -8,7 +8,13 @@ class OutfitsController < ApplicationController
     @message_temp = make_temperature_statement(temp)
     @message_precip = "(#{make_precipitation_statement(precip)})"
 		formal = 0
-		results = Outfit.make_outfit(current_wardrobe, temp, precip > 0.5, formal)
+    begin
+		  results = Outfit.make_outfit(current_wardrobe, temp, precip > 0.5, formal)
+    rescue
+      flash[:notice] = "You don't have enough in your wardrobe to make an outfit!"
+      redirect_to current_user
+      return
+    end
 		@tops = results[:tops]
     @top_names = results[:top_names]
 		@bottom = results[:bottom]
