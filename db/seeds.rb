@@ -423,7 +423,7 @@ brown_cords = Article.create!(wardrobe: wardrobe, category: cords, primary_color
 gray_cords = Article.create!(wardrobe: wardrobe, category: cords, primary_color: "Gray", primary_color_hex: "#808080", water_proof?: false, water_delicate?: false, times_worn: 10)
 
 # # Sweatpants
-black_sweatpants = Article.create!(wardrobe: wardrobe, category: sweatpants, primary_color: "Black", primary_color_hex: "#000000", water_proof?: false, water_delicate?: false, times_worn: 120)
+# black_sweatpants = Article.create!(wardrobe: wardrobe, category: sweatpants, primary_color: "Black", primary_color_hex: "#000000", water_proof?: false, water_delicate?: false, times_worn: 120)
 
 # # Chino-Shorts
 khaki_shorts = Article.create!(wardrobe: wardrobe, category: chino_shorts, primary_color: "Khaki", primary_color_hex: "#f0e68c", water_proof?: false, water_delicate?: false, times_worn: 30)
@@ -439,12 +439,12 @@ navy_athletic_shorts = Article.create!(wardrobe: wardrobe, category: athletic_sh
 black_cargo_shorts = Article.create!(wardrobe: wardrobe, category: cargo_shorts, primary_color: "Black", primary_color_hex: "#000000", water_proof?: false, water_delicate?: false, times_worn: 25)
 
 # # Dress-Shoes
-black_dress_shoes = Article.create!(wardrobe: wardrobe, category: dress_shoes, primary_color: "Black", primary_color_hex: "#000000", water_proof?: false, water_delicate?: false, times_worn: 100)
-brown_dress_shoes1 = Article.create!(wardrobe: wardrobe, category: dress_shoes, primary_color: "Brown", primary_color_hex: "#a52a2a", water_proof?: false, water_delicate?: false, times_worn: 30)
-brown_dress_shoes2 = Article.create!(wardrobe: wardrobe, category: dress_shoes, primary_color: "Brown", primary_color_hex: "#a52a2a", water_proof?: false, water_delicate?: false, times_worn: 50)
+# black_dress_shoes = Article.create!(wardrobe: wardrobe, category: dress_shoes, primary_color: "Black", primary_color_hex: "#000000", water_proof?: false, water_delicate?: false, times_worn: 100)
+# brown_dress_shoes1 = Article.create!(wardrobe: wardrobe, category: dress_shoes, primary_color: "Brown", primary_color_hex: "#a52a2a", water_proof?: false, water_delicate?: false, times_worn: 30)
+# brown_dress_shoes2 = Article.create!(wardrobe: wardrobe, category: dress_shoes, primary_color: "Brown", primary_color_hex: "#a52a2a", water_proof?: false, water_delicate?: false, times_worn: 50)
 
 # # Desert-Boots
-tan_desert_boots = Article.create!(wardrobe: wardrobe, category: boots, primary_color: "Tan", primary_color_hex: "#d2b48c", water_proof?: false, water_delicate?: false, times_worn: 100)
+# tan_desert_boots = Article.create!(wardrobe: wardrobe, category: boots, primary_color: "Tan", primary_color_hex: "#d2b48c", water_proof?: false, water_delicate?: false, times_worn: 100)
 
 # # Sneakers
 white_sneakers = Article.create!(wardrobe: wardrobe, category: sneakers, primary_color: "White", primary_color_hex: "#ffffff", water_proof?: false, water_delicate?: false, times_worn: 120)
