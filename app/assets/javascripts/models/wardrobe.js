@@ -1,7 +1,10 @@
 $(function() {
   var $container =  $('.isotope').isotope({
     itemSelector: '.item',
-    layoutMode: 'masonry'
+    layoutMode: 'masonry',
+    masonry: {
+      isFitWidth: true
+    }
   });
 
   var filterFns = {
