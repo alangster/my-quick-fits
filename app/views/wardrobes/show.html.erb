@@ -15,27 +15,31 @@
 </div>
 <div class="row">
   <div class="isotope col-lg-12">
-      <% @tops.each do |article| %>
-      <%= link_to article do %>
-      <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
-        <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
-          <p><%= article.category.name %></p>
-      </div>
-      <% end %>
-    <% end %>
-    <% @bottoms.each do |article| %>
-      <%= link_to article do %>
-        <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
-          <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
-          <p><%= article.category.name %></p>
+    <% @tops.each do |top| %>
+      <%= link_to top do %>
+        <div class="item <%= top.category.type_of %>">
+          <div class="pega  <%= top.primary_color %>" style="<%= top.render_gradient %>">
+            <%= image_tag("#{top.get_icon_name}", class: "category-image") %>
+          </div>
+          <div class="caption">
+            <p><%= top.category.name %></p>
+          </div>
         </div>
       <% end %>
     <% end %>
-    <% @shoes.each do |article| %>
-      <%= link_to article do %>
-      <div class="item <%= article.category.type_of %> <%= article.primary_color %>" style="<%= article.render_gradient %>">
-        <%= image_tag("#{article.get_icon_name}", class: "category-image") %>
-          <p><%= article.category.name %></p>
+    <% @bottoms.each do |bottom| %>
+      <%= link_to bottom do %>
+        <div class="item <%= bottom.category.type_of %> <%= bottom.primary_color %>" style="<%= bottom.render_gradient %>">
+          <%= image_tag("#{bottom.get_icon_name}", class: "category-image") %>
+          <p><%= bottom.category.name %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <% @shoes.each do |shoe| %>
+      <%= link_to shoe do %>
+      <div class="item <%= shoe.category.type_of %> <%= shoe.primary_color %>" style="<%= shoe.render_gradient %>">
+        <%= image_tag("#{shoe.get_icon_name}", class: "category-image") %>
+          <p><%= shoe.category.name %></p>
       </div>
       <% end %>
     <% end %>
