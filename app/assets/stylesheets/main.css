@@ -267,15 +267,39 @@ h2.category-title {
 }
 
 .item, .item-choice, .item-outfit {
+  font-family: 'Oswald', sans-serif;
+  /*color: rgba(114, 142, 166, 1.0);*/
+  color: #eee;
+  /*color: red;*/
   width: 100px;
   height: 100px;
   margin: 5px;
-  padding: 10px;
-  border-radius: 5px;
+  padding-top: 5px;
+  /*border: 5px solid rgb(53,53,53);*/
+  border: 5px solid rgba(53,53,53, 0.8);
+  border-radius: 8px;
   box-shadow: 3px 3px 4px #bbb;
-  color: #000;
+  /*color: #000;*/
   text-align: center;
-  text-shadow: 1px 1px 2px #bbb;
+  position: relative;
+  /*text-shadow: 1px 1px 2px #bbb;*/
+ /*   text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;*/
+}
+
+.item p, .item-choice p, .item-outfit p {
+  width: 100%;
+  position: absolute;
+  bottom: -10px;
+  text-align: center;
+  background-color: rgba(53,53,53, 0.8);
+  /*background-image: url(/footer_lodyas.png);*/
+  /*box-shadow: 1px 1px 1px #000;*/
+  padding: 0px;
+  padding-top: 2px;
 }
 
 .item img, .item-choice img, .item-outfit img {
