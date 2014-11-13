@@ -19,7 +19,17 @@ class Category < ActiveRecord::Base
 	end
 
 	def month_wears(current_wardrobe)
-		current_wardrobe.articles.where(category: self).group("DATE_TRUNC('month', created_at)").count.values[0]
+		count = 0
+		current_wardrobe.outfits.each do |outfit|
+			if outfit.like != 1 && outfit.like != -1
+				# count += outfit.articles.where(category: self).group("DATE_TRUNC('month', created_at)").count.values[0]
+				outfit.articles.each do |article|
+					count += 1 if article.category == self && true #need to change this to compare with current month
+				end
+			end
+		end
+		count
+		# .articles.where(category: self).group("DATE_TRUNC('month', created_at)").count.values[0]
 	end
 
 	def fav_color(current_wardrobe)
