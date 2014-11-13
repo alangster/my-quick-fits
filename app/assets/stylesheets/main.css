@@ -190,6 +190,23 @@ button#show-outfit-page {
   font-family: 'Oswald', sans-serif;
 }
 
+#color-wheels {
+  margin-left: 25px;
+}
+
+.condition {
+  margin-top: 15px;
+}
+
+.fixed {
+  background-color: rgba(63, 140, 42, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+  font-family: 'Oswald', sans-serif;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 25px;
+}
+
 
 /********** Login Form **********/
 .form-group {
