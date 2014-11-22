@@ -32,7 +32,7 @@ class Article < ActiveRecord::Base
   end
 
   def good_condition?
-    self.condition == nil
+    self.condition.nil?
   end
 
   def clean?
