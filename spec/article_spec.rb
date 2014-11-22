@@ -21,22 +21,34 @@ describe Article do
 
 	describe '#within_temp?' do 
 
-		it 'returns true if temp within article temp range' do 
-			expect(firebase.within_temp?(70)).to eq(true)
+		context 'temp within article temp range' do 
+			it 'returns true' do 
+				expect(firebase.within_temp?(70)).to eq(true)
+			end
 		end
 
-
-		it 'returns true if temp at top of article temp range' do 
-			expect(firebase.within_temp?(100)).to eq(true)
+		context 'temp at top of article temp range' do 
+			it 'returns true' do 
+				expect(firebase.within_temp?(100)).to eq(true)
+			end
 		end
 
-
-		it 'returns true if temp at bottom of article temp range' do 
-			expect(firebase.within_temp?(60)).to eq(true)
+		context 'temp at bottom of article temp range' do 
+			it 'returns true' do 
+				expect(firebase.within_temp?(60)).to eq(true)
+			end
 		end
 
-		it 'returns false if temp outside article temp range' do 
-			expect(firebase.within_temp?(59)).to eq(false)
+		context 'temp below article temp range' do 
+			it 'returns false' do 
+				expect(firebase.within_temp?(59)).to eq(false)
+			end
+		end
+
+		context 'temp above article temp range' do 
+			it 'returns false' do 
+				expect(firebase.within_temp?(101)).to eq(false)
+			end
 		end
 
 	end
