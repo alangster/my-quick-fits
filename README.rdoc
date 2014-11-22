@@ -2,10 +2,6 @@
 
 Check it out! http://QuickFits.herokuapp.com
 
-=== Sample Screenshots
-
-*Include Screenshots*
-
 === System Requirements
 - Ruby 2.0.0 p-481
 - Rails 4.1.6
@@ -53,7 +49,7 @@ JavaScript preloader for HTML5 applications
 
 === Getting Started
 
-1. Clone to local machine: <tt>git clone https://github.com/devdame/DBC-final-project.git campuslyfe</tt>
+1. Clone to local machine: <tt>git clone https://github.com/alangster/my-quick-fits.git</tt>
 2. Install dependencies: <tt>bundle</tt>
 3. Initialize database: <tt>rake db:reset</tt>
 4. Run server: <tt>rails s</tt>
@@ -107,14 +103,14 @@ JavaScript preloader for HTML5 applications
 
 === Database Schema
 
-http://s1294.photobucket.com/user/jhendge/media/ScreenShot2014-11-11at103215AM_zps2662df56.png.html?filters[user]=141818714&filters[recent]=1&sort=1&o=0
+http://i1294.photobucket.com/albums/b613/jhendge/ScreenShot2014-11-11at103215AM_zps2662df56.png
 
 === Running the Test Suite
 
 <tt>rspec</tt>
 
 === Brought to You By
-http://s1294.photobucket.com/user/jhendge/media/Mobile%20Uploads/2014-11/FFC6984F-1288-4762-A870-C06FADE37DD9_zpseutiswcm.png.html?filters[user]=141818714&filters[recent]=1&sort=1&o=1
+http://i1294.photobucket.com/albums/b613/jhendge/Mobile%20Uploads/2014-11/FFC6984F-1288-4762-A870-C06FADE37DD9_zpseutiswcm.png
 
 Alex:: https://github.com/alangster
 Peter:: https://github.com/peterxjang
