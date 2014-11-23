@@ -48,18 +48,16 @@ class Article < ActiveRecord::Base
   end
 
   def water_resistant?
-    !self.water_delicate?
+    return true if self.water_proof?
+    !self.water_delicate? 
   end
 
   def proper_dress_code?(formal)
-    # formal = formal == 0 ? false : true
     self.category.formality == formal
   end
 
   def is_neutral?
-    result = NEUTRALS.include?(self.primary_color) #&& NEUTRALS.include?(self.secondary_color)
-    # puts "#{self.primary_color}, #{self.secondary_color}" if result
-    result
+    NEUTRALS.include?(self.primary_color) 
   end
 
   def complementary?(other_articles)
@@ -68,7 +66,7 @@ class Article < ActiveRecord::Base
 
   def complementary_colors?(other_articles)
     if other_articles.all? { |a| a.is_neutral? }
-      return true
+      true
     else
       self.is_neutral?
     end
