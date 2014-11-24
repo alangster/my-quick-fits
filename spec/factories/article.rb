@@ -5,6 +5,12 @@ FactoryGirl.define do
 		secondary_color {'Navajo White'}
 		secondary_color_hex {'#FFDEAD'}
 		formal? {false}
-		water_proof {false}
+		water_proof? {false}
+
+		factory :non_neutral do
+			primary_color {'Red'}
+			primary_color_hex {'#FF0000'}
+		end
+
 	end 
 end 
