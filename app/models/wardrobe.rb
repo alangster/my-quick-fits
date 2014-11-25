@@ -49,4 +49,10 @@ class Wardrobe < ActiveRecord::Base
     self.articles.where.not(condition: nil)
   end
 
+  def any_other_formal_tops?(top)
+    tops = self.get_articles_type_of("Top")
+    other_tops = tops - [top]
+    other_tops.any? {|t| t.category.formality == 1}
+  end
+
  end

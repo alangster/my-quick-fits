@@ -1,5 +1,4 @@
 FactoryGirl.define do 
-	factory :outfit do
-		
+	factory :wardrobe do
 	end
 end
