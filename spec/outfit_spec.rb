@@ -42,8 +42,8 @@ describe Outfit do
   describe '.make_outfit' do 
 
     context 'reasonable temp, no rain, casual' do 
-      it 'should make an outfit' do
-        created_outfit = Outfit.make_outfit(wardrobe, 74, false, false)
+      it 'returns make an outfit' do
+        created_outfit = Outfit.make_outfit(wardrobe, 74, false, 0)
         expect(created_outfit[:bottom]).to eq(levis)
         expect(created_outfit[:shoes]).to eq(nikes)
         expect(created_outfit[:tops]).to eq([firebase])
@@ -52,29 +52,43 @@ describe Outfit do
 
     context 'formal dress code' do
 
+      let(:dress_shirt) {FactoryGirl.build(:category, :name => "Dress Shirt", :type_of => "Top", :layerable => 1, :min_temp => 0, :max_temp => 100, :formality => 1)}
+      let(:brooks_bros) {FactoryGirl.build(:article, :category => dress_shirt, :primary_color => "White")}
+
+      let(:dress_pants) {FactoryGirl.build(:category, :name => "Dress Pants", :type_of => "Bottom", :layerable => 0, :min_temp => 0, :max_temp => 80, :formality => 1)}
+      let(:ludlow)      {FactoryGirl.build(:article, :category => dress_pants, :primary_color => "Grey")}
+
+      let(:dress_shoes) {FactoryGirl.build(:category, :name => "Dress Shoes", :type_of => "Shoes", :layerable => 0, :min_temp => 0, :max_temp => 100, :formality => 1)}
+      let(:alden)       {FactoryGirl.build(:article, :category => dress_shoes, :primary_color => "Brown")}
+
       context 'no formal cloths' do 
-        it 'should return an outfit and error' do 
-          created_outfit = Outfit.make_outfit(wardrobe, 74, false, true)
+        it 'returns an outfit and error' do 
+          created_outfit = Outfit.make_outfit(wardrobe, 74, false, 1)
           expect([created_outfit[:bottom], created_outfit[:shoes], created_outfit[:tops]]).to eq([levis, nikes, [firebase]])
           expect(created_outfit[:errors]).to include("Had trouble finding clothes with proper dress code!")
         end
       end
 
-      context 'one formal item' do 
-        it 'should use formal item and give error' do
-          dress_shirt = FactoryGirl.build(:category, :name => "Dress Shirt", :type_of => "Top", :layerable => 1, :min_temp => 0, :max_temp => 100, :formality => 1)
-          brooks_bros = FactoryGirl.build(:article, :category => dress_shirt)
+      context 'one formal article' do 
+        it 'returns outfit with formal article and error' do
           wardrobe.articles << brooks_bros
-          created_outfit = Outfit.make_outfit(wardrobe, 74, false, true)
+          created_outfit = Outfit.make_outfit(wardrobe, 74, false, 1)
           expect([created_outfit[:bottom], created_outfit[:shoes], created_outfit[:tops]]).to eq([levis, nikes, [firebase, brooks_bros]])
           expect(created_outfit[:errors]).to include("Had trouble finding clothes with proper dress code!")
         end
       end
 
+      context 'sufficient formal articles' do 
+        it 'returns all formal outfit' do 
+          wardrobe.articles << [brooks_bros, ludlow, alden]
+          created_outfit = Outfit.make_outfit(wardrobe, 74, false, 1)
+          expect([created_outfit[:bottom], created_outfit[:shoes], created_outfit[:tops]]).to eq([ludlow, alden, [firebase, brooks_bros]])
+        end
+      end
 
     end
 
-
+    
 
   end
 

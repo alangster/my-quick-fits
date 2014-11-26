@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe Article do 
 
-	let!(:joe) {FactoryGirl.build(:user)}
-	let!(:tshirt) {FactoryGirl.build(:category, :name => "T-Shirt", :min_temp => 60, :max_temp => 100, :formality => 0)}
-	let!(:blazer) {FactoryGirl.build(:category, :formality => 1)}
-	let!(:firebase) {FactoryGirl.build(:article, :category => tshirt)}
+	let(:joe) {FactoryGirl.build(:user)}
+	let(:tshirt) {FactoryGirl.build(:category, :name => "T-Shirt", :min_temp => 60, :max_temp => 100, :formality => 0)}
+	let(:blazer) {FactoryGirl.build(:category, :formality => 1)}
+	let(:firebase) {FactoryGirl.build(:article, :category => tshirt)}
 	let(:navy_blazer) {FactoryGirl.build(:article, :category => blazer)}
 
 
@@ -200,6 +200,31 @@ describe Article do
 				expect(three.render_gradient).to eq("background: linear-gradient(#000080 50%,#FFDEAD 50%,#00FFFF)")
 			end
 		end
+
+	end
+
+	describe '.get_appropriate_articles' do
+
+    let(:dress_shirt) {FactoryGirl.build(:category, :name => "Dress Shirt", :type_of => "Top", :layerable => 1, :min_temp => 0, :max_temp => 100, :formality => 1)}
+    let(:dress_shirts) {Array.new(4) {FactoryGirl.build(:article, :category => dress_shirt)}}
+
+    context 'formal dress code, formal articles' do 
+    	it 'returns only formal articles' do
+    		shirts = dress_shirts << firebase
+    		results = Article.get_appropriate_articles(shirts, 74, false, 1)
+    		expect(results[:articles]).to_not include(firebase)
+    	end
+    end
+
+    context 'formal dress code, no formal articles' do 
+    	it 'returns informal article with flag' do 
+    		results = Article.get_appropriate_articles([firebase], 74, false, 1)
+    		expect(results[:articles]).to eq([firebase])
+    		expect(results[:proper_dress_code]).to eq(false)
+    	end
+    end
+
+
 
 	end
 
