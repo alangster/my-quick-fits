@@ -138,6 +138,44 @@ describe Outfit do
 
   end
 
-  
+  describe '#shoes' do 
+
+    it 'returns the shoes' do
+      outfit.articles << [nikes, levis, firebase]
+      expect(outfit.shoes).to eq(nikes)
+    end
+
+  end
+
+  describe '#bottom' do 
+
+    it 'returns the bottom' do 
+      outfit.articles << [nikes, levis, firebase]
+      expect(outfit.bottom).to eq(levis)
+    end
+
+  end
+
+  describe '#tops' do 
+
+    before do 
+      outfit.articles << [nikes, levis, firebase]
+    end
+
+    context 'one top' do 
+      it 'returns the top' do 
+        expect(outfit.tops).to eq([firebase])
+      end
+    end
+
+    context '> 1 tops' do 
+      it 'returns all tops' do
+        dbc = FactoryGirl.build(:article, :category => tshirt)
+        outfit.articles << dbc
+        expect(outfit.tops).to eq([firebase, dbc])
+      end
+    end
+
+  end
 
 end
