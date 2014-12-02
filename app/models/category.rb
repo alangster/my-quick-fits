@@ -14,10 +14,6 @@ class Category < ActiveRecord::Base
 		NECESSITIES - wardrobe.articles.map {|article| article.category.name}.uniq
 	end
 
-	def user_count(current_wardrobe)
-		mode_count(current_wardrobe.articles.map(&:category))
-	end
-
 	def month_wears(current_wardrobe)
 		count = 0
 		current_wardrobe.outfits.each do |outfit|
