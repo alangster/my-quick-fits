@@ -26,8 +26,9 @@ class Category < ActiveRecord::Base
 		count
 	end
 
-	def fav_color(current_wardrobe)
-		mode(current_wardrobe.articles.where(category: self).map(&:primary_color))[0]
+	def fav_color(wardrobe)
+		p wardrobe.articles.where(category: self) #.map(&:primary_color)
+		# mode(current_wardrobe.articles.where(category: self).map(&:primary_color))[0]
 	end
 
 	def get_icon_name

@@ -30,10 +30,9 @@ describe Category do
 
 		context 'mostly red chinos' do 
 			it 'returns red' do 
-				pending
-				colors = ["Red", "Red", "Red", "Red", "Blue", "Blue", "Blue", "Pink"]
-				chino = FactoryGirl.build(:category, :name => "Chinos")
-				chinos_array = colors.map {|color| FactoryGirl.build(:article, :primary_color => color, :category => chino)}
+				colors = Array.new(4, "Red") + Array.new(3, "Blue") << "Pink" 
+				chino = FactoryGirl.create(:category, :name => "Chinos")
+				chinos_array = colors.map {|color| FactoryGirl.create(:article, :primary_color => color, :category => chino)}
 				wardrobe.articles << all_articles + chinos_array
 				expect(chino.fav_color(wardrobe)).to eq("Red")
 			end
