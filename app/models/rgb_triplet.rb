@@ -169,8 +169,6 @@ class RgbTriplet
 
 	def to_hex
 		"##{hex_helper(red.to_s(16))}#{hex_helper(green.to_s(16))}#{hex_helper(blue.to_s(16))}"
-
-		# "#" + [red, green, blue].map { |rgb_val| rgb_val.to_s(16) }.join("")
 	end
 
 	private

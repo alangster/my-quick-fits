@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root to: "sessions#new"
-  # get '/', to: "sessions#new"
 
   get '/wardrobe_categories', to: "wardrobes#wardrobe_categories"
 

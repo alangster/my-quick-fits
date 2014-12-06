@@ -3,7 +3,6 @@ class Article < ActiveRecord::Base
 	belongs_to :category
 	has_many :outfit_articles
 	has_many :outfits, through: :outfit_articles
-	# has_one :type, through: :category
   validates :category_id, :primary_color, presence: true
 
   include HamburgerHelper
@@ -43,7 +42,6 @@ class Article < ActiveRecord::Base
   end
 
   def within_temp?(temperature)
-    # needs to change
     self.category.min_temp <= temperature && self.category.max_temp >= temperature
   end
 
@@ -61,7 +59,7 @@ class Article < ActiveRecord::Base
   end
 
   def complementary?(other_articles)
-    self.complementary_colors?(other_articles) #&& complementary_styles?(self, other_articles)
+    self.complementary_colors?(other_articles) 
   end
 
   def complementary_colors?(other_articles)
@@ -73,7 +71,6 @@ class Article < ActiveRecord::Base
   end
 
   def complementary_styles?(article, other_articles)
-    # !NO_NOS[other_articles[0]].include?(article)
     true
   end
 

@@ -43,7 +43,6 @@ class Outfit < ActiveRecord::Base
     s << "Had trouble finding water-resistant clothes!" if !results[:water_resistant]
     s << "Had trouble finding clothes in good condition!" if !results[:good_condition]
     s << "Had trouble finding clean clothes!" if !results[:clean]
-    # s << "Had trouble finding clothes for the weather!" if !results[:within_temp]
     s
   end
 

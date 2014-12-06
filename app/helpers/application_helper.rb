@@ -17,7 +17,6 @@ module ApplicationHelper
     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
     current_weather = ForecastIO.forecast(41.87, -87.62)
     temperature = current_weather.currently.temperature
-    # return (temperature.round.to_s) + " °F"
     temperature
   end
 
@@ -25,7 +24,6 @@ module ApplicationHelper
     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
     current_weather = ForecastIO.forecast(41.87, -87.62)
     max_temp = current_weather.daily.data[0].temperatureMax
-    # return (max_temp.round.to_s) + " °F"
     max_temp
   end
 
@@ -33,7 +31,6 @@ module ApplicationHelper
     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
     current_weather = ForecastIO.forecast(41.87, -87.62)
     min_temp = current_weather.daily.data[0].temperatureMin
-    # return (min_temp.round.to_s) + " °F"
     min_temp
   end
 
@@ -41,7 +38,6 @@ module ApplicationHelper
     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
     current_weather = ForecastIO.forecast(41.87, -87.62)
     chance_of_rain = current_weather.daily.data[0].precipProbability
-    # return ((chance_of_rain * 100).round.to_s + "%")
     chance_of_rain
   end
 
@@ -116,8 +112,6 @@ module ApplicationHelper
     seen = Hash.new(0)
     ary.each {|value| seen[value] += 1}
     seen
-    # max = seen.values.max
-    # seen.find_all {|key,value| value == max}[0] #.map {|key,value| key}
   end
 
   def item_counts(ary)
@@ -127,7 +121,7 @@ module ApplicationHelper
   def mode(ary)
     seen = item_counts_hash(ary)
     max = seen.values.max
-    seen.find_all {|key,value| value == max}[0] #.map {|key,value| key}
+    seen.find_all {|key,value| value == max}[0] 
   end
 
   def last_wear(category)

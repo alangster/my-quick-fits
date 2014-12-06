@@ -38,8 +38,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		p params
-		# creater RgbTriplet objects using hex, find name
 		@article = Article.find(params[:id])
 		@article.primary_color_hex   = params["primary-hex"] unless params["primary-hex"] == ""
 		@article.primary_color       = color_name(@article.primary_color_hex) #params["primary-name"] unless params["primary-name"] == ""
@@ -61,7 +59,6 @@ class ArticlesController < ApplicationController
 	private
 
 	def article_update_params
-		# For right now, I'll slot in the ones in the form, but we'll need to decide on these
 		params.require(:article).permit(:pattern, :times_worn, :condition)
 	end
 
