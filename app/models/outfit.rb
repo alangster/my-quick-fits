@@ -43,7 +43,6 @@ class Outfit < ActiveRecord::Base
     s << "Had trouble finding water-resistant clothes!" if !results[:water_resistant]
     s << "Had trouble finding clothes in good condition!" if !results[:good_condition]
     s << "Had trouble finding clean clothes!" if !results[:clean]
-    # s << "Had trouble finding clothes for the weather!" if !results[:within_temp]
     s
   end
 
@@ -74,9 +73,10 @@ class Outfit < ActiveRecord::Base
     while current_layer < 4 do
       tops_current_layer = current_wardrobe.get_all_tops(current_layer)
       results = Article.get_appropriate_articles(tops_current_layer, temperature, precipitation, formal, outfit_so_far)
-      tops << results[:articles].sample
+      chosen_top = results[:articles].sample
+      tops << chosen_top
       top_names << get_modified_name(tops.last, results)
-      break if results[:within_temp]
+      break if results[:within_temp] && !current_wardrobe.any_other_formal_tops?(chosen_top)
       current_layer += 1
       outfit_so_far << tops.last
       errors += outfit_error_messages(results)

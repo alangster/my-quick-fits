@@ -3,7 +3,6 @@ class Article < ActiveRecord::Base
 	belongs_to :category
 	has_many :outfit_articles
 	has_many :outfits, through: :outfit_articles
-	# has_one :type, through: :category
   validates :category_id, :primary_color, presence: true
 
   include HamburgerHelper
@@ -32,7 +31,7 @@ class Article < ActiveRecord::Base
   end
 
   def good_condition?
-    self.condition == nil
+    self.condition.nil?
   end
 
   def clean?
@@ -43,39 +42,35 @@ class Article < ActiveRecord::Base
   end
 
   def within_temp?(temperature)
-    # needs to change
     self.category.min_temp <= temperature && self.category.max_temp >= temperature
   end
 
   def water_resistant?
-    !self.water_delicate?
+    return true if self.water_proof?
+    !self.water_delicate? 
   end
 
   def proper_dress_code?(formal)
-    # formal = formal == 0 ? false : true
     self.category.formality == formal
   end
 
   def is_neutral?
-    result = NEUTRALS.include?(self.primary_color) #&& NEUTRALS.include?(self.secondary_color)
-    # puts "#{self.primary_color}, #{self.secondary_color}" if result
-    result
+    NEUTRALS.include?(self.primary_color) 
   end
 
   def complementary?(other_articles)
-    self.complementary_colors?(other_articles) #&& complementary_styles?(self, other_articles)
+    self.complementary_colors?(other_articles) 
   end
 
   def complementary_colors?(other_articles)
     if other_articles.all? { |a| a.is_neutral? }
-      return true
+      true
     else
       self.is_neutral?
     end
   end
 
   def complementary_styles?(article, other_articles)
-    # !NO_NOS[other_articles[0]].include?(article)
     true
   end
 

@@ -14,26 +14,20 @@ class Category < ActiveRecord::Base
 		NECESSITIES - wardrobe.articles.map {|article| article.category.name}.uniq
 	end
 
-	def user_count(current_wardrobe)
-		mode_count(current_wardrobe.articles.map(&:category))
-	end
-
 	def month_wears(current_wardrobe)
 		count = 0
 		current_wardrobe.outfits.each do |outfit|
 			if outfit.like != 1 && outfit.like != -1
-				# count += outfit.articles.where(category: self).group("DATE_TRUNC('month', created_at)").count.values[0]
 				outfit.articles.each do |article|
-					count += 1 if article.category == self && true #need to change this to compare with current month
+					count += 1 if article.category == self && true 
 				end
 			end
 		end
 		count
-		# .articles.where(category: self).group("DATE_TRUNC('month', created_at)").count.values[0]
 	end
 
-	def fav_color(current_wardrobe)
-		mode(current_wardrobe.articles.where(category: self).map(&:primary_color))[0]
+	def fav_color(wardrobe)
+		wardrobe.articles.where(category: self) 
 	end
 
 	def get_icon_name

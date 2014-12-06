@@ -3,8 +3,6 @@ class Wardrobe < ActiveRecord::Base
 	has_many :outfits
 	has_many :articles
 
-  NEUTRALS = ["green", "orange"] # CHANGE THIS
-
   def worn_outfits
     self.outfits.select { |outfit| outfit.like != -1 }
   end
@@ -30,7 +28,6 @@ class Wardrobe < ActiveRecord::Base
 
     wardrobe_count = self.articles.count
     color_percentages_hash(colors.map {|color| { "#{color}" => (self.articles.where(primary_color: color).count / wardrobe_count.to_f) * 100 }})
-    # Hash[color_percentages_hash.sort_by { |color,percent| -percent }[0..4]]
   end
 
   def color_percentages_hash(color_arr)
@@ -47,6 +44,12 @@ class Wardrobe < ActiveRecord::Base
 
   def damaged
     self.articles.where.not(condition: nil)
+  end
+
+  def any_other_formal_tops?(top)
+    tops = self.get_articles_type_of("Top")
+    other_tops = tops - [top]
+    other_tops.any? {|t| t.category.formality == 1}
   end
 
  end

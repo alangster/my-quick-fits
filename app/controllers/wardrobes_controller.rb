@@ -1,9 +1,9 @@
 class WardrobesController < ApplicationController
 
 	def show
-		@bottoms = current_wardrobe.get_all_bottoms #current_wardrobe.articles.select { |article| article.category.type_of == "Bottom" }
-		@tops = current_wardrobe.get_articles_type_of("Top") #current_wardrobe.articles.select { |article| article.category.type_of == "Top" }
-		@shoes = current_wardrobe.get_all_shoes #current_wardrobe.articles.select { |article| article.category.type_of == "Shoes" }
+		@bottoms = current_wardrobe.get_all_bottoms 
+		@tops = current_wardrobe.get_articles_type_of("Top") 
+		@shoes = current_wardrobe.get_all_shoes 
 	end
 
 	def analysis
@@ -24,8 +24,6 @@ class WardrobesController < ApplicationController
  	end
 
   def wardrobe_categories
-    # category = Category.find(params[:id])
-    # category = article.category
     options = { "categories" => [] }
     categories = Category.where(type_of: params[:id])
     categories.each do |category|
