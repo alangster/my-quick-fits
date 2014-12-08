@@ -24,8 +24,7 @@ class Wardrobe < ActiveRecord::Base
   end
 
   def color_percentages
-     colors = self.articles.pluck(:primary_color).uniq
-
+    colors = self.articles.pluck(:primary_color).uniq
     wardrobe_count = self.articles.count
     color_percentages_hash(colors.map {|color| { "#{color}" => (self.articles.where(primary_color: color).count / wardrobe_count.to_f) * 100 }})
   end
@@ -33,13 +32,14 @@ class Wardrobe < ActiveRecord::Base
   def color_percentages_hash(color_arr)
     percent_hash = { neutrals: [], colors: [] }
     color_arr.each do |color_hash|
-      if NEUTRALS.include?(color_hash.keys[0])
+      if Article::NEUTRALS.include?(color_hash.keys[0])
         percent_hash[:neutrals] << color_hash
       else
         percent_hash[:colors] << color_hash
       end
     end
-    Hash[percent_hash.sort_by { |color,percent| -percent }[0..4]]
+    filtered_percent_hash = percent_hash.reject {|perc, arr| arr.empty?}
+    Hash[filtered_percent_hash.sort_by { |color,percent| -percent[0].values[0] }[0..4]]
    end
 
   def damaged
