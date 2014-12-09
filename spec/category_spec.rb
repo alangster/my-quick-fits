@@ -5,8 +5,13 @@ describe Category do
 	NECESSITIES = ["T-Shirt", "Polo Shirt", "Button Down Shirt", "Dress Shirt", "Blazer", "Down Jacket", "Rain Jacket", "Dress Pants", "Jeans", "Chino Shorts", "Dress Shoes", "Sneakers"]
 	
 	let(:wardrobe)       {FactoryGirl.build(:wardrobe)}
-	let(:all_categories) {NECESSITIES.map {|cat| FactoryGirl.build(:category, :name => cat)}}
+	let(:all_categories) {NECESSITIES.map {|cat| FactoryGirl.create(:category, :name => cat)}}
 	let(:all_articles)   {all_categories.map {|cat| FactoryGirl.build(:article, :category => cat)}}
+
+	after(:all) do
+		Category.destroy_all
+		Article.destroy_all
+	end
 
 	describe '.find_missing' do
 

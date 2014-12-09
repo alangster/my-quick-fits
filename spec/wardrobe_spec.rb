@@ -69,6 +69,36 @@ describe Wardrobe do
 			end
 		end
 
+		context 'multiple colors' do
+			it 'returns correct percentages' do
+				red_articles = Array.new(10) {FactoryGirl.create(:article, :category => [bottom_cat, shirts_cat, shoes_cat].sample, :primary_color => "Red")}
+				gray_articles = Array.new(5) {FactoryGirl.create(:article, :category => [bottom_cat, shirts_cat, shoes_cat].sample, :primary_color => "Gray")}
+				navy_articles = Array.new(5) {FactoryGirl.create(:article, :category => [bottom_cat, shirts_cat, shoes_cat].sample)}
+
+				wardrobe_2 = FactoryGirl.create(:wardrobe, :user => user)
+				wardrobe_2.articles << red_articles + gray_articles + navy_articles
+				expect(wardrobe_2.color_percentages).to eq({:neutrals => [{"Gray" => 25.0}, {"Navy" => 25.0}], :colors => [{"Red" => 50.0}]})
+			end
+		end
+
+	end
+
+	describe '#any_other_formal_tops' do
+
+		context 'no formal tops' do
+			it 'returns false' do
+				expect(wardrobe.any_other_formal_tops?(shirts[0])).to be_falsy
+			end
+		end
+
+		context 'other formal tops' do
+			it 'returns true' do
+				formal = FactoryGirl.create(:category, :type_of => "Top", :layerable => 1, :formality => 1)
+				wardrobe.articles << FactoryGirl.create(:article, :category => formal)
+				expect(wardrobe.any_other_formal_tops?(shirts[0])).to be_truthy
+			end
+		end
+
 	end
 
 end
