@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
 	def show
-    session[:current_temp] ||= current_temp
-    session[:chance_of_rain] ||= chance_of_rain
+		daily_forecast unless session[:current_temp]
 	end
 
 	def new
