@@ -50,10 +50,4 @@ class Category < ActiveRecord::Base
 		item_counts_hash(ary).sort_by {|k,v| -v}
 	end
 
-	def mode(ary)
-	  seen = item_counts_hash(ary)
-	  max = seen.values.max
-	  seen.find_all {|key,value| value == max}[0]
-	end
-
 end
