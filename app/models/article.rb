@@ -5,8 +5,6 @@ class Article < ActiveRecord::Base
 	has_many :outfits, through: :outfit_articles
   validates :category_id, :primary_color, presence: true
 
-  include HamburgerHelper
-
   NEUTRALS = ["Black", "White", "Grey", "Brown", "Navy", "Beige", "Bisque", "Blanched Almond", "Burly Wood", "Chocolate", "Cornsilk", "Dark Goldenrod", "Dark Gray", "Dark Khaki", "Dim Gray","Floral White", "Gainsboro", "Ghost White","Gray", "Honeydew", "Light Gray", "Slate Gray", "Midnight Blue", "Moccasin", "Navajo White", "Peru", "Saddle Brown", "Sienna", "Snow", "Tan", "Wheat", "White Smoke"]
 
   NO_NOS = {

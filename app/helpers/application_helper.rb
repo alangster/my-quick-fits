@@ -75,10 +75,6 @@ module ApplicationHelper
     hex.delete('#').scan(/\S{2}/).map(&:hex)
   end
 
-  def dark?(rgb_arr)
-    rgb_arr.all? {|val| val <= 50 }
-  end
-
   def calculate_percent(top_number, total)
     (top_number / total.to_f * 100).to_i
   end
@@ -106,6 +102,24 @@ module ApplicationHelper
 
   def item_percents(ary, total)
     item_counts(ary).map {|item, count| [item, calculate_percent(count,total)]}
+  end
+
+  def dark?(hex)
+    rgb = to_rgb(hex)
+    brightness = Math.sqrt( 0.241 * (rgb[0]**2) + 0.691 * (rgb[1]**2) + 0.068 * (rgb[2]**2))
+    brightness <= 130
+  end
+
+  def icon_name(name, hex)
+    if dark?(hex)
+      name.gsub(" ", "-") + "-W.png"
+    else
+      name.gsub(" ", "-") + ".png"
+    end
+  end
+
+  def asset_icon_name(name, hex)
+    ActionController::Base.helpers.asset_path(icon_name(name, hex))
   end
 
 end

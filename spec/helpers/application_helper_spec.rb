@@ -38,19 +38,19 @@ describe ApplicationHelper do
 
 		context 'given a dark colored rgb triplet' do
 			it 'returns true' do
-				expect(dark?([30,49,10])).to be_truthy
+				expect(dark?('#2f4f4f')).to be_truthy
 			end
 		end
 
 		context 'given a light colored rgb triplet' do
 			it 'returns false' do
-				expect(dark?([50,49,50])).to be_truthy
+				expect(dark?('#191970')).to be_truthy
 			end
 		end
 
-		context 'given a light colored rgb triplet' do
+		context 'given a light colored hex' do
 			it 'returns false' do
-				expect(dark?([100,220,90])).to be_falsy
+				expect(dark?('#add8e6')).to be_falsy
 			end
 		end
 
