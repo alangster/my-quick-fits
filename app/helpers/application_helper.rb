@@ -11,11 +11,12 @@ module ApplicationHelper
   def daily_forecast
     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
     forecast = ForecastIO.forecast(session[:latitude], session[:longitude])
+    daily = forecast.daily.data[0]
     session[:current_temp] = forecast.currently.temperature
-    session[:max_temp] = forecast.daily.data[0].temperatureMax
-    session[:min_temp] = forecast.daily.data[0].temperatureMin
-    session[:chance_of_rain] = forecast.daily.data[0].precipProbability
-    session[:summary] = forecast.daily.data[0].summary
+    session[:max_temp] = daily.temperatureMax
+    session[:min_temp] = daily.temperatureMin
+    session[:chance_of_rain] = daily.precipProbability
+    session[:summary] = daily.summary
   end
 
   def make_temperature_statement(temp)
