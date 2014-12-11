@@ -11,7 +11,7 @@ function sendCoords(position) {
     longitude: position.coords.longitude,
     latitude:  position.coords.latitude
   };
-  // $.post("/location", coordinates) //.done(console.log("success")).fail(console.log("failure"));
+  
   $.ajax({
     type: "POST",
     url: "/location",
@@ -28,6 +28,6 @@ function sendCoords(position) {
 $(function() {
     if ($('h1').text().match(/Welcome/)) {
       getLocation();
-      console.log('getting location')
+      console.log('getting location');
     }
   });

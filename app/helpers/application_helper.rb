@@ -10,59 +10,33 @@ module ApplicationHelper
 
   def daily_forecast
     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-  end
-
-  def current_temp
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    temperature = current_weather.currently.temperature
-    temperature
-  end
-
-  def max_temp
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    max_temp = current_weather.daily.data[0].temperatureMax
-    max_temp
-  end
-
-  def min_temp
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    min_temp = current_weather.daily.data[0].temperatureMin
-    min_temp
-  end
-
-  def chance_of_rain
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    chance_of_rain = current_weather.daily.data[0].precipProbability
-    chance_of_rain
-  end
-
-  def weather_summary
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    summary = current_weather.daily.data[0].summary
-    return summary
+    forecast = ForecastIO.forecast(session[:latitude], session[:longitude])
+    session[:current_temp] = forecast.currently.temperature
+    session[:max_temp] = forecast.daily.data[0].temperatureMax
+    session[:min_temp] = forecast.daily.data[0].temperatureMin
+    session[:chance_of_rain] = forecast.daily.data[0].precipProbability
+    session[:summary] = forecast.daily.data[0].summary
   end
 
   def make_temperature_statement(temp)
-    temp_message = "Thermostat setting: Hell. Enjoy :)" if temp < 200
-    temp_message = "You wait all year for days like today. Put on your fresh fits and get out there!" if temp < 80
-    temp_message = "Brisk, chilly, cool, nippy, crisp, whatever... the point is, today is 'jacket weather'" if temp < 60
-    temp_message = "It's colder than Matt Baker's general disposition, put on more than a white tee! " if temp < 40
-    temp_message = "Why do you live in Chicago...? It's stupid-cold out! Wear everything" if temp < 20
-    temp_message
+    case 
+    when temp < 20 then "Why do you live in Chicago...? It's stupid-cold out! Wear everything"
+    when temp < 40 then "It's colder than Matt Baker's general disposition, put on more than a white tee!"
+    when temp < 60 then "Brisk, chilly, cool, nippy, crisp, whatever... the point is, today is 'jacket weather'"
+    when temp < 80 then "You wait all year for days like today. Put on your fresh fits and get out there!"
+    else
+      "Thermostat setting: Hell. Enjoy :)"
+    end
   end
 
   def make_precipitation_statement(precip)
-    rain_message = "And it's raining. No really, look outside" if precip < 1.0
-    rain_message = "And it's probably going to rain today. You have galoshes...? Didn't think so" if precip < 0.5
-    rain_message = "And there's a slight chance of rain but I wouldn't worry too much" if precip < 0.3
-    rain_message = "And it's definitely not going to rain today. Great success!" if precip < 0.05
-    rain_message
+    case 
+    when precip <= 0.05 then "And it's definitely not going to rain today. Great success!"
+    when precip < 0.3   then "And there's a slight chance of rain but I wouldn't worry too much"
+    when precip < 0.5   then "And it's probably going to rain today. You have galoshes...? Didn't think so"
+    else
+      "And it's raining. No really, look outside"
+    end
   end
 
   def generate_fashion_quote
