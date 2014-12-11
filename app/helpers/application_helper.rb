@@ -76,7 +76,7 @@ module ApplicationHelper
   end
 
   def dark?(rgb_arr)
-    rgb.all? {|val| val <= 50 }
+    rgb_arr.all? {|val| val <= 50 }
   end
 
   def calculate_percent(top_number, total)
@@ -84,19 +84,12 @@ module ApplicationHelper
   end
 
   def item_counts_hash(ary)
-    seen = Hash.new(0)
-    ary.each {|value| seen[value] += 1}
-    seen
+    ary.group_by {|item| item}
   end
 
   def item_counts(ary)
-    item_counts_hash(ary).sort_by {|k,v| -v}
-  end
-
-  def mode(ary)
-    seen = item_counts_hash(ary)
-    max = seen.values.max
-    seen.find_all {|key,value| value == max}[0] 
+    pair_array = item_counts_hash(ary).sort_by {|k,v| -v.count}
+    pair_array.map {|pair| [pair[0], pair[1].count]}
   end
 
   def last_wear(category)
