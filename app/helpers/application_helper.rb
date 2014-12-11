@@ -10,42 +10,27 @@ module ApplicationHelper
 
   def daily_forecast
     ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
+    session[:forecast] ||= ForecastIO.forecast(session[:latitude], session[:longitude])
   end
 
   def current_temp
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    temperature = current_weather.currently.temperature
-    temperature
+    daily_forecast.currently.temperature
   end
 
   def max_temp
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    max_temp = current_weather.daily.data[0].temperatureMax
-    max_temp
+    daily_forecast.daily.data[0].temperatureMax
   end
 
   def min_temp
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    min_temp = current_weather.daily.data[0].temperatureMin
-    min_temp
+    daily_forecast.daily.data[0].temperatureMin
   end
 
   def chance_of_rain
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    chance_of_rain = current_weather.daily.data[0].precipProbability
-    chance_of_rain
+    daily_forecast.daily.data[0].precipProbability
   end
 
   def weather_summary
-    ForecastIO.api_key = '521aad1331e6f66d7bf1ed4ec06b9aa3'
-    current_weather = ForecastIO.forecast(41.87, -87.62)
-    summary = current_weather.daily.data[0].summary
-    return summary
+    daily_forecast = current_weather.daily.data[0].summary
   end
 
   def make_temperature_statement(temp)
