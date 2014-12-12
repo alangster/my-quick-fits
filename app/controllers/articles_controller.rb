@@ -5,29 +5,29 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
-		@article = Article.find(params[:id])
+		redirect_to current_user unless @article = Article.find_by(id: params[:id])
 	end
 
 	def create
 		primary_color_name, primary_color_hex = article_color_data(params[:primary])
 		secondary_color_name, secondary_color_hex = article_color_data(params[:secondary])
 		tertiary_color_name, tertiary_color_hex = article_color_data(params[:tertiary])
-		article = Article.new(
-			wardrobe:        current_wardrobe,
-			category_id:        params[:category],
-			primary_color:   primary_color_name,
-			primary_color_hex: primary_color_hex,
-			secondary_color:   secondary_color_name,
+		@article = Article.new(
+			wardrobe:            current_wardrobe,
+			category_id:         params[:category],
+			primary_color:       primary_color_name,
+			primary_color_hex:   primary_color_hex,
+			secondary_color:     secondary_color_name,
 			secondary_color_hex: secondary_color_hex,
-			tertiary_color:   tertiary_color_name,
-			tertiary_color_hex: tertiary_color_hex,
-			times_worn: 0
+			tertiary_color:      tertiary_color_name,
+			tertiary_color_hex:  tertiary_color_hex,
+			times_worn:          0
 			)
-		if article.save
-			flash[:notice] = "#{article.category.name} added successfully!"
+		if @article.save
+			flash[:notice] = "#{@article.category.name} added successfully!"
 			redirect_to current_user
 		else
-			@article = Article.new
+			@article 
 			render "new"
 		end
 	end

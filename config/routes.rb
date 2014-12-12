@@ -30,6 +30,6 @@ Rails.application.routes.draw do
 
 
 
-  post '/articles/color', to: "articles#color"
+  # post '/articles/color', to: "articles#color"
 
 end
