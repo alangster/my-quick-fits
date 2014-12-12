@@ -2,6 +2,8 @@ class Category < ActiveRecord::Base
 	belongs_to :type
 	has_many :articles
 
+	include IconNameHelper
+
 	NECESSITIES = ["T-Shirt", "Polo Shirt", "Button Down Shirt", "Dress Shirt", "Blazer", "Down Jacket", "Rain Jacket", "Dress Pants", "Jeans", "Chino Shorts", "Dress Shoes", "Sneakers"]
 
 	def self.find_missing(wardrobe)
