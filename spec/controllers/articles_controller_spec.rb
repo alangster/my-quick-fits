@@ -125,6 +125,7 @@ describe ArticlesController do
 	end
 
 	describe 'destroy' do
+
 		it 'removes article from database' do
 			user = FactoryGirl.create(:user)
 			wardrobe = FactoryGirl.create(:wardrobe, :user => user)
@@ -137,6 +138,7 @@ describe ArticlesController do
 			expect(Article.find_by(id: article.id)).to be_nil
 			expect(response).to redirect_to("/wardrobes/#{wardrobe.id}")
 		end
+		
 	end
 
 end
