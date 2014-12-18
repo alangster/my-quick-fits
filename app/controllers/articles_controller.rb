@@ -40,12 +40,12 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
 		@article.primary_color_hex   = params["primary-hex"] unless params["primary-hex"] == ""
-		@article.primary_color       = color_name(@article.primary_color_hex) #params["primary-name"] unless params["primary-name"] == ""
+		@article.primary_color       = color_name(@article.primary_color_hex) 
 		@article.secondary_color_hex = params["secondary-hex"] unless params["secondary-hex"] == ""
-		@article.secondary_color     = color_name(@article.secondary_color_hex) #params["secondary-name"] unless params["secondary-name"] == ""
+		@article.secondary_color     = color_name(@article.secondary_color_hex) 
 		@article.tertiary_color_hex  = params["tertiary-hex"] unless params["tertiary-hex"] == ""
-		@article.tertiary_color      = color_name(@article.tertiary_color_hex) #params["tertiary-name"] unless params["tertiary-name"] == ""
-		@article.condition           = params[:article][:condition] #unless params[:article][:condition].blank?
+		@article.tertiary_color      = color_name(@article.tertiary_color_hex) 
+		@article.condition           = params[:article][:condition] 
 
 		if @article.save
 			redirect_to @article
